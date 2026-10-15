@@ -1,0 +1,1018 @@
+/* ===================== HERO (mismo patrón que procesos.css) ===================== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  display: block;
+}
+
+.hero-image { position: absolute; inset: 0; z-index: 0; }
+.hero-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(20,40,66,.55) 0%, rgba(20,40,66,.2) 45%, transparent 75%);
+  z-index: 1;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+  max-width: 560px;
+  padding: 70px 5vw;
+  text-align: left;
+  color: #fff;
+}
+
+.hero-text h1 { color: #fff; }
+.hero-text h1 .accent { color: #a9d4ff; }
+.hero-desc { color: #fff; opacity: .9; }
+.hero .eyebrow { color: #dce9f7; }
+
+.nav-item > a.active { text-decoration: underline; text-underline-offset: 4px; }
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  color: var(--border);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 30px;
+}
+
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: var(--border);
+  opacity: .5;
+}
+
+.fill-text, .fill-text-lg, .fill-text-bold {
+  font-weight: 700;
+  opacity: .6;
+  font-style: italic;
+  margin: 0;
+}
+
+.fill-text { font-size: 12.5px; }
+.fill-text-lg { font-size: 16px; text-align: center; }
+.fill-text-bold { font-size: 13px; opacity: .75; font-style: normal; }
+.fill-text-bold.accent { color: var(--footer-navbar); opacity: 1; }
+
+.callout {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 300px;
+  margin-top: 10px;
+}
+
+.callout img { width: 32px; height: 32px; flex-shrink: 0; }
+.callout p { margin: 0; font-size: 12.5px; font-weight: 600; }
+
+.pill-label, .pill-label-sm {
+  display: inline-block;
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 20px;
+  padding: 6px 18px;
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.pill-label-sm { font-size: 12px; padding: 5px 14px; }
+
+.lista-vacia {
+  list-style: disc;
+  padding-left: 20px;
+  font-size: 13px;
+  opacity: .6;
+  font-style: italic;
+}
+
+.lista-vacia li { margin-bottom: 8px; }
+
+.info-box-grande {
+  background: #e9f4ff;
+  border: 2px solid var(--border);
+  border-radius: 24px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.ver-mas-btn, .cerrar-btn {
+  display: inline-block;
+  background: var(--button-bg);
+  border: 1px solid var(--border);
+  color: var(--border);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 7px 18px;
+  border-radius: 18px;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+.flecha-abajo {
+  text-align: center;
+  font-size: 22px;
+  color: var(--footer-navbar);
+  margin: 10px 0;
+}
+
+/* ===================== FUNDAMENTOS DE CALIDAD + CONCEPTOS CLAVES ===================== */
+
+.fc-section {
+  background: var(--page-bg);
+  padding: 60px 6vw;
+}
+
+.fc-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ---------- Columna izquierda ---------- */
+.fc-intro {
+  flex: 0 0 260px;
+  text-align: center;
+}
+
+.fc-titulo {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 0 0 22px;
+  color: var(--text-icon);
+}
+
+.fc-azul { color: var(--footer-navbar); }
+
+.fc-titulo::after {            /* rayita de abajo */
+  content: "";
+  display: block;
+  width: 80%;
+  height: 3px;
+  background: var(--footer-navbar);
+  margin-top: 8px;
+}
+
+.fc-parrafo {
+  font-size: 13px;
+  line-height: 1.7;
+  opacity: .75;
+  margin: 0 0 26px;
+}
+
+.fc-callout {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--card-bg);
+  border: 2px solid var(--text-icon);
+  border-radius: 16px;
+  padding: 14px 16px;
+}
+
+.fc-callout img { width: 34px; height: 34px; flex-shrink: 0; object-fit: contain; }
+
+.fc-callout p {
+  margin: 0;
+  font-size: 12px;
+  opacity: .7;
+  text-align: center;
+  flex: 1;
+}
+
+/* ---------- Títulos "Conceptos claves ————" ---------- */
+.fc-subtitulo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  color: var(--border);
+  margin: 0 0 22px;
+}
+
+.fc-subtitulo::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: var(--footer-navbar);
+}
+
+.fc-subtitulo-2 {
+  max-width: 1200px;
+  margin: 50px auto 24px;
+}
+
+/* ---------- Columna derecha: filas con flecha ---------- */
+.fc-conceptos { flex: 1 1 520px; min-width: 0; }
+
+.fc-fila {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 26px;
+}
+
+.fc-tarjeta {
+  flex: 0 0 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 130px;
+  padding: 12px 14px;
+  background: var(--card-bg);
+  border: 1.5px solid var(--footer-navbar);
+  border-radius: 10px 4px 4px 10px;
+}
+
+.fc-cabecera {                    /* círculo + título, uno al lado del otro */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fc-cabecera h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-icon);
+}
+
+.fc-tarjeta p {                   /* descripción, debajo, centrada */
+  margin: 10px 0 0;
+  text-align: center;
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* La flechita azul (mismo alto que la tarjeta) */
+.fc-flecha {
+  flex: 0 0 52px;
+  margin-left: -1px;
+  background:
+    linear-gradient(to top right, var(--footer-navbar) 49%, transparent 51%) top / 100% 50% no-repeat,
+    linear-gradient(to bottom right, var(--footer-navbar) 49%, transparent 51%) bottom / 100% 50% no-repeat;
+}
+
+.fc-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: var(--button-bg);
+  border: 1.5px solid var(--footer-navbar);
+  border-radius: 8px;
+}
+
+.fc-info p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ---------- Circulito de las imágenes (se usa en todo) ---------- */
+.fc-circulo {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--card-bg);
+  border: 1.5px solid var(--text-icon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.fc-circulo img {                /* la imagen entra sola, sin deformarse */
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  object-fit: contain;
+}
+
+/* ---------- Grilla de 6 cuadros ---------- */
+.fc-grid-caja {
+  max-width: 780px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  border: 1.5px solid var(--footer-navbar);
+  border-radius: 22px;
+  padding: 16px;
+}
+
+.fc-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.fc-cuadro {
+  flex: 1 1 calc(50% - 8px);
+  min-width: 220px;
+  min-height: 150px;
+  padding: 12px 14px;
+  background: var(--button-bg);
+  border: 1.5px solid var(--footer-navbar);
+  border-radius: 6px;
+}
+
+.fc-cuadro > p {
+  margin: 28px 0 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ---------- Celular / pantallas chicas ---------- */
+@media (max-width: 900px) {
+  .fc-intro { flex: 1 1 100%; }
+}
+
+@media (max-width: 640px) {
+  .fc-fila { flex-direction: column; }
+  .fc-tarjeta { flex-basis: auto; }
+  .fc-flecha { display: none; }
+  .fc-info { margin-top: 10px; }
+  .fc-cuadro { flex-basis: 100%; }
+}
+
+/* ===================== ESTÁNDARES ISO ===================== */
+.iso-section {
+  background: var(--page-bg);
+  padding: 60px 6vw;
+}
+
+/* Todo el bloque de ISO va centrado */
+.iso-tabs,
+.iso-contenido {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Pestañas ---------- */
+.iso-tabs {
+  display: flex;
+  gap: 3px;
+}
+
+.iso-tab-btn {
+  flex: 1;
+  background: var(--button-bg);
+  color: var(--text-icon);
+  border: 1.5px solid var(--footer-navbar);
+  border-bottom: none;
+  border-radius: 14px 14px 0 0;
+  padding: 11px;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.iso-tab-btn.active {
+  background: var(--footer-navbar);
+  border: 2px solid var(--text-icon);
+  border-bottom: none;
+}
+
+/* ---------- Tarjeta de arriba ---------- */
+.iso-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--footer-navbar);
+  border-radius: 6px 10px 10px 10px;
+  padding: 16px 22px 18px;
+}
+
+.iso-cab {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.iso-cab h4 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 19px;
+  color: var(--text-icon);
+}
+
+.iso-sub {
+  margin: 8px 0 2px;
+  text-align: center;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--footer-navbar);
+}
+
+.iso-desc {
+  margin: 0;
+  text-align: center;
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.iso-ver-mas,
+.iso-cerrar {
+  background: var(--button-bg);
+  color: var(--text-icon);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.iso-ver-mas {
+  display: block;
+  margin: 14px 0 0 70px;
+  padding: 6px 18px;
+  font-size: 12px;
+}
+
+/* ---------- Flecha que baja (solo se ve cuando se abre) ---------- */
+.iso-detalle { display: none; }
+.iso-detalle.visible { display: block; }
+
+.iso-flecha {
+  position: relative;
+  width: 2px;
+  height: 36px;
+  margin: 12px 0 22px 22%;
+  background: var(--footer-navbar);
+}
+
+.iso-flecha::after {
+  content: "";
+  position: absolute;
+  left: -5px;
+  bottom: -8px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 9px solid var(--footer-navbar);
+}
+
+/* ---------- Panel que se abre ---------- */
+.iso-detalle-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--footer-navbar);
+  border-radius: 10px;
+  padding: 18px 26px 22px;
+}
+
+.iso-caja-info {
+  background: var(--button-bg);
+  border: 1.5px solid var(--border);
+  border-radius: 30px;
+  padding: 46px 20px;
+  margin: 16px 26px 20px;
+  text-align: center;
+}
+
+.iso-caja-info p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.iso-columnas {
+  display: flex;
+  justify-content: center;
+}
+
+.iso-col { flex: 1; min-width: 0; }
+
+.iso-pildora {
+  display: inline-block;
+  background: var(--button-bg);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 7px 18px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.iso-col ul {
+  list-style: disc;
+  margin: 14px 0 0;
+  padding: 0 0 0 30px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.iso-col ul li {
+  min-height: 28px;          /* para que se vea el punto aunque esté vacío */
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+/* la línea del medio, entre las dos listas */
+.iso-col:first-child ul {
+  border-right: 2px solid var(--footer-navbar);
+  margin-right: 14px;
+}
+
+.iso-cerrar {
+  display: block;
+  margin: 20px auto 0;
+  padding: 5px 20px;
+  font-size: 11px;
+}
+
+@media (max-width: 640px) {
+  .iso-columnas { flex-direction: column; gap: 18px; }
+  .iso-col:first-child ul { border-right: none; margin-right: 0; }
+  .iso-caja-info { margin-left: 0; margin-right: 0; }
+}
+
+/* ===================== TÉCNICAS DE ASEGURAMIENTO + TIPOS DE PRUEBAS ===================== */
+.tec-section {
+  background: var(--page-bg);
+  padding: 60px 6vw;
+}
+
+.tec-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tec-titulo {
+  display: inline-block;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 0 0 22px;
+  color: var(--text-icon);
+}
+
+.tec-titulo::after {             /* rayita de abajo */
+  content: "";
+  display: block;
+  width: 55%;
+  height: 3px;
+  background: var(--footer-navbar);
+  margin-top: 8px;
+}
+
+/* ---------- Niveles de prueba (tarjeta con punta de flecha) ---------- */
+.tec-niveles { flex: 1 1 520px; min-width: 0; }
+
+.nivel-fila {
+  display: flex;
+  align-items: stretch;            /* la punta siempre tiene el alto de la tarjeta */
+  margin-bottom: 26px;
+}
+
+.nivel-card {
+  display: flex;
+  align-items: stretch;
+  flex: 0 0 290px;                 /* cerrada: ancho fijo, igual para las 3 */
+  background: var(--card-bg);
+  border: 1.5px solid var(--footer-navbar);
+  border-radius: 8px 4px 4px 8px;
+}
+
+.nivel-fila.expandido .nivel-card {  /* abierta: la flecha se alarga */
+  flex: 1;
+  min-width: 0;
+}
+
+.nivel-fila.expandido .nivel-main { flex: 0 0 290px; }
+
+.nivel-main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px 14px;
+}
+
+.nivel-main p {
+  margin: 8px 0 0;
+  text-align: center;
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.nivel-btn {
+  align-self: center;
+  margin-top: 10px;
+  padding: 5px 18px;
+  background: var(--button-bg);
+  color: var(--text-icon);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.nivel-extra {
+  display: none;
+  flex: 1;
+  min-width: 0;
+  padding: 16px 24px;
+  border-left: 1.5px solid var(--footer-navbar);
+}
+
+.nivel-fila.expandido .nivel-extra { display: flex; }
+
+/* El texto baja en vertical y NO invade las características */
+.nivel-info { flex: 1; min-width: 0; margin-right: 40px; }
+
+.nivel-info p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.nivel-caract { flex: 0 0 190px; }
+
+.nivel-caract h5 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.nivel-caract ul {
+  margin: 0;
+  padding-left: 22px;
+  list-style: disc;
+  font-size: 13px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.nivel-caract li { min-height: 24px; line-height: 1.5; }
+
+/* La punta azul de la flecha */
+.nivel-punta {
+  flex: 0 0 56px;
+  margin-left: -1px;
+  background:
+    linear-gradient(to top right, var(--footer-navbar) 49%, transparent 51%) top / 100% 50% no-repeat,
+    linear-gradient(to bottom right, var(--footer-navbar) 49%, transparent 51%) bottom / 100% 50% no-repeat;
+}
+
+/* ---------- Tipos de pruebas ---------- */
+.tec-subtitulo-2 {
+  max-width: 1200px;
+  margin: 50px auto 24px;
+}
+
+.tec-tipos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.tec-tipo { flex: 1 1 320px; min-width: 0; }
+
+.tec-tipo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 18px 16px;
+  background: var(--card-bg);
+  border: 1.5px solid var(--footer-navbar);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.tec-tipo-cab {
+  position: relative;
+  width: 100%;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tec-tipo-cab .fc-circulo {      /* el círculo va arriba a la izquierda */
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 52px;
+  height: 52px;
+}
+
+.tec-tipo-cab h4 {
+  margin: 0;
+  padding: 0 60px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.tec-tipo-card > p {
+  margin: 8px 0 0;
+  max-width: 260px;
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* Panel que se abre con "Ver más" */
+.tec-detalle { display: none; }
+.tec-detalle.visible { display: block; }
+
+.tec-flecha {
+  position: relative;
+  width: 2px;
+  height: 36px;
+  margin: 12px auto 22px;
+  background: var(--footer-navbar);
+}
+
+.tec-flecha::after {
+  content: "";
+  position: absolute;
+  left: -5px;
+  bottom: -8px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 9px solid var(--footer-navbar);
+}
+
+.tec-detalle-card {
+  padding: 24px 24px 20px;
+  background: var(--card-bg);
+  border: 1.5px solid var(--footer-navbar);
+  border-radius: 12px;
+}
+
+/* El texto que escribas se acomoda acá: la caja crece hacia abajo */
+.tec-caja {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 110px;
+  padding: 24px 22px;
+  margin-bottom: 18px;
+  background: var(--button-bg);
+  border: 1.5px solid var(--border);
+  border-radius: 30px;
+  text-align: center;
+}
+
+.tec-caja p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.tec-pildora {
+  display: inline-block;
+  padding: 7px 18px;
+  background: var(--button-bg);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tec-detalle-card ul {
+  margin: 10px 0 0;
+  padding-left: 30px;
+  list-style: disc;
+  font-size: 13px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.tec-detalle-card li { min-height: 24px; line-height: 1.5; }
+
+.tec-cerrar {
+  display: block;
+  margin: 16px auto 0;
+  padding: 5px 20px;
+  background: var(--button-bg);
+  color: var(--text-icon);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ---------- Celular / pantallas chicas ---------- */
+@media (max-width: 640px) {
+  .nivel-card { flex-direction: column; flex: 1; }
+  .nivel-main { flex-basis: auto; }
+  .nivel-info { margin-right: 0; margin-bottom: 14px; }
+  .nivel-extra {
+    flex-direction: column;
+    border-left: none;
+    border-top: 1.5px solid var(--footer-navbar);
+  }
+  .nivel-caract { flex-basis: auto; }
+  .nivel-punta { display: none; }
+}
+
+/* ===================== HERRAMIENTAS DE CALIDAD ===================== */
+.herr-section {
+  background: var(--page-bg);
+  padding: 60px 6vw;
+}
+
+.herr-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.herr-titulo {
+  display: inline-block;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 0 0 22px;
+  color: var(--text-icon);
+}
+
+.herr-titulo::after {            /* rayita de abajo */
+  content: "";
+  display: block;
+  width: 45%;
+  height: 3px;
+  background: var(--footer-navbar);
+  margin-top: 8px;
+}
+
+.herr-derecha { flex: 1 1 560px; min-width: 0; }
+
+.herr-subtitulo {
+  margin: 0 0 12px;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  color: var(--border);
+}
+
+.herr-subtitulo-2 { margin: 16px 0 14px; }
+
+/* ---------- Marco de las herramientas ---------- */
+.herr-panel {
+  background: var(--page-bg);
+  border: 2.5px solid var(--text-icon);
+  border-radius: 24px;
+  padding: 14px 18px 6px;
+}
+
+/* ---------- Pestañas de filtro + barrita ---------- */
+.herr-filtros {
+  border-bottom: 2px solid var(--footer-navbar);
+  padding-bottom: 12px;
+}
+
+.filtro-scroll {
+  display: flex;
+  overflow-x: scroll;              /* siempre muestra la barrita para moverse */
+  padding-bottom: 10px;
+  scrollbar-width: thin;                               /* Firefox */
+  scrollbar-color: var(--footer-navbar) var(--button-bg);
+}
+
+.filtro-scroll::-webkit-scrollbar { height: 8px; }
+.filtro-scroll::-webkit-scrollbar-track {
+  background: var(--button-bg);
+  border-radius: 8px;
+}
+.filtro-scroll::-webkit-scrollbar-thumb {
+  background: var(--footer-navbar);
+  border-radius: 8px;
+}
+
+.filtro-btn {
+  flex: 0 0 auto;
+  margin-right: 10px;
+  padding: 8px 20px;
+  background: var(--card-bg);
+  color: var(--text-icon);
+  border: 2px solid var(--text-icon);
+  border-radius: 22px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.filtro-btn.active {
+  background: var(--button-bg);
+}
+
+/* ---------- Tarjetas de herramientas ---------- */
+.herr-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -8px;                  /* compensa el margen de cada tarjeta */
+}
+
+.herramienta-card {
+  flex: 0 0 calc(25% - 16px);
+  margin: 0 8px 16px;
+  min-width: 0;
+  min-height: 140px;
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--card-bg);
+  border: 2.5px solid var(--text-icon);
+  border-radius: 24px;
+  text-align: center;
+}
+
+.herr-cab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.herr-logo {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.herr-logo img {                   /* tu imagen entra sola, sin deformarse */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.herramienta-card h5 {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-icon);
+}
+
+.herr-cat {
+  margin-top: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.herr-btn {
+  margin-top: 10px;
+  padding: 4px 16px;
+  background: var(--button-bg);
+  color: var(--text-icon);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+/* ---------- Pantallas medianas y celular ---------- */
+@media (max-width: 1000px) {
+  .herramienta-card { flex-basis: calc(50% - 16px); }
+}
+
+@media (max-width: 520px) {
+  .herramienta-card { flex-basis: calc(100% - 16px); }
+}
