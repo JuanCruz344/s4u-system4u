@@ -417,6 +417,7 @@ a { text-decoration: none; color: inherit; }
   font-size: 13px;
 }
 
+/* ---------- Pantallas medianas y celular ---------- */
 
 @media (max-width: 980px) {
   .card { flex-basis: 45%; }

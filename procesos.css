@@ -562,7 +562,7 @@
   border-radius: 10px;
 }
 
-/* ===================== RESPONSIVE ===================== */
+/* ---------- Pantallas medianas y celular ---------- */
 @media (max-width: 900px) {
   .sdlc-section, .modelos-section { flex-direction: column; }
   .sdlc-intro, .modelos-intro { max-width: 100%; }
