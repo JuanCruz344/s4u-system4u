@@ -1,0 +1,571 @@
+/* ===================== HERRAMIENTAS DE CALIDAD =====================
+   Usa los colores de styles.css (--page-bg, --border, --button-bg, etc.)
+
+   TAMAÑOS DE LAS IMÁGENES (cambiá solo estos números para agrandar o achicar):
+   ===================================================================== */
+:root {
+  --hc-ico-cab:     72px;   /* balanza y portapapeles de los títulos            */
+  --hc-ico-fila:    34px;   /* íconos de cada fila de la tabla                  */
+  --hc-ico-estado:  24px;   /* tilde verde y X roja de "Flexibilidad"           */
+  --hc-ico-comparar:22px;   /* flechitas del botón "Comparar" (blancas)         */
+  --hc-ico-pregunta:54px;   /* círculo con </> de cada pregunta                 */
+  --hc-ico-trofeo:  60px;   /* trofeo del resultado                             */
+}
+
+.nav-item > a.active { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Los menús desplegables del header (ocultos) se salen por la derecha y hacían
+   que la página se deslice de costado en celular. Esto lo evita. */
+body { overflow-x: clip; }
+
+/* ===================== BANNER (solo la imagen; el texto ya está dentro de la imagen) ===================== */
+.hc-banner {
+  background: var(--page-bg);
+  line-height: 0;                 /* sin hueco debajo de la imagen */
+}
+
+.hc-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ===================== TARJETAS ===================== */
+.hc-section {
+  background: var(--page-bg);
+  padding: 50px 4vw 70px;
+}
+
+.hc-card {
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  padding: 24px 28px 28px;
+  background: var(--card-bg);
+  border: 2px solid #10151c;
+  border-radius: 28px;
+  scroll-margin-top: 20px;
+}
+
+.hc-card:last-child { margin-bottom: 0; }
+
+.hc-card-cab {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.hc-ico-cab {
+  width: var(--hc-ico-cab);
+  height: var(--hc-ico-cab);
+  margin-right: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.hc-card-cab h2 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  color: var(--text-icon);
+}
+
+.hc-card-cab p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* avisos (por ejemplo "Seleccioná al menos dos metodologías") */
+.hc-aviso,
+.es-aviso {
+  display: none;
+  margin: 14px 0 0;
+  padding: 10px 18px;
+  background: #fde8e8;
+  border: 1.5px solid #d94b4b;
+  border-radius: 16px;
+  color: #8a1f1f;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ===================== COMPARADOR ===================== */
+.hc-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px 16px;
+  background: var(--button-bg);
+  border: 2px solid #10151c;
+  border-radius: 30px;
+}
+
+.hc-selector-titulo {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.hc-checks { display: flex; flex-wrap: wrap; }
+
+.hc-check {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 26px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.hc-check input {                      /* el cuadradito real se esconde y se dibuja uno propio */
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.hc-caja {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  background: #fff;
+  border: 2px solid #10151c;
+  border-radius: 4px;
+}
+
+.hc-check input:checked + .hc-caja::after {     /* el tilde */
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 0;
+  width: 6px;
+  height: 12px;
+  border: solid #10151c;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.hc-check input:focus-visible + .hc-caja { outline: 3px solid var(--footer-navbar); outline-offset: 2px; }
+
+.hc-comparar {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: 20px;
+  padding: 12px 34px;
+  background: var(--border);
+  color: #fff;
+  border: 2px solid #10151c;
+  border-radius: 30px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.hc-comparar:hover { background: var(--footer-navbar); }
+
+.hc-comparar img {
+  width: var(--hc-ico-comparar);
+  height: var(--hc-ico-comparar);
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+/* ---------- Tabla ---------- */
+.hc-tabla-marco {
+  margin-top: 20px;
+  padding: 14px;
+  background: var(--button-bg);
+  border: 2px solid #10151c;
+  border-radius: 30px;
+}
+
+.hc-tabla-scroll {
+  overflow-x: auto;
+  border-radius: 16px;
+}
+
+.hc-tabla {
+  width: 100%;
+  min-width: 600px;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.hc-tabla[data-cantidad="2"] { min-width: 420px; }
+.hc-tabla[data-cantidad="3"] { min-width: 520px; }
+
+.hc-tabla thead th {
+  padding: 13px 8px;
+  background: var(--border);
+  color: #fff;
+  border: 3px solid var(--button-bg);
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.hc-tabla tbody th,
+.hc-tabla tbody td {
+  padding: 14px 10px;
+  background: var(--card-bg);
+  border: 2px solid #10151c;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.hc-tabla tbody th {
+  width: 22%;
+  text-align: left;
+  font-size: 14px;
+}
+
+.hc-fila-t {
+  display: flex;
+  align-items: center;
+}
+
+.hc-ico-fila {
+  width: var(--hc-ico-fila);
+  height: var(--hc-ico-fila);
+  margin-right: 10px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.hc-estado {
+  display: inline-flex;
+  align-items: center;
+}
+
+.hc-ico-estado {
+  width: var(--hc-ico-estado);
+  height: var(--hc-ico-estado);
+  margin-right: 6px;
+  object-fit: contain;
+}
+
+/* ===================== ENCUESTA ===================== */
+.es-pasos {
+  padding: 14px 20px 12px;
+  background: var(--button-bg);
+  border: 2px solid #10151c;
+  border-radius: 30px;
+}
+
+.es-pasos ol {
+  position: relative;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.es-pasos ol::before {                 /* la línea que une los círculos */
+  content: "";
+  position: absolute;
+  top: 23px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 2px;
+  background: #10151c;
+}
+
+.es-paso {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.es-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--button-bg);
+  border: 2px solid #10151c;
+  border-radius: 50%;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.es-nom {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.es-paso.done .es-num {
+  background: var(--footer-navbar);
+  color: #fff;
+}
+
+.es-paso.active .es-num {
+  background: var(--border);
+  color: #fff;
+}
+
+/* ---------- Preguntas ---------- */
+.es-cuerpo { margin-top: 16px; }
+
+.es-paso-contenido { display: none; }
+.es-paso-contenido.visible { display: block; }
+
+.es-pregunta {
+  margin-bottom: 16px;
+  padding: 18px 24px 18px;
+  background: var(--button-bg);
+  border: 2px solid #10151c;
+  border-radius: 30px;
+}
+
+.es-pregunta-cab {
+  display: flex;
+  align-items: center;
+}
+
+.es-circulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--hc-ico-pregunta);
+  height: var(--hc-ico-pregunta);
+  margin-right: 14px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: var(--button-bg);
+  border: 1.5px solid #10151c;
+  border-radius: 50%;
+}
+
+.es-circulo img {
+  width: 100%;
+  height: 100%;
+  padding: 13px;
+  object-fit: contain;
+}
+
+.es-pregunta-cab h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.es-opciones {
+  margin: 10px 0 0 calc(var(--hc-ico-pregunta) + 14px);
+  padding: 8px 16px;
+  background: #f1f6fc;
+  border-radius: 8px;
+}
+
+.es-opcion {
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+  color: var(--border);
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.es-opcion input {
+  width: 18px;
+  height: 18px;
+  margin: 0 12px 0 0;
+  flex-shrink: 0;
+  accent-color: var(--border);
+  cursor: pointer;
+}
+
+/* ---------- Botones Anterior / Siguiente ---------- */
+.es-botones {
+  display: flex;
+  justify-content: space-around;
+  max-width: 680px;
+  margin: 24px auto 0;
+}
+
+.es-btn {
+  padding: 12px 36px;
+  border: 2px solid #10151c;
+  border-radius: 30px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.es-anterior {
+  background: var(--button-bg);
+  color: var(--border);
+}
+
+.es-anterior:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+.es-siguiente {
+  background: var(--border);
+  color: #fff;
+}
+
+.es-siguiente:hover { background: var(--footer-navbar); }
+
+/* ---------- Resultado ---------- */
+.es-resultado {
+  display: flex;
+  align-items: stretch;
+  padding: 24px 28px;
+  background: var(--button-bg);
+  border: 2px solid #10151c;
+  border-radius: 36px;
+}
+
+.es-res-izq {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 24px;
+  text-align: center;
+}
+
+.es-res-titulo {
+  display: flex;
+  align-items: center;
+}
+
+.hc-ico-trofeo {
+  width: var(--hc-ico-trofeo);
+  height: var(--hc-ico-trofeo);
+  margin-right: 14px;
+  object-fit: contain;
+}
+
+.es-res-titulo h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.es-res-label {
+  margin: 18px 0 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.es-res-pill {
+  margin-top: 16px;
+  padding: 9px 38px;
+  background: var(--border);
+  color: #fff;
+  border: 2px solid #10151c;
+  border-radius: 24px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.es-res-der {
+  flex: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-left: 24px;
+  border-left: 2px solid #10151c;
+}
+
+.es-res-anillo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.es-res-anillo-wrap .es-res-label { margin-top: 12px; }
+
+.es-anillo {                           /* el aro del porcentaje: se llena según --p */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 130px;
+  background: conic-gradient(var(--border) calc(var(--p) * 1%), #eef2f7 0);
+  border-radius: 50%;
+}
+
+.es-anillo::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  background: var(--button-bg);
+  border-radius: 50%;
+}
+
+.es-anillo span {
+  position: relative;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.es-otras h4 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.es-otras ul {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+/* ===================== CELULAR Y PANTALLAS CHICAS ===================== */
+@media (max-width: 760px) {
+  .hc-card { padding: 18px 16px 22px; border-radius: 22px; }
+  .hc-ico-cab { --hc-ico-cab: 54px; margin-right: 12px; }
+  .hc-card-cab h2 { font-size: 18px; }
+
+  .hc-selector { flex-direction: column; align-items: flex-start; padding: 14px 16px; }
+  .hc-comparar { margin: 14px 0 0; align-self: center; }
+
+  .hc-tabla-marco { padding: 8px; border-radius: 22px; }
+
+  /* con 2 metodologías la tabla entra entera en la pantalla; con 3 o 4 se desliza de costado */
+  .hc-tabla[data-cantidad="2"] { min-width: 0; }
+  .hc-tabla thead th { padding: 11px 3px; font-size: 12px; }
+  .hc-tabla tbody th { width: 40%; padding: 10px 5px; font-size: 11.5px; }
+  .hc-tabla tbody td { padding: 10px 6px; font-size: 12px; }
+  .hc-ico-fila { width: 20px; height: 20px; margin-right: 4px; }
+
+  .es-pasos { padding: 12px 8px 10px; }
+  .es-num { width: 40px; height: 40px; font-size: 15px; }
+  .es-pasos ol::before { top: 19px; }
+  .es-nom { font-size: 11px; }
+
+  .es-pregunta { padding: 14px 14px; border-radius: 22px; }
+  .es-opciones { margin-left: 0; }
+
+  .es-botones { justify-content: space-between; }
+  .es-btn { padding: 11px 22px; }
+
+  .es-resultado { flex-direction: column; padding: 20px 16px; border-radius: 26px; }
+  .es-res-izq { padding-right: 0; padding-bottom: 20px; }
+  .es-res-der {
+    flex-direction: column;
+    padding: 20px 0 0;
+    border-left: none;
+    border-top: 2px solid #10151c;
+  }
+  .es-otras { margin-top: 18px; }
+}

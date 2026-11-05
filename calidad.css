@@ -198,7 +198,7 @@
   flex: 1;
 }
 
-/* ---------- Títulos "Conceptos claves ————" ---------- */
+/* ---------- Títulos "Conceptos claves" ---------- */
 .fc-subtitulo {
   display: flex;
   align-items: center;
@@ -263,7 +263,7 @@
   line-height: 1.5;
 }
 
-/* La flechita azul (mismo alto que la tarjeta) */
+/* La flechita azul */
 .fc-flecha {
   flex: 0 0 52px;
   margin-left: -1px;

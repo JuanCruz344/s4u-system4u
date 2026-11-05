@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glosario | S4U System4U</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="recursosyaprendizaje.css">
+<style>
+/* Listas de 4 de "Características principales" y "Ejemplo de uso" (panel de detalle del glosario).
+   Si preferís, podés cortar este bloque y pegarlo al final de recursosyaprendizaje.css */
+.gl-lista-4 {
+  margin: 12px 0 4px;
+  padding-left: 24px;
+  text-align: left;
+  list-style: disc;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.gl-lista-4 li { margin-bottom: 7px; padding-left: 2px; }
+.gl-lista-4 li:last-child { margin-bottom: 0; }
+
+/* Con las listas el contenido es más largo: las tarjetas crecen para que no se corte nada.
+   Siguen teniendo todas el mismo alto, y el panel blanco se agranda si hace falta. */
+.gl-der-int { height: auto; min-height: 100%; }
+.gl-info.visible { display: grid; grid-auto-rows: 1fr; gap: 16px; }
+.gl-info .gl-card { margin-bottom: 0; }
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <img src="imagenes/logo.png" alt="S4U System4U">
+    </a>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-pill">Inicio</a>
+      <div class="nav-item">
+        <a href="calidad-software.html">Calidad de Software <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="blank.html">Principios de calidad</a></li>
+          <li><a href="blank.html">Buenas prácticas</a></li>
+          <li><a href="blank.html">Herramientas</a></li>
+        </ul>
+      </div>
+      <div class="nav-item">
+        <a href="procesos-desarrollo.html">Procesos de desarrollo <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="blank.html">Enfoques tradicionales</a></li>
+          <li><a href="blank.html">Enfoques ágiles</a></li>
+        </ul>
+      </div>
+      <div class="nav-item">
+        <a href="blank.html">Metodologías <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="blank.html">Scrum</a></li>
+          <li><a href="blank.html">Kanban</a></li>
+          <li><a href="blank.html">XP</a></li>
+        </ul>
+      </div>
+      <div class="nav-item">
+        <a href="recursosyaprendizaje.html" class="active">Recursos y Aprendizaje <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="glosario.html">Glosario</a></li>
+          <li><a href="blank.html">Preguntas frecuentes</a></li>
+          <li><a href="blank.html">Enlaces de interés</a></li>
+          <li><a href="blank.html">Ejercicios y casos prácticos</a></li>
+        </ul>
+      </div>
+      <div class="nav-item">
+        <a href="blank.html">Contacto <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="blank.html">Sobre el sitio</a></li>
+          <li><a href="blank.html">Escribinos</a></li>
+        </ul>
+      </div>
+      <div class="nav-item">
+        <a href="herramientas-calidad.html">Herramientas de calidad <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="blank.html">Comparador</a></li>
+          <li><a href="blank.html">Checklist</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== BANNER ===================== -->
+<section class="gl-banner">
+  <img src="imagenes-recursos-aprendizajes/recursosyAprendisajes.png" alt="Recursos y Aprendizaje: accedé a definiciones, respuestas, recursos y ejercicios prácticos para profundizar tus conocimientos sobre calidad y desarrollo de software">
+</section>
+
+<!-- ===================== GLOSARIO ===================== -->
+<section class="gl-section">
+  <div class="gl-marco">
+
+    <div class="gl-cabecera">
+      <img class="gl-ico-cab" src="imagenes-recursos-aprendizajes/Glosario.png" alt="">
+      <div>
+        <h2>Glosario</h2>
+        <p>Definiciones de términos clave relacionados con la calidad y el desarrollo de software.</p>
+      </div>
+    </div>
+
+    <div class="gl-cuerpo" id="glCuerpo">
+
+      <!-- ===== Izquierda: buscador, letras y lista ===== -->
+      <div class="gl-izq">
+
+        <div class="gl-buscador">
+          <img class="gl-ico-lupa" src="imagenes-recursos-aprendizajes/lupa.png" alt="">
+          <input type="text" id="glBuscar" placeholder="Buscar Término......" oninput="glBuscar()" autocomplete="off">
+          <button type="button" class="gl-limpiar" onclick="glLimpiar()" aria-label="Borrar búsqueda">
+            <img class="gl-ico-x" src="imagenes-recursos-aprendizajes/x.png" alt="">
+          </button>
+        </div>
+
+        <div class="gl-teclado">
+          <button type="button" class="gl-letra gl-todo active" data-letra="todo" onclick="glLetra('todo', this)">Todo</button>
+        <button type="button" class="gl-letra" data-letra="a" onclick="glLetra('a', this)">A</button>
+        <button type="button" class="gl-letra" data-letra="b" onclick="glLetra('b', this)">B</button>
+        <button type="button" class="gl-letra" data-letra="c" onclick="glLetra('c', this)">C</button>
+        <button type="button" class="gl-letra" data-letra="d" onclick="glLetra('d', this)">D</button>
+        <button type="button" class="gl-letra" data-letra="e" onclick="glLetra('e', this)">E</button>
+        <button type="button" class="gl-letra" data-letra="f" onclick="glLetra('f', this)">F</button>
+        <button type="button" class="gl-letra" data-letra="g" onclick="glLetra('g', this)">G</button>
+        <button type="button" class="gl-letra" data-letra="h" onclick="glLetra('h', this)">H</button>
+        <button type="button" class="gl-letra" data-letra="i" onclick="glLetra('i', this)">I</button>
+        <button type="button" class="gl-letra" data-letra="j" onclick="glLetra('j', this)">J</button>
+        <button type="button" class="gl-letra" data-letra="k" onclick="glLetra('k', this)">K</button>
+        <button type="button" class="gl-letra" data-letra="l" onclick="glLetra('l', this)">L</button>
+        <button type="button" class="gl-letra" data-letra="m" onclick="glLetra('m', this)">M</button>
+        <button type="button" class="gl-letra" data-letra="n" onclick="glLetra('n', this)">N</button>
+        <button type="button" class="gl-letra" data-letra="o" onclick="glLetra('o', this)">O</button>
+        <button type="button" class="gl-letra" data-letra="p" onclick="glLetra('p', this)">P</button>
+        <button type="button" class="gl-letra" data-letra="q" onclick="glLetra('q', this)">Q</button>
+        <button type="button" class="gl-letra" data-letra="r" onclick="glLetra('r', this)">R</button>
+        <button type="button" class="gl-letra" data-letra="s" onclick="glLetra('s', this)">S</button>
+        <button type="button" class="gl-letra" data-letra="t" onclick="glLetra('t', this)">T</button>
+        <button type="button" class="gl-letra" data-letra="u" onclick="glLetra('u', this)">U</button>
+        <button type="button" class="gl-letra" data-letra="v" onclick="glLetra('v', this)">V</button>
+        <button type="button" class="gl-letra" data-letra="w" onclick="glLetra('w', this)">W</button>
+        <button type="button" class="gl-letra" data-letra="x" onclick="glLetra('x', this)">X</button>
+        <button type="button" class="gl-letra" data-letra="y" onclick="glLetra('y', this)">Y</button>
+        <button type="button" class="gl-letra" data-letra="z" onclick="glLetra('z', this)">Z</button>
+        </div>
+
+        <!-- Para agregar un término: copiá una <button class="gl-fila"> dentro de su letra
+             y copiá también su <article class="gl-info"> de la derecha (con el mismo id). -->
+        <div class="gl-lista" id="glLista">
+
+      <div class="gl-grupo">
+        <div class="gl-grupo-cab">A</div>
+
+        <button type="button" class="gl-fila" id="fila-agil" data-letra="a" data-nombre="Ágil" onclick="glVer('agil')">
+          <img class="gl-ico-fila" src="imagenes-recursos-aprendizajes/agil.png" alt="">
+          <span class="gl-nombre">Ágil</span>
+          <span class="gl-def">Enfoque de desarrollo de software iterativo e incremental que promueve la colaboración, la flexibilidad y la entrega de valor de forma continua.</span>
+          
+        </button>
+        <button type="button" class="gl-fila" id="fila-api" data-letra="a" data-nombre="API" onclick="glVer('api')">
+          <img class="gl-ico-fila" src="imagenes-recursos-aprendizajes/configuraciones.png" alt="">
+          <span class="gl-nombre">API</span>
+          <span class="gl-def">Interfaz de programación de aplicaciones que permite la comunicación entre sistemas.</span>
+          
+        </button>
+      </div>
+
+      <div class="gl-grupo">
+        <div class="gl-grupo-cab">B</div>
+
+        <button type="button" class="gl-fila" id="fila-backlog" data-letra="b" data-nombre="Backlog" onclick="glVer('backlog')">
+          <img class="gl-ico-fila" src="imagenes-recursos-aprendizajes/backlog.png" alt="">
+          <span class="gl-nombre">Backlog</span>
+          <span class="gl-def">Lista priorizada de tareas, requisitos o funcionalidades pendientes de desarrollar en un proyecto.</span>
+          
+        </button>
+        <button type="button" class="gl-fila" id="fila-bug" data-letra="b" data-nombre="Bug" onclick="glVer('bug')">
+          <img class="gl-ico-fila" src="imagenes-recursos-aprendizajes/bug.png" alt="">
+          <span class="gl-nombre">Bug</span>
+          <span class="gl-def">Error o fallo en el software que produce un comportamiento inesperado.</span>
+          
+        </button>
+      </div>
+
+      <div class="gl-grupo">
+        <div class="gl-grupo-cab">C</div>
+
+        <button type="button" class="gl-fila" id="fila-calidad" data-letra="c" data-nombre="Calidad" onclick="glVer('calidad')">
+          <img class="gl-ico-fila" src="imagenes-recursos-aprendizajes/grupo.png" alt="">
+          <span class="gl-nombre">Calidad</span>
+          <span class="gl-def">Conjunto de características que debe cumplir un producto o servicio para satisfacer las necesidades del usuario.</span>
+        </button>
+        <button type="button" class="gl-fila" id="fila-codigo-fuente" data-letra="c" data-nombre="Código fuente" onclick="glVer('codigo-fuente')">
+          <img class="gl-ico-fila" src="imagenes/codigo.png" alt="">
+          <span class="gl-nombre">Código fuente</span>
+          <span class="gl-def">Conjunto de instrucciones escritas en un lenguaje de programación que forman un programa.</span>
+        </button>
+      </div>
+
+          <p class="gl-sin-resultados" id="glSinResultados"></p>
+        </div>
+
+      </div>
+
+      <!-- ===== Derecha: detalle del término ===== -->
+      <aside class="gl-der">
+        <div class="gl-der-ext">
+          <div class="gl-der-int">
+
+            <button type="button" class="gl-volver" onclick="glVolver()">← Volver al listado</button>
+
+            <div class="gl-inicio visible" id="glInicio">
+              <p>Elegí un término de la lista para ver su definición, características y ejemplos de uso.</p>
+            </div>
+
+      <article class="gl-info" id="info-agil">
+        <div class="gl-card">
+          <div class="gl-card-cab">
+            <img class="gl-ico-detalle" src="imagenes-recursos-aprendizajes/agil.png" alt="">
+            <span>Ágil</span>
+          </div>
+          <p class="gl-card-texto">Enfoque de desarrollo de software que organiza el trabajo en ciclos cortos, entrega versiones funcionales del producto con frecuencia y se adapta a los cambios.</p>
+        </div>
+        <div class="gl-card">
+          <div class="gl-card-cab">
+            <img class="gl-ico-excl" src="imagenes-recursos-aprendizajes/caractPrinicipales.png" alt="">
+            <span>Características principales</span>
+          </div>
+          <ul class="gl-lista-4">
+            <li>Iterativo e incremental.</li>
+            <li>Colaboración constante con el cliente.</li>
+            <li>Flexibilidad frente a los cambios.</li>
+            <li>Equipos autoorganizados y mejora continua.</li>
+          </ul>
+        </div>
+        <div class="gl-card">
+          <div class="gl-card-cab">
+            <img class="gl-ico-foco" src="imagenes-recursos-aprendizajes/ejemploDeUso.png" alt="">
+            <span>Ejemplo de uso</span>
+          </div>
+          <ul class="gl-lista-4">
+            <li>Metodologías como Scrum, Kanban y XP.</li>
+            <li>Un equipo que entrega una mejora de la app cada 2 semanas.</li>
+            <li>Reuniones diarias cortas para coordinar el trabajo.</li>
+            <li>Una demo al cliente al final de cada ciclo para recibir su opinión.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="gl-info" id="info-api">
+        <div class="gl-card">
+          <div class="gl-card-cab">
+            <img class="gl-ico-detalle" src="imagenes-recursos-aprendizajes/configuraciones.png" alt="">
+            <span>API</span>
+          </div>
+          <p class="gl-card-texto">Conjunto de reglas y funciones que permite que dos aplicaciones o sistemas se comuniquen e intercambien datos sin conocer cómo funciona cada uno por dentro.</p>
+        </div>
+        <div class="gl-card">
+          <div class="gl-card-cab">
+            <img class="gl-ico-excl" src="imagenes-recursos-aprendizajes/caractPrinicipales.png" alt="">
+            <span>Características principales</span>
+          </div>
+          <ul class="gl-lista-4">
+            <li>Actúa como intermediaria entre sistemas.</li>
+            <li>Define qué se puede pedir y cómo se recibe la respuesta.</li>
+            <li>Oculta la complejidad interna y es reutilizable.</li>
+            <li>Suele intercambiar datos en formatos como JSON.</li>
+          </ul>
+        </div>
+        <div class="gl-card">
+          <div class="gl-card-cab">
+            <img class="gl-ico-foco" src="imagenes-recursos-aprendizajes/ejemploDeUso.png" alt="">
+            <span>Ejemplo de uso</span>
+          </div>
+          <ul class="gl-lista-4">
+            <li>Una app del clima que consulta los datos de un servicio meteorológico.</li>
+            <li>El botón “Iniciar sesión con Google”.</li>
+            <li>La pasarela de pago de una tienda online.</li>
+            <li>Mostrar un mapa de Google Maps dentro de una app o sitio web.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="gl-info" id="info-backlog">
+        <div class="gl-card">
+          <div class="gl-card-cab">
+            <img class="gl-ico-detalle" src="imagenes-recursos-aprendizajes/backlog.png" alt="">
+            <span>Backlog</span>
+          </div>
+          <p class="gl-card-texto">Lista priorizada de tareas, requisitos, mejoras y errores pendientes de desarrollar en un proyecto.</p>
+        </div>
+        <div class="gl-card">
+          <div class="gl-card-cab">
+            <img class="gl-ico-excl" src="imagenes-recursos-aprendizajes/caractPrinicipales.png" alt="">
+            <span>Características principales</span>
+          </div>
+          <ul class="gl-lista-4">
+            <li>Está ordenada por prioridad.</li>
+            <li>Se actualiza durante todo el proyecto y es visible para todo el equipo.</li>
+            <li>Cada ítem describe el valor que aporta.</li>
+            <li>En Scrum se divide en Product Backlog y Sprint Backlog.</li>
+          </ul>
+        </div>
+        <div class="gl-card">
+          <div class="gl-card-cab">
+            <img class="gl-ico-foco" src="imagenes-recursos-aprendizajes/ejemploDeUso.png" alt="">
+            <span>Ejemplo de uso</span>
+          </div>
+          <ul class="gl-lista-4">
+            <li>Una historia de usuario: “Como usuario, quiero recuperar mi contraseña”.</li>
+            <li>Un tablero de Jira o Trello con las tareas pendientes.</li>
+            <li>El Product Owner reordena el backlog antes de planificar el Sprint.</li>
+            <li>Agregar al backlog un error reportado por un usuario para corregirlo más adelante.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="gl-info" id="info-bug">
+        <div class="gl-card">
+          <div class="gl-card-cab">
+            <img class="gl-ico-detalle" src="imagenes-recursos-aprendizajes/bug.png" alt="">
+            <span>Bug</span>
+          </div>
+          <p class="gl-card-texto">Error o defecto en el software que hace que funcione de forma incorrecta o inesperada.</p>
+        </div>
+        <div class="gl-card">
+          <div class="gl-card-cab">
+            <img class="gl-ico-excl" src="imagenes-recursos-aprendizajes/caractPrinicipales.png" alt="">
+            <span>Características principales</span>
+          </div>
+          <ul class="gl-lista-4">
+            <li>Puede originarse en el código, el diseño o requisitos mal entendidos.</li>
+            <li>Tiene distinta gravedad: desde un detalle visual hasta una falla crítica.</li>
+            <li>Se detecta durante las pruebas o lo reportan los usuarios.</li>
+            <li>Se registra, se prioriza y se corrige; un buen reporte incluye los pasos para reproducirlo.</li>
+          </ul>
+        </div>
+        <div class="gl-card">
+          <div class="gl-card-cab">
+            <img class="gl-ico-foco" src="imagenes-recursos-aprendizajes/ejemploDeUso.png" alt="">
+            <span>Ejemplo de uso</span>
+          </div>
+          <ul class="gl-lista-4">
+            <li>Un botón “Enviar” que no responde.</li>
+            <li>Un carrito de compras que calcula mal el total.</li>
+            <li>Una app que se cierra sola al abrir cierta pantalla.</li>
+            <li>Reportar el error en herramientas como Jira o Bugzilla.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="gl-info" id="info-calidad">
+        <div class="gl-card">
+          <div class="gl-card-cab">
+            <img class="gl-ico-detalle" src="imagenes-recursos-aprendizajes/grupo.png" alt="">
+            <span>Calidad</span>
+          </div>
+          <p class="gl-card-texto">Grado en que un producto o servicio cumple los requisitos y satisface las necesidades y expectativas del usuario.</p>
+        </div>
+        <div class="gl-card">
+          <div class="gl-card-cab">
+            <img class="gl-ico-excl" src="imagenes-recursos-aprendizajes/caractPrinicipales.png" alt="">
+            <span>Características principales</span>
+          </div>
+          <ul class="gl-lista-4">
+            <li>Se evalúa con atributos como funcionalidad, fiabilidad, usabilidad, eficiencia, mantenibilidad y portabilidad.</li>
+            <li>Está presente en todo el proceso, no solo al final.</li>
+            <li>Prioriza prevenir los errores antes que corregirlos.</li>
+            <li>Busca la mejora continua y se verifica con pruebas y métricas.</li>
+          </ul>
+        </div>
+        <div class="gl-card">
+          <div class="gl-card-cab">
+            <img class="gl-ico-foco" src="imagenes-recursos-aprendizajes/ejemploDeUso.png" alt="">
+            <span>Ejemplo de uso</span>
+          </div>
+          <ul class="gl-lista-4">
+            <li>Ejecutar pruebas unitarias y de integración antes de lanzar.</li>
+            <li>Hacer revisiones de código entre compañeros.</li>
+            <li>Evaluar el producto con las normas ISO/IEC 9126 o 25000.</li>
+            <li>Analizar el código con herramientas como SonarQube.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="gl-info" id="info-codigo-fuente">
+        <div class="gl-card">
+          <div class="gl-card-cab">
+            <img class="gl-ico-detalle" src="imagenes/codigo.png" alt="">
+            <span>Código fuente</span>
+          </div>
+          <p class="gl-card-texto">Conjunto de instrucciones escritas por programadores en un lenguaje de programación, que luego se convierte en un programa ejecutable.</p>
+        </div>
+        <div class="gl-card">
+          <div class="gl-card-cab">
+            <img class="gl-ico-excl" src="imagenes-recursos-aprendizajes/caractPrinicipales.png" alt="">
+            <span>Características principales</span>
+          </div>
+          <ul class="gl-lista-4">
+            <li>Es legible para las personas y debe ser claro y fácil de mantener.</li>
+            <li>Se escribe en un lenguaje de programación (Python, Java, JavaScript, etc.).</li>
+            <li>Se organiza en archivos, funciones y clases.</li>
+            <li>Se guarda con control de versiones, por ejemplo Git.</li>
+          </ul>
+        </div>
+        <div class="gl-card">
+          <div class="gl-card-cab">
+            <img class="gl-ico-foco" src="imagenes-recursos-aprendizajes/ejemploDeUso.png" alt="">
+            <span>Ejemplo de uso</span>
+          </div>
+          <ul class="gl-lista-4">
+            <li>Los archivos .html, .css y .js de esta página web.</li>
+            <li>Un repositorio de GitHub con el proyecto.</li>
+            <li>Revisar los cambios de un compañero antes de incorporarlos.</li>
+            <li>Proyectos de código abierto, donde cualquiera puede ver y mejorar el código.</li>
+          </ul>
+        </div>
+      </article>
+
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <a href="index.html" class="footer-logo">
+    <img src="imagenes/logo.png" alt="S4U System4U">
+  </a>
+  <div class="footer-columns">
+    <div class="footer-col">
+      <div class="footer-icon"><img src="imagenes/correo-electronico.png" alt="Email"></div>
+      <span class="footer-label">Contacto</span>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-col">
+      <a class="footer-email" href="mailto:sistemasdegestion@gmail.com">sistemasdegestion@gmail.com</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-icon"><img src="imagenes/anadir-amigo.png" alt="Seguinos"></div>
+      <span class="footer-label">Seguinos</span>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-col social-col">
+      <a class="social-row" href="blank.html">
+        <span class="social-icon"><img src="imagenes/gorjeo.png" alt="X (Twitter)"></span>
+        <span>@SistemasdeGest.</span>
+      </a>
+      <a class="social-row" href="blank.html">
+        <span class="social-icon"><img src="imagenes/instagram.png" alt="Instagram"></span>
+        <span>@SistemasdeGest.</span>
+      </a>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-col">
+      <div class="footer-icon"><img src="imagenes/liza.png" alt="Dejanos una reseña"></div>
+      <span class="footer-label">Dejanos una reseña</span>
+    </div>
+    <div class="footer-col reseña-col">
+      <textarea id="reseñaInput" placeholder="Escribí tu reseña..."></textarea>
+      <button type="button" onclick="enviarReseña()" class="footer-label">Enviar reseña</button>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- Reseña ---------- */
+function enviarReseña() {
+  var texto = document.getElementById('reseñaInput').value.trim();
+  if (texto === '') return;
+  alert('¡Gracias por tu reseña! (Por ahora se muestra en pantalla, no se guarda)');
+  document.getElementById('reseñaInput').value = '';
+}
+
+/* ---------- Glosario ---------- */
+var glLetraActual = 'todo';
+
+// minúsculas y sin tildes, para que "agil" encuentre "Ágil"
+function glNorm(s) {
+  return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+// muestra solo los términos que cumplen la letra elegida y lo escrito en el buscador
+function glAplicar() {
+  var q = glNorm(document.getElementById('glBuscar').value.trim());
+  var total = 0;
+
+  document.querySelectorAll('.gl-grupo').forEach(function (grupo) {
+    var visibles = 0;
+    grupo.querySelectorAll('.gl-fila').forEach(function (fila) {
+      var okLetra = glLetraActual === 'todo' || fila.getAttribute('data-letra') === glLetraActual;
+      var okTexto = q === '' || glNorm(fila.textContent).indexOf(q) !== -1;
+      var ok = okLetra && okTexto;
+      fila.style.display = ok ? 'flex' : 'none';
+      if (ok) visibles++;
+    });
+    grupo.style.display = visibles ? 'block' : 'none';
+    total += visibles;
+  });
+
+  var msg = document.getElementById('glSinResultados');
+  if (total > 0) {
+    msg.style.display = 'none';
+  } else {
+    msg.textContent = (q === '' && glLetraActual !== 'todo')
+      ? 'Todavía no hay términos con la letra ' + glLetraActual.toUpperCase() + '.'
+      : 'No se encontraron términos para tu búsqueda.';
+    msg.style.display = 'block';
+  }
+}
+
+// marca el botón de letra activo
+function glMarcar(letra) {
+  document.querySelectorAll('.gl-letra').forEach(function (b) {
+    b.classList.toggle('active', b.getAttribute('data-letra') === letra);
+  });
+}
+
+function glLetra(letra, btn) {
+  glLetraActual = letra;
+  glMarcar(letra);
+  glAplicar();
+}
+
+// al escribir en el buscador se busca en todo el glosario
+function glBuscar() {
+  if (document.getElementById('glBuscar').value.trim() !== '') {
+    glLetraActual = 'todo';
+    glMarcar('todo');
+  }
+  glAplicar();
+}
+
+function glLimpiar() {
+  document.getElementById('glBuscar').value = '';
+  glAplicar();
+  document.getElementById('glBuscar').focus();
+}
+
+// panel de la derecha: ocultar todo lo que esté abierto
+function glOcultarInfo() {
+  document.querySelectorAll('.gl-info').forEach(function (i) { i.classList.remove('visible'); });
+  document.querySelectorAll('.gl-fila').forEach(function (f) { f.classList.remove('seleccionada'); });
+  document.getElementById('glInicio').classList.remove('visible');
+}
+
+function glVer(id) {
+  glOcultarInfo();
+  document.getElementById('info-' + id).classList.add('visible');
+  document.getElementById('fila-' + id).classList.add('seleccionada');
+  document.getElementById('glCuerpo').classList.add('con-detalle');   // en celular, reemplaza a la lista
+}
+
+function glVolver() {
+  glOcultarInfo();
+  document.getElementById('glInicio').classList.add('visible');
+  document.getElementById('glCuerpo').classList.remove('con-detalle');
+}
+</script>
+</body>
+</html>

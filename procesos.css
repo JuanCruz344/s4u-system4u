@@ -573,3 +573,816 @@
   .timeline-card { flex-wrap: wrap; justify-content: center; }
   .objetivos-box { flex-basis: 100%; }
 }
+
+/* ===================== METODOLOGÍAS ÁGILES =====================
+   (todo lo de esta sección empieza con "ag-" para no chocar con el resto)
+
+   TAMAÑOS DE LAS IMÁGENES (cambiá solo estos números para agrandar o achicar):
+   ===================================================================== */
+:root {
+  --ag-ico-cab:     68px;   /* círculo de Scrum / Kanban / XP (arriba)       */
+  --ag-ico-indice:  50px;   /* círculo del "Índice de contenidos"            */
+  --ag-ico-pill:    18px;   /* ícono chiquito de cada botón del índice       */
+  --ag-ico-lupa:    22px;   /* lupa para ver el diagrama en grande           */
+  --ag-ico-card:    52px;   /* círculo de las tarjetas de cada apartado      */
+  --ag-ico-avatar:  86px;   /* fotos de los roles (Product Owner, etc.)      */
+  --ag-ico-valor:   44px;   /* círculo de los 4 valores                      */
+  --ag-ico-grande:  58px;   /* diamante y documento de los títulos grandes   */
+  --ag-ico-volver:  14px;   /* flechita del botón Volver                     */
+}
+
+.ag-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 40px;
+  background: var(--page-bg);
+  color: var(--text-icon);
+  padding: 60px 6vw;
+}
+
+.ag-intro { flex: 1 1 280px; max-width: 320px; }
+
+.ag-intro h2 {
+  margin: 0 0 20px;
+  font-family: var(--font-heading);
+  font-size: 30px;
+  line-height: 1.2;
+  color: var(--border);
+}
+
+.ag-intro h2 .ag-subrayado {
+  color: var(--text-icon);
+  text-decoration: underline;
+  text-decoration-color: var(--footer-navbar);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+
+.ag-intro > p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.7;
+  opacity: .9;
+}
+
+.ag-panel { flex: 2 1 560px; min-width: 0; }
+
+/* ---------- Pestañas Scrum / Kanban / XP ---------- */
+.ag-tabs { display: flex; }
+
+.ag-tab {
+  flex: 1;
+  margin-right: 4px;
+  padding: 14px 8px;
+  background: var(--button-bg);
+  color: #10151c;
+  border: 2px solid #10151c;
+  border-bottom: none;
+  border-radius: 16px 16px 0 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ag-tab:last-child { margin-right: 0; }
+
+.ag-tab.active {
+  background: var(--border);
+  color: #fff;
+}
+
+/* ---------- Tarjeta principal ---------- */
+.ag-tarjeta {
+  padding: 18px;
+  background: var(--card-bg);
+  border: 2px solid #10151c;
+  border-radius: 0 22px 22px 22px;
+}
+
+.ag-cab {
+  display: flex;
+  align-items: center;
+  padding: 14px 24px 14px 20px;
+  background: var(--button-bg);
+  border: 1.5px solid #10151c;
+  border-radius: 26px;
+}
+
+/* círculo blanco donde va la imagen (la imagen entra sola, sin deformarse) */
+.ag-circulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ag-ico-cab);
+  height: var(--ag-ico-cab);
+  flex-shrink: 0;
+  overflow: hidden;
+  background: #fff;
+  border: 1.5px solid #10151c;
+  border-radius: 50%;
+}
+
+.ag-circulo img {
+  width: 100%;
+  height: 100%;
+  padding: 13px;
+  object-fit: contain;
+}
+
+.ag-cab-texto { flex: 1; min-width: 0; padding-left: 22px; }
+
+.ag-cab-texto h3 {
+  margin: 0 0 6px;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  color: var(--text-icon);
+}
+
+.ag-cab-texto p {
+  margin: 0;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* ---------- Diagrama con la lupa ---------- */
+.ag-diagrama {
+  position: relative;
+  margin-top: 18px;
+  padding: 50px 22px 24px;
+  background: var(--button-bg);
+  border: 1.5px solid #10151c;
+  border-radius: 26px;
+}
+
+.ag-zoom {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 66px;
+  height: 34px;
+  background: var(--footer-navbar);
+  border: 1.5px solid #10151c;
+  border-radius: 20px;
+}
+
+.ag-zoom img {
+  width: var(--ag-ico-lupa);
+  height: var(--ag-ico-lupa);
+  object-fit: contain;
+}
+
+.ag-diagrama-img {
+  display: block;
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  border-radius: 18px;
+}
+
+/* ---------- Índice de contenidos ---------- */
+.ag-indice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 18px;
+  padding: 14px 16px;
+  background: var(--button-bg);
+  border: 1.5px solid #10151c;
+  border-radius: 26px;
+}
+
+.ag-indice-izq {
+  display: flex;
+  align-items: center;
+  margin-right: 14px;
+}
+
+.ag-circulo-indice {
+  width: var(--ag-ico-indice);
+  height: var(--ag-ico-indice);
+  margin-right: 10px;
+}
+
+.ag-circulo-indice img { padding: 11px; }
+
+.ag-indice-izq strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 14px;
+}
+
+.ag-indice-izq small {
+  display: block;
+  max-width: 130px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.ag-indice-btns {
+  flex: 1 1 380px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ag-indice-btn {
+  flex: 1 1 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px 0 4px 6px;
+  padding: 9px 10px;
+  white-space: nowrap;
+  background: #f5f9ff;
+  color: var(--text-icon);
+  border: 1.5px solid var(--border);
+  border-radius: 30px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ag-indice-btn img {
+  width: var(--ag-ico-pill);
+  height: var(--ag-ico-pill);
+  margin-right: 6px;
+  object-fit: contain;
+}
+
+.ag-indice-btn:hover { background: #fff; }
+
+.ag-indice-btn.active {
+  background: var(--border);
+  color: #fff;
+}
+
+/* ---------- Apartados que se abren (1 a 5) ---------- */
+.ag-seccion {
+  display: none;
+  margin-top: 24px;
+  padding: 14px 16px 18px;
+  background: #f5f9ff;
+  border: 2px solid #10151c;
+  border-radius: 26px;
+  scroll-margin-top: 20px;
+}
+
+.ag-seccion.visible { display: block; }
+
+.ag-sec-cab {
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  background: var(--button-bg);
+  border: 1.5px solid #10151c;
+  border-radius: 32px;
+}
+
+.ag-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  margin-right: 14px;
+  background: var(--footer-navbar);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.ag-sec-cab h3 {
+  flex: 1;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.ag-volver {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  background: var(--footer-navbar);
+  color: #fff;
+  border: 1.5px solid #10151c;
+  border-radius: 20px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ag-volver img {
+  width: var(--ag-ico-volver);
+  height: var(--ag-ico-volver);
+  margin-right: 6px;
+  object-fit: contain;
+}
+
+.ag-sec-desc {
+  margin: 12px 0 14px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ---------- Tarjetas de cada apartado ---------- */
+.ag-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;      /* si queda una sola en la última fila (Ceremonias), va al centro */
+  margin: 0 -8px;
+}
+
+.ag-cards-sep { margin-top: 16px; }
+
+.ag-card {
+  flex: 0 1 calc(33.333% - 16px);
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 8px 16px;
+  padding: 14px 16px 16px;
+  background: var(--button-bg);
+  border: 1.5px solid var(--footer-navbar);
+  border-radius: 20px;
+}
+
+.ag-card-cab {
+  display: flex;
+  align-items: center;
+}
+
+.ag-card-cab h4 {
+  flex: 1;
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.ag-card-ico {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ag-ico-card);
+  height: var(--ag-ico-card);
+  flex-shrink: 0;
+  margin-right: 12px;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.ag-card-ico img {
+  width: 100%;
+  height: 100%;
+  padding: 11px;
+  object-fit: contain;
+}
+
+/* fotos de los roles: ocupan todo el círculo */
+.ag-card-ico.ag-avatar {
+  width: var(--ag-ico-avatar);
+  height: var(--ag-ico-avatar);
+  background: #d6e9f8;
+  border: 3px solid #fff;
+}
+
+.ag-card-ico.ag-avatar img { padding: 0; object-fit: cover; }
+
+.ag-card-ico.ag-grande {
+  width: var(--ag-ico-grande);
+  height: var(--ag-ico-grande);
+}
+
+.ag-card-texto {
+  margin: 12px 0 14px;
+  text-align: center;
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.ag-card-texto.ag-texto-md { font-size: 14px; }
+
+/* "Texto Informativo" de los Principios (reemplazalo por tu texto) */
+.ag-card-grande {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-height: 130px;
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.ag-vermas {
+  align-self: center;
+  margin-top: auto;
+  padding: 7px 22px;
+  background: var(--footer-navbar);
+  color: #fff;
+  border: 1.5px solid #10151c;
+  border-radius: 22px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ag-vermas:hover { background: var(--border); }
+
+/* ---------- El Manifiesto Ágil ---------- */
+.ag-caja {
+  max-width: 780px;
+  margin: 0 auto 22px;
+  padding: 14px 18px 18px;
+  background: var(--button-bg);
+  border: 1.5px solid var(--footer-navbar);
+  border-radius: 24px;
+}
+
+.ag-caja:last-child { margin-bottom: 0; }
+
+.ag-caja-titulo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.ag-caja-titulo h4 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.ag-valores {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -7px;
+}
+
+.ag-valor {
+  flex: 1 1 calc(50% - 14px);
+  min-width: 230px;
+  margin: 0 7px 14px;
+  padding: 12px 14px;
+  background: var(--button-bg);
+  border: 1.5px solid #10151c;
+  border-radius: 24px;
+}
+
+.ag-valor .ag-card-ico {
+  width: var(--ag-ico-valor);
+  height: var(--ag-ico-valor);
+}
+
+.ag-valor-sub {
+  margin: 8px 0 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ag-doce {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ag-doce-col {
+  flex: 1 1 280px;
+  margin: 0;
+  padding: 0 0 0 10px;
+  list-style: none;
+}
+
+.ag-doce-izq {
+  margin-right: 14px;
+  padding-right: 14px;
+  border-right: 2px solid var(--footer-navbar);
+}
+
+.ag-doce-col li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--border);
+}
+
+.ag-n {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  margin-right: 10px;
+  background: var(--border);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ---------- Notebooks (1270 a 1400px): botones del índice un poco más compactos para que entren en una fila ---------- */
+@media (min-width: 1270px) and (max-width: 1400px) {
+  .ag-indice-btns { flex-wrap: nowrap; }
+  .ag-indice-btn { padding: 8px 7px; font-size: 11px; }
+  .ag-indice-btn img { width: 16px; height: 16px; margin-right: 4px; }
+  .ag-indice-izq small { max-width: 110px; }
+}
+
+/* ---------- Pantallas medianas y celular ---------- */
+@media (max-width: 900px) {
+  .ag-section { flex-direction: column; }
+  .ag-intro { max-width: 100%; flex: none; }
+  .ag-panel { flex: none; width: 100%; }
+}
+
+@media (max-width: 640px) {
+  .ag-tab { padding: 12px 4px; font-size: 11px; }
+  .ag-cab { flex-wrap: wrap; justify-content: center; text-align: center; }
+  .ag-cab-texto { flex-basis: 100%; padding: 10px 0 0; }
+  .ag-cab-texto h3 { text-align: center; }
+  .ag-card { flex-basis: 100%; }
+  .ag-indice-izq { margin: 0 0 8px; }
+  .ag-doce-izq { margin-right: 0; padding-right: 0; border-right: none; }
+  .ag-sec-cab h3 { font-size: 13px; }
+}
+
+/* ===================== LUPA Y LIGHTBOX DE LOS DIAGRAMAS =====================
+   TAMAÑOS DE LAS IMÁGENES (cambiá solo estos números):
+   ===================================================================== */
+:root {
+  --lb-ico-lupa:   20px;   /* lupa de los diagramas de los modelos (blanca)  */
+  --lb-ico-cerrar: 18px;   /* X del lightbox (blanca)                        */
+  --lb-ico-flecha: 18px;   /* flechas ‹ › del lightbox (blancas)             */
+}
+
+/* la imagen del diagrama se puede tocar para agrandarla */
+.diagrama-imagen,
+.ag-diagrama-img { cursor: zoom-in; }
+
+/* ---------- Lupa dentro del panel del diagrama ---------- */
+.diagrama-panel { position: relative; }
+
+.lb-lupa {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  background: var(--border);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.lb-lupa:hover { background: var(--footer-navbar); }
+
+.lb-lupa img {
+  width: var(--lb-ico-lupa);
+  height: var(--lb-ico-lupa);
+  object-fit: contain;
+}
+
+/* ---------- Pie de foto ---------- */
+.diagrama-pie {
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #dce9f7;
+}
+
+.diagrama-pie strong { color: #fff; }
+
+/* ---------- Lightbox ---------- */
+.lb {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(10, 30, 52, .78);
+}
+
+.lb.visible { display: flex; }
+
+.lb-ext {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.lb-caja {
+  position: relative;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  padding: 26px 30px 22px;
+  background: var(--card-bg);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .4);
+}
+
+.lb-titulo {
+  margin: 0 56px 0;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  color: var(--border);
+}
+
+.lb-sub {
+  display: none;
+  margin: 6px 56px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--footer-navbar);
+}
+
+/* con subtítulo (Scrum), el título va a la izquierda */
+.lb-caja.con-sub .lb-titulo { margin: 0 56px 0 0; text-align: left; }
+
+.lb-cerrar {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: var(--border);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.lb-cerrar:hover { background: var(--footer-navbar); }
+
+.lb-cerrar img {
+  width: var(--lb-ico-cerrar);
+  height: var(--lb-ico-cerrar);
+  object-fit: contain;
+}
+
+.lb-marco {
+  margin-top: 16px;
+  padding: 14px;
+  background: #f1f7fd;
+  border-radius: 18px;
+}
+
+.lb-marco img {                       /* la imagen se ve completa, sin deformarse */
+  display: block;
+  width: 100%;
+  max-height: 62vh;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.lb-pie {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 14px;
+  color: var(--border);
+}
+
+/* ---------- Flechas ‹ › (solo aparecen si hay varios diagramas, o sea en los modelos) ---------- */
+.lb-flecha {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  margin-top: -23px;
+  padding: 0;
+  background: var(--footer-navbar);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.lb.con-flechas .lb-flecha { display: flex; }
+
+.lb-flecha:hover { background: var(--border); }
+
+.lb-ant { left: -23px; }
+.lb-sig { right: -23px; }
+
+.lb-flecha img {                      /* se usa la flecha "hacia arriba" girada */
+  width: var(--lb-ico-flecha);
+  height: var(--lb-ico-flecha);
+  object-fit: contain;
+}
+
+.lb-ant img { transform: rotate(-90deg); }
+.lb-sig img { transform: rotate(90deg); }
+
+@media (max-width: 700px) {
+  .lb { padding: 12px; }
+  .lb-caja { padding: 20px 16px 16px; border-radius: 18px; }
+  .lb-titulo { font-size: 19px; margin: 0 50px 0 0; text-align: left; }
+  .lb-cerrar { top: 14px; right: 12px; width: 40px; height: 40px; }
+  .lb-flecha { width: 38px; height: 38px; margin-top: -19px; }
+  .lb-ant { left: -6px; }
+  .lb-sig { right: -6px; }
+}
+
+/* ===================== KANBAN Y XP =====================
+   (usan los mismos componentes que Scrum; esto solo agrega lo que cambia)
+   ===================================================================== */
+:root {
+  --ag-ico-nota: 40px;      /* foquito del cuadro "Las metodologías ágiles promueven..." */
+}
+
+/* ---------- Cuadro de la izquierda (debajo del texto) ---------- */
+.ag-nota {
+  display: flex;
+  align-items: center;
+  margin-top: 26px;
+  padding: 14px 16px;
+  background: var(--card-bg);
+  border: 2px solid #10151c;
+  border-radius: 16px;
+}
+
+.ag-nota img {
+  width: var(--ag-ico-nota);
+  height: var(--ag-ico-nota);
+  flex-shrink: 0;
+  margin-right: 12px;
+  object-fit: contain;
+}
+
+.ag-nota p {
+  margin: 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+/* ---------- Filas de 4 y de 5 tarjetas (en vez de 3) ----------
+   Con tantas tarjetas el ícono va arriba, centrado, y el título debajo. */
+.ag-cards-4 .ag-card { flex-basis: calc(25% - 16px); min-width: 160px; }
+
+.ag-cards-5 .ag-card {
+  flex-basis: calc(20% - 16px);
+  min-width: 130px;
+  padding: 14px 10px 16px;
+}
+
+.ag-cards-4 .ag-card-cab,
+.ag-cards-5 .ag-card-cab { flex-direction: column; }
+
+.ag-cards-4 .ag-card-cab h4,
+.ag-cards-5 .ag-card-cab h4 { flex: none; margin-top: 8px; }
+
+.ag-cards-4 .ag-card-ico,
+.ag-cards-5 .ag-card-ico { margin-right: 0; }
+
+.ag-cards-4 .ag-card-ico.ag-avatar,
+.ag-cards-5 .ag-card-ico.ag-avatar {
+  width: 76px;
+  height: 76px;
+}
+
+/* el botón "Ver más →" nunca se parte en dos líneas, aunque la tarjeta sea angosta */
+.ag-vermas { white-space: nowrap; }
+
+.ag-cards-4 .ag-vermas,
+.ag-cards-5 .ag-vermas { padding: 7px 14px; }
+
+@media (max-width: 640px) {
+  .ag-cards-4 .ag-card,
+  .ag-cards-5 .ag-card { flex-basis: 100%; }
+}

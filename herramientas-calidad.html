@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herramientas de calidad | S4U System4U</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="herramientas-calidad.css">
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <img src="imagenes/logo.png" alt="S4U System4U">
+    </a>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-pill">Inicio</a>
+      <div class="nav-item">
+        <a href="calidad-software.html">Calidad de Software <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="blank.html">Principios de calidad</a></li>
+          <li><a href="blank.html">Buenas prácticas</a></li>
+          <li><a href="blank.html">Herramientas</a></li>
+        </ul>
+      </div>
+      <div class="nav-item">
+        <a href="procesos-desarrollo.html">Procesos de desarrollo <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="blank.html">Enfoques tradicionales</a></li>
+          <li><a href="blank.html">Enfoques ágiles</a></li>
+        </ul>
+      </div>
+      <div class="nav-item">
+        <a href="blank.html">Metodologías <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="blank.html">Scrum</a></li>
+          <li><a href="blank.html">Kanban</a></li>
+          <li><a href="blank.html">XP</a></li>
+        </ul>
+      </div>
+      <div class="nav-item">
+        <a href="recursosyaprendizaje.html">Recursos y Aprendizaje <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="recursosyaprendizaje.html">Glosario</a></li>
+          <li><a href="blank.html">Preguntas frecuentes</a></li>
+          <li><a href="blank.html">Enlaces de interés</a></li>
+          <li><a href="blank.html">Ejercicios y casos prácticos</a></li>
+        </ul>
+      </div>
+      <div class="nav-item">
+        <a href="blank.html">Contacto <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="blank.html">Sobre el sitio</a></li>
+          <li><a href="blank.html">Escribinos</a></li>
+        </ul>
+      </div>
+      <div class="nav-item">
+        <a href="herramientas-calidad.html" class="active">Herramientas de calidad <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="#comparador">Comparador de metodologías</a></li>
+          <li><a href="#encuesta">Encuesta de preferencias</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== BANNER ===================== -->
+<section class="hc-banner">
+  <img src="imagenes-herramientas-calidad/FuncionalidadAdicionalJavaScript (1).png" alt="Funcionalidad adicional con JavaScript: herramientas interactivas que te permiten ampliar las funcionalidades del sistema">
+</section>
+
+<section class="hc-section">
+
+  <!-- ===================== COMPARADOR INTERACTIVO ===================== -->
+  <div class="hc-card" id="comparador">
+
+    <div class="hc-card-cab">
+      <img class="hc-ico-cab" src="imagenes-herramientas-calidad/equilibrar.png" alt="">
+      <div>
+        <h2>Comparador Interactivo de Metodologías</h2>
+        <p>Seleccioná dos o más metodologías y compará sus características clave.</p>
+      </div>
+    </div>
+
+    <div class="hc-selector">
+      <div>
+        <p class="hc-selector-titulo">Elegí las metodologías a comparar</p>
+        <div class="hc-checks">
+            <label class="hc-check"><input type="checkbox" value="scrum" checked><span class="hc-caja"></span><span class="hc-check-txt">Scrum</span></label>
+            <label class="hc-check"><input type="checkbox" value="kanban" checked><span class="hc-caja"></span><span class="hc-check-txt">Kanban</span></label>
+            <label class="hc-check"><input type="checkbox" value="xp" checked><span class="hc-caja"></span><span class="hc-check-txt">XP</span></label>
+            <label class="hc-check"><input type="checkbox" value="cascada" checked><span class="hc-caja"></span><span class="hc-check-txt">Cascada</span></label>
+        </div>
+      </div>
+      <button type="button" class="hc-comparar" onclick="hcComparar()"><img src="imagenes-herramientas-calidad/RespuestaAlCambio.png" alt="">Comparar</button>
+    </div>
+
+    <p class="hc-aviso" id="hcAviso" role="status"></p>
+
+    <div class="hc-tabla-marco">
+      <div class="hc-tabla-scroll">
+        <!-- Para cambiar un texto de la tabla, editalo directamente acá abajo. -->
+        <table class="hc-tabla" id="hcTabla">
+          <thead>
+            <tr><th scope="col">Características</th><th scope="col" data-col="scrum">Scrum</th><th scope="col" data-col="kanban">Kanban</th><th scope="col" data-col="xp">XP</th><th scope="col" data-col="cascada">Cascada</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><span class="hc-fila-t"><img class="hc-ico-fila" src="imagenes-herramientas-calidad/calidad (1).png" alt="">Enfoque</span></th>
+              <td data-col="scrum">Iterativo e incremental</td><td data-col="kanban">Flujo continuo</td><td data-col="xp">Iterativo y con buenas prácticas</td><td data-col="cascada">Secuencial</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="hc-fila-t"><img class="hc-ico-fila" src="imagenes-herramientas-calidad/grupo.png" alt="">Roles</span></th>
+              <td data-col="scrum">Definidos<br>(Product Owner, etc.)</td><td data-col="kanban">Flexibles</td><td data-col="xp">Equipo colaborativo<br>(parejas, cliente)</td><td data-col="cascada">No definidos</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="hc-fila-t"><img class="hc-ico-fila" src="imagenes-herramientas-calidad/calendario.png" alt="">Planificación</span></th>
+              <td data-col="scrum">Por Sprints<br>(1-4 semanas)</td><td data-col="kanban">Continua y adaptable</td><td data-col="xp">Iteraciones cortas</td><td data-col="cascada">Única, al inicio</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="hc-fila-t"><img class="hc-ico-fila" src="imagenes-herramientas-calidad/flexibilidad.png" alt="">Flexibilidad</span></th>
+              <td data-col="scrum"><span class="hc-estado"><img class="hc-ico-estado" src="imagenes-herramientas-calidad/marca-de-verificacion.png" alt="">Alta</span></td><td data-col="kanban"><span class="hc-estado"><img class="hc-ico-estado" src="imagenes-herramientas-calidad/marca-de-verificacion.png" alt="">Alta</span></td><td data-col="xp"><span class="hc-estado"><img class="hc-ico-estado" src="imagenes-herramientas-calidad/marca-de-verificacion.png" alt="">Alta</span></td><td data-col="cascada"><span class="hc-estado"><img class="hc-ico-estado" src="imagenes-herramientas-calidad/cruz.png" alt="">Baja</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="hc-fila-t"><img class="hc-ico-fila" src="imagenes-herramientas-calidad/Inspeccion.png" alt="">Entrega de valor</span></th>
+              <td data-col="scrum">Incremental</td><td data-col="kanban">Continua</td><td data-col="xp">Frecuente</td><td data-col="cascada">Al final</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== ENCUESTA DE PREFERENCIAS ===================== -->
+  <div class="hc-card" id="encuesta">
+
+    <div class="hc-card-cab">
+      <img class="hc-ico-cab" src="imagenes-herramientas-calidad/planSprint.png" alt="">
+      <div>
+        <h2>Encuesta de Preferencias Metodológicas</h2>
+        <p>Respondé algunas preguntas sobre tu proyecto y obtené una sugerencia de la metodología más adecuada.</p>
+      </div>
+    </div>
+
+    <div class="es-pasos" id="esPasos">
+      <ol>
+          <li class="es-paso active" data-paso="1"><span class="es-num">1</span><span class="es-nom">Proyecto</span></li>
+          <li class="es-paso" data-paso="2"><span class="es-num">2</span><span class="es-nom">Equipo</span></li>
+          <li class="es-paso" data-paso="3"><span class="es-num">3</span><span class="es-nom">Requisitos</span></li>
+          <li class="es-paso" data-paso="4"><span class="es-num">4</span><span class="es-nom">Resultados</span></li>
+      </ol>
+    </div>
+
+    <div class="es-cuerpo">
+
+      <!-- Cada respuesta tiene data-p="scrum:90,kanban:80,xp:90,cascada:10": cuánto "encaja" esa respuesta
+           con cada metodología (de 0 a 100). Al final se promedian todas las respuestas elegidas. -->
+
+      <!-- ===== PASO 1: PROYECTO ===== -->
+      <div class="es-paso-contenido visible" id="es-paso-1">
+        <div class="es-pregunta" role="radiogroup" aria-labelledby="q1-t">
+          <div class="es-pregunta-cab">
+            <div class="es-circulo"><img src="imagenes/codigo.png" alt=""></div>
+            <h4 id="q1-t">¿Cómo es el alcance de tu proyecto?</h4>
+          </div>
+          <div class="es-opciones">
+              <label class="es-opcion"><input type="radio" name="q1" data-p="scrum:90,kanban:80,xp:90,cascada:10"><span>Puede cambiar y evolucionar.</span></label>
+              <label class="es-opcion"><input type="radio" name="q1" data-p="scrum:70,kanban:70,xp:60,cascada:50"><span>Está definido, pero puede tener ajustes menores.</span></label>
+              <label class="es-opcion"><input type="radio" name="q1" data-p="scrum:20,kanban:30,xp:20,cascada:95"><span>Está completamente definido y no se espera que cambie.</span></label>
+          </div>
+        </div>
+
+        <div class="es-pregunta" role="radiogroup" aria-labelledby="q2-t">
+          <div class="es-pregunta-cab">
+            <div class="es-circulo"><img src="imagenes/codigo.png" alt=""></div>
+            <h4 id="q2-t">¿Cada cuánto necesitás entregar resultados al cliente?</h4>
+          </div>
+          <div class="es-opciones">
+              <label class="es-opcion"><input type="radio" name="q2" data-p="scrum:90,kanban:80,xp:95,cascada:10"><span>Entregas frecuentes y cortas.</span></label>
+              <label class="es-opcion"><input type="radio" name="q2" data-p="scrum:60,kanban:95,xp:70,cascada:5"><span>De forma continua, apenas cada tarea esté lista.</span></label>
+              <label class="es-opcion"><input type="radio" name="q2" data-p="scrum:15,kanban:20,xp:15,cascada:95"><span>Una única entrega al final del proyecto.</span></label>
+          </div>
+        </div>
+
+        <div class="es-pregunta" role="radiogroup" aria-labelledby="q3-t">
+          <div class="es-pregunta-cab">
+            <div class="es-circulo"><img src="imagenes/codigo.png" alt=""></div>
+            <h4 id="q3-t">¿Qué tan grande y complejo es el proyecto?</h4>
+          </div>
+          <div class="es-opciones">
+              <label class="es-opcion"><input type="radio" name="q3" data-p="scrum:85,kanban:75,xp:90,cascada:25"><span>Chico o mediano, con alta incertidumbre.</span></label>
+              <label class="es-opcion"><input type="radio" name="q3" data-p="scrum:75,kanban:70,xp:65,cascada:55"><span>Mediano, con partes bien conocidas.</span></label>
+              <label class="es-opcion"><input type="radio" name="q3" data-p="scrum:55,kanban:50,xp:35,cascada:90"><span>Grande, con etapas claramente separadas.</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PASO 2: EQUIPO ===== -->
+      <div class="es-paso-contenido" id="es-paso-2">
+        <div class="es-pregunta" role="radiogroup" aria-labelledby="q4-t">
+          <div class="es-pregunta-cab">
+            <div class="es-circulo"><img src="imagenes-herramientas-calidad/grupo.png" alt=""></div>
+            <h4 id="q4-t">¿Cómo está organizado tu equipo?</h4>
+          </div>
+          <div class="es-opciones">
+              <label class="es-opcion"><input type="radio" name="q4" data-p="scrum:95,kanban:70,xp:90,cascada:25"><span>Equipo pequeño y multidisciplinario, que se autoorganiza.</span></label>
+              <label class="es-opcion"><input type="radio" name="q4" data-p="scrum:50,kanban:95,xp:65,cascada:20"><span>Equipo flexible, sin roles fijos.</span></label>
+              <label class="es-opcion"><input type="radio" name="q4" data-p="scrum:55,kanban:50,xp:35,cascada:90"><span>Equipos con roles y responsabilidades bien definidos.</span></label>
+          </div>
+        </div>
+
+        <div class="es-pregunta" role="radiogroup" aria-labelledby="q5-t">
+          <div class="es-pregunta-cab">
+            <div class="es-circulo"><img src="imagenes-herramientas-calidad/grupo.png" alt=""></div>
+            <h4 id="q5-t">¿Cómo es la comunicación dentro del equipo?</h4>
+          </div>
+          <div class="es-opciones">
+              <label class="es-opcion"><input type="radio" name="q5" data-p="scrum:90,kanban:75,xp:95,cascada:20"><span>Diaria y cara a cara.</span></label>
+              <label class="es-opcion"><input type="radio" name="q5" data-p="scrum:55,kanban:90,xp:55,cascada:45"><span>Cuando hace falta, según el trabajo.</span></label>
+              <label class="es-opcion"><input type="radio" name="q5" data-p="scrum:30,kanban:40,xp:20,cascada:95"><span>Formal y documentada.</span></label>
+          </div>
+        </div>
+
+        <div class="es-pregunta" role="radiogroup" aria-labelledby="q6-t">
+          <div class="es-pregunta-cab">
+            <div class="es-circulo"><img src="imagenes-herramientas-calidad/grupo.png" alt=""></div>
+            <h4 id="q6-t">¿Qué experiencia tiene el equipo con prácticas técnicas?</h4>
+          </div>
+          <div class="es-opciones">
+              <label class="es-opcion"><input type="radio" name="q6" data-p="scrum:70,kanban:60,xp:95,cascada:30"><span>Alta: pruebas automáticas, programación en parejas e integración continua.</span></label>
+              <label class="es-opcion"><input type="radio" name="q6" data-p="scrum:85,kanban:80,xp:60,cascada:50"><span>Media: conoce algunas prácticas ágiles.</span></label>
+              <label class="es-opcion"><input type="radio" name="q6" data-p="scrum:45,kanban:55,xp:25,cascada:90"><span>Baja: prefiere seguir un proceso paso a paso.</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PASO 3: REQUISITOS ===== -->
+      <div class="es-paso-contenido" id="es-paso-3">
+        <div class="es-pregunta" role="radiogroup" aria-labelledby="q7-t">
+          <div class="es-pregunta-cab">
+            <div class="es-circulo"><img src="imagenes-herramientas-calidad/requisito.png" alt=""></div>
+            <h4 id="q7-t">¿Qué tan estables son los requisitos?</h4>
+          </div>
+          <div class="es-opciones">
+              <label class="es-opcion"><input type="radio" name="q7" data-p="scrum:90,kanban:85,xp:95,cascada:5"><span>Cambian seguido.</span></label>
+              <label class="es-opcion"><input type="radio" name="q7" data-p="scrum:75,kanban:75,xp:65,cascada:40"><span>Cambian de vez en cuando.</span></label>
+              <label class="es-opcion"><input type="radio" name="q7" data-p="scrum:30,kanban:35,xp:25,cascada:95"><span>Casi no cambian.</span></label>
+          </div>
+        </div>
+
+        <div class="es-pregunta" role="radiogroup" aria-labelledby="q8-t">
+          <div class="es-pregunta-cab">
+            <div class="es-circulo"><img src="imagenes-herramientas-calidad/requisito.png" alt=""></div>
+            <h4 id="q8-t">¿Qué tanta participación tiene el cliente?</h4>
+          </div>
+          <div class="es-opciones">
+              <label class="es-opcion"><input type="radio" name="q8" data-p="scrum:90,kanban:70,xp:95,cascada:15"><span>Participa durante todo el proyecto.</span></label>
+              <label class="es-opcion"><input type="radio" name="q8" data-p="scrum:65,kanban:85,xp:50,cascada:55"><span>Participa en momentos puntuales.</span></label>
+              <label class="es-opcion"><input type="radio" name="q8" data-p="scrum:25,kanban:35,xp:20,cascada:95"><span>Participa al inicio y al final.</span></label>
+          </div>
+        </div>
+
+        <div class="es-pregunta" role="radiogroup" aria-labelledby="q9-t">
+          <div class="es-pregunta-cab">
+            <div class="es-circulo"><img src="imagenes-herramientas-calidad/requisito.png" alt=""></div>
+            <h4 id="q9-t">¿Cómo preferís manejar la documentación?</h4>
+          </div>
+          <div class="es-opciones">
+              <label class="es-opcion"><input type="radio" name="q9" data-p="scrum:85,kanban:75,xp:95,cascada:15"><span>La justa y necesaria; priorizo el software funcionando.</span></label>
+              <label class="es-opcion"><input type="radio" name="q9" data-p="scrum:75,kanban:70,xp:55,cascada:55"><span>Un balance entre documentación y código.</span></label>
+              <label class="es-opcion"><input type="radio" name="q9" data-p="scrum:35,kanban:40,xp:20,cascada:95"><span>Documentación completa de cada etapa.</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PASO 4: RESULTADOS ===== -->
+      <div class="es-paso-contenido" id="es-paso-4">
+        <div class="es-resultado">
+          <div class="es-res-izq">
+            <div class="es-res-titulo">
+              <img class="hc-ico-trofeo" src="imagenes-herramientas-calidad/copa.png" alt="">
+              <h3>Resultado de la encuesta</h3>
+            </div>
+            <p class="es-res-label">Metodología recomendada:</p>
+            <span class="es-res-pill" id="esRecomendada">Scrum</span>
+          </div>
+          <div class="es-res-der">
+            <div class="es-res-anillo-wrap">
+              <div class="es-anillo" id="esAnillo" style="--p: 0"><span id="esPorcentaje">0%</span></div>
+              <p class="es-res-label">Coincidencia</p>
+            </div>
+            <div class="es-otras">
+              <h4>Otras opciones</h4>
+              <ul id="esOtras"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="es-aviso" id="esAviso" role="status"></p>
+
+    <div class="es-botones">
+      <button type="button" class="es-btn es-anterior" id="esAnterior" onclick="esAnterior()" disabled>← Anterior</button>
+      <button type="button" class="es-btn es-siguiente" id="esSiguiente" onclick="esSiguiente()">Siguiente →</button>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <a href="index.html" class="footer-logo">
+    <img src="imagenes/logo.png" alt="S4U System4U">
+  </a>
+  <div class="footer-columns">
+    <div class="footer-col">
+      <div class="footer-icon"><img src="imagenes/correo-electronico.png" alt="Email"></div>
+      <span class="footer-label">Contacto</span>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-col">
+      <a class="footer-email" href="mailto:sistemasdegestion@gmail.com">sistemasdegestion@gmail.com</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-icon"><img src="imagenes/anadir-amigo.png" alt="Seguinos"></div>
+      <span class="footer-label">Seguinos</span>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-col social-col">
+      <a class="social-row" href="blank.html">
+        <span class="social-icon"><img src="imagenes/gorjeo.png" alt="X (Twitter)"></span>
+        <span>@SistemasdeGest.</span>
+      </a>
+      <a class="social-row" href="blank.html">
+        <span class="social-icon"><img src="imagenes/instagram.png" alt="Instagram"></span>
+        <span>@SistemasdeGest.</span>
+      </a>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-col">
+      <div class="footer-icon"><img src="imagenes/liza.png" alt="Dejanos una reseña"></div>
+      <span class="footer-label">Dejanos una reseña</span>
+    </div>
+    <div class="footer-col reseña-col">
+      <textarea id="reseñaInput" placeholder="Escribí tu reseña..."></textarea>
+      <button type="button" onclick="enviarReseña()" class="footer-label">Enviar reseña</button>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- Reseña (igual que en las otras páginas) ---------- */
+function enviarReseña() {
+  var texto = document.getElementById('reseñaInput').value.trim();
+  if (texto === '') return;
+  alert('¡Gracias por tu reseña! (Por ahora se muestra en pantalla, no se guarda)');
+  document.getElementById('reseñaInput').value = '';
+}
+
+/* =====================================================================
+   COMPARADOR: muestra solo las columnas de las metodologías tildadas
+   ===================================================================== */
+var HC_METODOLOGIAS = ['scrum', 'kanban', 'xp', 'cascada'];
+
+function hcComparar() {
+  var elegidas = [];
+  document.querySelectorAll('.hc-check input').forEach(function (c) {
+    if (c.checked) elegidas.push(c.value);
+  });
+
+  var aviso = document.getElementById('hcAviso');
+  if (elegidas.length < 2) {
+    aviso.textContent = 'Seleccioná al menos dos metodologías para comparar.';
+    aviso.style.display = 'block';
+    return;                                   // la tabla se queda como estaba
+  }
+  aviso.style.display = 'none';
+
+  // se muestran solo las columnas elegidas (siempre en el orden de la tabla)
+  document.querySelectorAll('#hcTabla [data-col]').forEach(function (celda) {
+    celda.style.display = elegidas.indexOf(celda.getAttribute('data-col')) !== -1 ? '' : 'none';
+  });
+  document.getElementById('hcTabla').setAttribute('data-cantidad', elegidas.length);
+}
+
+/* =====================================================================
+   ENCUESTA: 4 pasos (Proyecto, Equipo, Requisitos, Resultados)
+   ===================================================================== */
+var ES_NOMBRES = { scrum: 'Scrum', kanban: 'Kanban', xp: 'XP', cascada: 'Cascada' };
+var esPaso = 1;
+var ES_TOTAL_PASOS = 4;
+
+function esAviso(texto) {
+  var a = document.getElementById('esAviso');
+  a.textContent = texto || '';
+  a.style.display = texto ? 'block' : 'none';
+}
+
+// muestra el paso actual, marca el avance y ajusta los botones
+function esMostrar(paso) {
+  esPaso = paso;
+  for (var i = 1; i <= ES_TOTAL_PASOS; i++) {
+    document.getElementById('es-paso-' + i).classList.toggle('visible', i === paso);
+  }
+  document.querySelectorAll('.es-paso').forEach(function (li) {
+    var n = parseInt(li.getAttribute('data-paso'), 10);
+    li.classList.toggle('active', n === paso);
+    li.classList.toggle('done', n < paso);
+    if (n === paso) li.setAttribute('aria-current', 'step'); else li.removeAttribute('aria-current');
+  });
+  document.getElementById('esAnterior').disabled = (paso === 1);
+  document.getElementById('esSiguiente').textContent = (paso === ES_TOTAL_PASOS) ? 'Volver a empezar' : 'Siguiente →';
+  esAviso('');
+  var card = document.getElementById('encuesta');
+  if (card.getBoundingClientRect().top < 0) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ¿todas las preguntas del paso tienen una respuesta tildada?
+function esPasoCompleto(paso) {
+  var preguntas = document.querySelectorAll('#es-paso-' + paso + ' .es-pregunta');
+  for (var i = 0; i < preguntas.length; i++) {
+    if (!preguntas[i].querySelector('input:checked')) return false;
+  }
+  return true;
+}
+
+// "scrum:90,kanban:80,..."  ->  { scrum: 90, kanban: 80, ... }
+function esLeerPuntos(texto) {
+  var puntos = {};
+  texto.split(',').forEach(function (par) {
+    var p = par.split(':');
+    puntos[p[0].trim()] = parseFloat(p[1]);
+  });
+  return puntos;
+}
+
+// Promedia, por metodología, la afinidad de todas las respuestas elegidas
+function esCalcular() {
+  var respuestas = document.querySelectorAll('.es-pregunta input:checked');
+  var suma = {};
+  HC_METODOLOGIAS.forEach(function (m) { suma[m] = 0; });
+  respuestas.forEach(function (r) {
+    var pts = esLeerPuntos(r.getAttribute('data-p'));
+    HC_METODOLOGIAS.forEach(function (m) { suma[m] += (pts[m] || 0); });
+  });
+  var lista = HC_METODOLOGIAS.map(function (m) {
+    return { id: m, nombre: ES_NOMBRES[m], pct: Math.round(suma[m] / respuestas.length) };
+  });
+  lista.sort(function (a, b) { return b.pct - a.pct; });   // la de mayor porcentaje primero
+  return lista;
+}
+
+function esMostrarResultado() {
+  var lista = esCalcular();
+  var mejor = lista[0];
+  document.getElementById('esRecomendada').textContent = mejor.nombre;
+  document.getElementById('esPorcentaje').textContent = mejor.pct + '%';
+  document.getElementById('esAnillo').style.setProperty('--p', mejor.pct);
+  var ul = document.getElementById('esOtras');
+  ul.innerHTML = '';
+  lista.slice(1).forEach(function (m) {
+    var li = document.createElement('li');
+    li.textContent = m.nombre + ' ' + m.pct + '%';
+    ul.appendChild(li);
+  });
+}
+
+function esSiguiente() {
+  if (esPaso === ES_TOTAL_PASOS) {            // "Volver a empezar"
+    document.querySelectorAll('.es-pregunta input').forEach(function (i) { i.checked = false; });
+    esMostrar(1);
+    return;
+  }
+  if (!esPasoCompleto(esPaso)) {
+    esAviso('Respondé todas las preguntas para continuar.');
+    return;
+  }
+  if (esPaso === ES_TOTAL_PASOS - 1) esMostrarResultado();   // al pasar a "Resultados" se calcula todo
+  esMostrar(esPaso + 1);
+}
+
+function esAnterior() {
+  if (esPaso > 1) esMostrar(esPaso - 1);
+}
+</script>
+
+</body>
+</html>

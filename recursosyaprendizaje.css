@@ -1,0 +1,415 @@
+/* ===================== GLOSARIO =====================
+   Usa los colores de styles.css (--page-bg, --border, --button-bg, etc.)
+
+   TAMAÑOS DE LAS IMÁGENES (cambiá solo estos números si querés agrandar o achicar):
+   ===================================================================== */
+:root {
+  --gl-ico-cab:     84px;   /* libro con lupa de "Glosario"            */
+  --gl-ico-lupa:    28px;   /* lupa del buscador                       */
+  --gl-ico-x:       20px;   /* X para borrar la búsqueda               */
+  --gl-ico-fila:    48px;   /* ícono de cada término de la lista       */
+  --gl-ico-flecha:  16px;   /* flechita ">" de cada término            */
+  --gl-ico-detalle: 46px;   /* ícono del término en el panel derecho   */
+  --gl-ico-excl:    32px;   /* círculo con "!" de Características      */
+  --gl-ico-foco:    38px;   /* foquito de Ejemplo de uso               */
+}
+
+.nav-item > a.active { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Los menús desplegables del header (ocultos) se salen por la derecha y hacían
+   que la página se deslice de costado en celular. Esto lo evita. */
+body { overflow-x: clip; }
+
+/* ===================== BANNER (solo la imagen; el texto ya está dentro de la imagen) ===================== */
+.gl-banner {
+  background: var(--page-bg);
+  line-height: 0;                 /* sin hueco debajo de la imagen */
+}
+
+.gl-banner img {
+  display: block;
+  width: 100%;                    /* ocupa todo el ancho */
+  height: auto;                   /* se ve completa, sin recortarse */
+}
+
+/* ===================== MARCO DEL GLOSARIO ===================== */
+.gl-section {
+  background: var(--page-bg);
+  padding: 50px 4vw 70px;
+}
+
+.gl-marco {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 22px 26px 26px;
+  background: var(--card-bg);
+  border: 2px solid #10151c;
+  border-radius: 28px;
+}
+
+.gl-cabecera {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.gl-ico-cab {
+  width: var(--gl-ico-cab);
+  height: var(--gl-ico-cab);
+  margin-right: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.gl-cabecera h2 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 28px;
+  color: var(--text-icon);
+}
+
+.gl-cabecera p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ===================== CUERPO: lista a la izquierda, detalle a la derecha ===================== */
+.gl-cuerpo {
+  display: flex;
+  align-items: stretch;
+  padding: 22px;
+  background: var(--page-bg);
+  border: 1.5px solid var(--footer-navbar);
+  border-radius: 28px;
+}
+
+.gl-izq {
+  flex: 1 1 55%;
+  min-width: 0;
+  margin-right: 22px;
+}
+
+.gl-der {
+  flex: 0 0 40%;
+  min-width: 0;
+  display: flex;
+}
+
+/* ---------- Buscador ---------- */
+.gl-buscador {
+  display: flex;
+  align-items: center;
+  max-width: 540px;
+  height: 54px;
+  padding: 0 20px;
+  background: var(--border);
+  border-radius: 30px;
+}
+
+.gl-ico-lupa {
+  width: var(--gl-ico-lupa);
+  height: var(--gl-ico-lupa);
+  margin-right: 14px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.gl-buscador input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.gl-buscador input::placeholder { color: #fff; opacity: .9; }
+
+.gl-limpiar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.gl-ico-x {
+  width: var(--gl-ico-x);
+  height: var(--gl-ico-x);
+  object-fit: contain;
+}
+
+/* ---------- Teclado de letras ---------- */
+.gl-teclado {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 570px;
+  margin: 18px 0 22px;
+}
+
+.gl-letra {
+  width: 52px;
+  height: 40px;
+  margin: 0 8px 10px 0;
+  padding: 0;
+  background: var(--card-bg);
+  color: var(--text-icon);
+  border: none;
+  border-radius: 50%;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(20, 64, 104, .25);
+}
+
+.gl-letra:hover { background: var(--button-bg); }
+
+.gl-letra.active {
+  background: var(--border);
+  color: #fff;
+  font-weight: 700;
+}
+
+/* ---------- Lista de términos (la barrita de scroll queda a la izquierda, como en el diseño) ---------- */
+.gl-lista {
+  max-height: 540px;
+  overflow-y: auto;
+  direction: rtl;
+  padding-left: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.gl-lista::-webkit-scrollbar { width: 10px; }
+.gl-lista::-webkit-scrollbar-track { background: transparent; }
+.gl-lista::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+
+.gl-lista > * { direction: ltr; }
+
+.gl-grupo {
+  margin-bottom: 26px;
+  padding-bottom: 14px;
+  background: var(--border);
+  border: 1.5px solid #10151c;
+  border-radius: 20px;
+}
+
+.gl-grupo-cab {
+  margin-bottom: 14px;
+  padding: 10px 26px;
+  background: var(--button-bg);
+  border: 1.5px solid #10151c;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.gl-fila {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 28px);
+  min-height: 68px;
+  margin: 0 14px 10px;
+  padding: 8px 14px;
+  background: var(--card-bg);
+  border: 1.5px solid #10151c;
+  border-radius: 6px;
+  text-align: center;
+  font-family: var(--font-body);
+  color: var(--text-icon);
+  cursor: pointer;
+}
+
+.gl-fila:hover { background: #f1f6fb; }
+
+.gl-fila.seleccionada {
+  background: var(--button-bg);
+  box-shadow: 0 0 0 3px var(--footer-navbar);
+}
+
+.gl-ico-fila {
+  width: var(--gl-ico-fila);
+  height: var(--gl-ico-fila);
+  margin-right: 14px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.gl-nombre {
+  flex: 0 0 105px;
+  margin-right: 14px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.gl-def {
+  flex: 1;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.gl-ico-flecha {
+  width: var(--gl-ico-flecha);
+  height: var(--gl-ico-flecha);
+  margin-left: 12px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.gl-sin-resultados {
+  display: none;
+  margin: 10px 0;
+  padding: 30px 20px;
+  background: var(--button-bg);
+  border: 1.5px solid #10151c;
+  border-radius: 18px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* ---------- Panel de detalle (derecha) ---------- */
+.gl-der-ext {
+  flex: 1;
+  min-width: 0;
+  padding: 16px;
+  background: var(--border);
+  border-radius: 44px;
+}
+
+.gl-der-int {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 22px 20px;
+  background: var(--card-bg);
+  border-radius: 32px;
+}
+
+.gl-volver {
+  align-self: flex-start;
+  margin-bottom: 18px;
+  padding: 8px 18px;
+  background: var(--button-bg);
+  color: var(--text-icon);
+  border: 1.5px solid #10151c;
+  border-radius: 20px;
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.gl-inicio {
+  display: none;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: var(--button-bg);
+  border: 1.5px solid #10151c;
+  border-radius: 22px;
+  text-align: center;
+}
+
+.gl-inicio.visible { display: flex; }
+
+.gl-inicio p {
+  margin: 0;
+  max-width: 260px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.gl-info {
+  display: none;
+  flex: 1;
+  flex-direction: column;
+}
+
+.gl-info.visible { display: flex; }
+
+.gl-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 150px;
+  margin-bottom: 16px;
+  padding: 14px 18px 12px;
+  background: var(--button-bg);
+  border: 1.5px solid #10151c;
+  border-radius: 22px;
+}
+
+.gl-card:last-child { margin-bottom: 0; }
+
+.gl-card-cab {
+  display: flex;
+  align-items: center;
+}
+
+.gl-card-cab span {
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+.gl-ico-detalle,
+.gl-ico-excl,
+.gl-ico-foco {
+  margin-right: 12px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.gl-ico-detalle { width: var(--gl-ico-detalle); height: var(--gl-ico-detalle); }
+.gl-ico-excl    { width: var(--gl-ico-excl);    height: var(--gl-ico-excl); }
+.gl-ico-foco    { width: var(--gl-ico-foco);    height: var(--gl-ico-foco); }
+
+/* El texto que escribas acá se acomoda y la tarjeta crece hacia abajo.
+   (20px es el tamaño de los títulos del diseño; para párrafos largos conviene bajarlo a 15px.) */
+.gl-card-texto {
+  margin: auto 0;
+  padding: 12px 0;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+/* ===================== PANTALLAS MEDIANAS Y CELULAR ===================== */
+@media (max-width: 960px) {
+  .gl-cuerpo { flex-direction: column; }
+  .gl-izq { margin-right: 0; }
+  .gl-der { display: none; flex-basis: auto; }
+
+  /* en celular, al tocar un término el detalle reemplaza a la lista */
+  .gl-cuerpo.con-detalle .gl-izq { display: none; }
+  .gl-cuerpo.con-detalle .gl-der { display: flex; }
+}
+
+@media (max-width: 600px) {
+  .gl-marco { padding: 16px 14px 18px; }
+  .gl-cuerpo { padding: 14px; }
+  .gl-ico-cab { --gl-ico-cab: 60px; }
+  .gl-letra { width: 44px; height: 36px; margin-right: 6px; }
+
+  /* cada término: ícono + nombre + flecha arriba, y la definición abajo con todo el ancho */
+  .gl-lista { padding-left: 12px; }
+  .gl-fila { flex-wrap: wrap; width: calc(100% - 20px); margin: 0 10px 10px; text-align: left; }
+  .gl-nombre { flex: 1; margin-right: 0; font-size: 14px; }
+  .gl-ico-flecha { order: 2; }
+  .gl-def { order: 3; flex: 1 1 100%; margin-top: 8px; }
+}
