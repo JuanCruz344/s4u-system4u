@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metodologías en detalle | S4U System4U</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="metodologias-detalle.css">
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <img src="imagenes/logo.png" alt="Logo de S4U System4U">
+    </a>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-pill">Inicio</a>
+      <div class="nav-item">
+        <a href="calidad-software.html">Calidad de Software <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="blank.html">Principios de calidad</a></li>
+          <li><a href="blank.html">Buenas prácticas</a></li>
+          <li><a href="blank.html">Herramientas</a></li>
+        </ul>
+      </div>
+      <div class="nav-item">
+        <a href="procesos-desarrollo.html">Procesos de desarrollo <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="blank.html">Enfoques tradicionales</a></li>
+          <li><a href="blank.html">Enfoques ágiles</a></li>
+        </ul>
+      </div>
+      <div class="nav-item">
+        <a href="metodologias-detalle.html" class="active">Metodologías <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="#scrum">Scrum</a></li>
+          <li><a href="#kanban">Kanban</a></li>
+          <li><a href="blank.html">XP</a></li>
+        </ul>
+      </div>
+      <div class="nav-item">
+        <a href="recursosyaprendizaje.html">Recursos y Aprendizaje <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="recursosyaprendizaje.html">Glosario</a></li>
+          <li><a href="blank.html">Preguntas frecuentes</a></li>
+          <li><a href="blank.html">Enlaces de interés</a></li>
+          <li><a href="blank.html">Ejercicios y casos prácticos</a></li>
+        </ul>
+      </div>
+      <div class="nav-item">
+        <a href="blank.html">Contacto <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="blank.html">Sobre el sitio</a></li>
+          <li><a href="blank.html">Escribinos</a></li>
+        </ul>
+      </div>
+      <div class="nav-item">
+        <a href="herramientas-calidad.html">Herramientas de calidad <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="blank.html">Comparador</a></li>
+          <li><a href="blank.html">Checklist</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== BANNER ===================== -->
+<section class="md-banner">
+  <img src="imagenes-metodologias-detalle/MetodologiasEnDetalle.png" alt="Banner de la sección 4, Metodologías en detalle: explorá cómo funcionan las metodologías ágiles Scrum, Kanban y XP">
+</section>
+
+<!-- ===================== SCRUM EN DETALLE ===================== -->
+<section class="md-section" id="scrum">
+
+  <div class="md-intro">
+    <h2><span class="md-azul">Scrum</span><br><span class="md-subrayado">en detalle</span></h2>
+    <p>Conocé en profundidad los roles, eventos y artefactos de Scrum, y descubrí cómo se organiza un Sprint a través de un cronograma interactivo.</p>
+    <img class="md-ico-intro" src="imagenes-metodologias-detalle/ScrumEnDetalle (1).png" alt="Ícono del ciclo de Scrum con un grupo de personas en el centro">
+  </div>
+
+  <div class="md-panel">
+
+    <div class="md-tabs" role="tablist">
+      <button type="button" class="md-tab active" role="tab" aria-selected="true" onclick="mdTab('roles', this)"><img class="md-ico-tab" src="imagenes-metodologias-detalle/grupo.png" alt="Ícono de un grupo de personas, que representa los roles">Roles</button>
+      <button type="button" class="md-tab" role="tab" aria-selected="false" onclick="mdTab('eventos', this)"><img class="md-ico-tab" src="imagenes-metodologias-detalle/calendario.png" alt="Ícono de un calendario, que representa los eventos y ceremonias">Eventos/Ceremonias</button>
+      <button type="button" class="md-tab" role="tab" aria-selected="false" onclick="mdTab('artefactos', this)"><img class="md-ico-tab" src="imagenes-metodologias-detalle/IncrementoProducto.png" alt="Ícono de una caja, que representa los artefactos">Artefactos</button>
+    </div>
+
+    <div class="md-contenido">
+
+      <!-- ===== ROLES ===== -->
+      <div class="md-vista visible" id="sc-roles">
+        <h3 class="md-vista-titulo">Roles en Scrum</h3>
+        <p class="md-vista-sub">Cada rol tiene responsabilidades específicas para lograr un equipo ágil y un producto de valor.</p>
+        <div class="md-rol">
+          <div class="md-rol-cab">
+            <div class="md-avatar"><img src="imagenes-metodologias-detalle/ProductOwner.png" alt="Ilustración del Product Owner: un hombre con traje y corbata"></div>
+            <h4>Product Owner</h4>
+          </div>
+          <p class="md-rol-texto">Es responsable de maximizar el valor del producto. Gestiona la Lista de Producto (Product Backlog): la ordena, la mantiene clara y visible para todos, y define las prioridades según las necesidades del negocio y de los usuarios. Es una sola persona y representa a los interesados del proyecto.</p>
+        </div>
+        <div class="md-rol">
+          <div class="md-rol-cab">
+            <div class="md-avatar"><img src="imagenes-metodologias-detalle/Scrummaster.png" alt="Ilustración de la Scrum Master: una mujer con camisa amarilla"></div>
+            <h4>Scrum Master</h4>
+          </div>
+          <p class="md-rol-texto">Es responsable de que Scrum se entienda y se aplique bien. Actúa como líder al servicio del equipo: facilita los eventos, elimina los obstáculos que frenan el avance y ayuda a todos a mejorar su forma de trabajar, sin dar órdenes ni asignar tareas.</p>
+        </div>
+        <div class="md-rol">
+          <div class="md-rol-cab">
+            <div class="md-avatar"><img src="imagenes-metodologias-detalle/equipodeDesarrollopng.png" alt="Ilustración del equipo de desarrollo: tres personas trabajando juntas"></div>
+            <h4>Equipo de desarrollo</h4>
+          </div>
+          <p class="md-rol-texto">Son las personas que crean el incremento utilizable en cada Sprint. Es un equipo pequeño, multidisciplinario y autogestionado: decide cómo convertir los ítems del Sprint en trabajo terminado, se compromete con el Objetivo del Sprint y comparte la responsabilidad por la calidad del producto.</p>
+        </div>
+      </div>
+
+      <!-- ===== EVENTOS / CEREMONIAS: cronograma interactivo del Sprint ===== -->
+      <div class="md-vista md-vista-cron" id="sc-eventos">
+        <div class="md-cron-cab">
+          <div>
+            <h3>Cronograma interactivo del Sprint</h3>
+            <p>Hacé clic en cada evento para conocer su duración y objetivo.</p>
+          </div>
+          <div class="md-dur-grupo">
+            <span>Duración del Sprint:</span>
+            <div><button type="button" class="md-dur active" data-n="1" onclick="mdSemana(1, this)" aria-pressed="true">1 Sem.</button><button type="button" class="md-dur" data-n="2" onclick="mdSemana(2, this)" aria-pressed="false">2 Sem.</button><button type="button" class="md-dur" data-n="3" onclick="mdSemana(3, this)" aria-pressed="false">3 Sem.</button><button type="button" class="md-dur" data-n="4" onclick="mdSemana(4, this)" aria-pressed="false">4 Sem.</button></div>
+          </div>
+        </div>
+
+        <div class="md-linea">
+          <div class="md-linea-fila">
+            <div class="md-extremo">
+              <span class="md-extremo-label">Inicio</span>
+              <span class="md-extremo-tick"></span>
+              <span class="md-dotbox"><span class="md-dot md-dot-grande"></span></span>
+            </div>
+            <span class="md-dotbox"><span class="md-dot md-dot-claro"></span></span>
+            <button type="button" class="md-nodo" id="nodo-planificacion" onclick="mdEvento('planificacion')" aria-pressed="false">
+              <span class="md-nodo-label">Planificación del Sprint<br>(día 1)</span>
+              <span class="md-nodo-ico"><img src="imagenes-metodologias-detalle/calendario.png" alt="Ícono de un calendario con tareas, que representa la planificación del Sprint"></span>
+              <span class="md-dotbox"><span class="md-dot md-dot-navy"></span></span>
+            </button>
+            <span class="md-dotbox"><span class="md-dot md-dot-claro"></span></span>
+            <button type="button" class="md-nodo" id="nodo-diaria" onclick="mdEvento('diaria')" aria-pressed="false">
+              <span class="md-nodo-label">Reunión Diaria<br>(Todos los días)</span>
+              <span class="md-nodo-ico"><img src="imagenes-metodologias-detalle/RespuestaAlCambio.png" alt="Ícono de flechas circulares, que representa la reunión diaria"></span>
+              <span class="md-dotbox"><span class="md-dot md-dot-navy"></span></span>
+            </button>
+            <span class="md-dotbox"><span class="md-dot md-dot-claro"></span></span>
+            <button type="button" class="md-nodo" id="nodo-revision" onclick="mdEvento('revision')" aria-pressed="false">
+              <span class="md-nodo-label">Revisión del Sprint<br>(Último día)</span>
+              <span class="md-nodo-ico"><img src="imagenes-metodologias-detalle/Inspeccion.png" alt="Ícono de un gráfico de barras, que representa la revisión del Sprint"></span>
+              <span class="md-dotbox"><span class="md-dot md-dot-navy"></span></span>
+            </button>
+            <span class="md-dotbox"><span class="md-dot md-dot-claro"></span></span>
+            <button type="button" class="md-nodo" id="nodo-retrospectiva" onclick="mdEvento('retrospectiva')" aria-pressed="false">
+              <span class="md-nodo-label">Retrospectiva del Sprint<br>(Luego de la revisión)</span>
+              <span class="md-nodo-ico"><img src="imagenes-metodologias-detalle/grupo.png" alt="Ícono de un grupo de personas, que representa la retrospectiva del Sprint"></span>
+              <span class="md-dotbox"><span class="md-dot md-dot-navy"></span></span>
+            </button>
+            <span class="md-dotbox"><span class="md-dot md-dot-claro"></span></span>
+            <div class="md-extremo">
+              <span class="md-extremo-label">Fin</span>
+              <span class="md-extremo-tick"></span>
+              <span class="md-dotbox"><span class="md-dot md-dot-grande"></span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- las semanas y sus tarjetas se dibujan solas según la duración elegida -->
+        <div id="mdSemanas"></div>
+      </div>
+
+      <!-- ===== ARTEFACTOS ===== -->
+      <div class="md-vista" id="sc-artefactos">
+        <div class="md-art-fila">
+        <div class="md-art-col">
+          <div class="md-art-card">
+            <div class="md-art-cab">
+              <div class="md-circulo-art"><img src="imagenes-metodologias-detalle/backlog.png" alt="Ícono de un documento con texto, que representa la Lista de Producto"></div>
+              <div>
+                <h4>Lista de <br>Producto</h4>
+                <p>Lista priorizada de requisitos del producto.</p>
+              </div>
+            </div>
+            <ul class="md-art-lista">
+              <li><img class="md-ico-check" src="imagenes-metodologias-detalle/comprobado.png" alt="Ícono de tilde azul dentro de un círculo"><span>Contiene todas las funcionalidades deseadas.</span></li>
+              <li><img class="md-ico-check" src="imagenes-metodologias-detalle/comprobado.png" alt="Ícono de tilde azul dentro de un círculo"><span>Es dinámica y se actualiza constantemente.</span></li>
+              <li><img class="md-ico-check" src="imagenes-metodologias-detalle/comprobado.png" alt="Ícono de tilde azul dentro de un círculo"><span>La prioriza el Product Owner.</span></li>
+              <li><img class="md-ico-check" src="imagenes-metodologias-detalle/comprobado.png" alt="Ícono de tilde azul dentro de un círculo"><span>Orienta el trabajo del equipo.</span></li>
+            </ul>
+            <button type="button" class="md-vermas" id="art-btn-lista-producto" onclick="mdArtefacto('lista-producto')" aria-expanded="false">Ver más →</button>
+          </div>
+
+          <div class="md-art-detalle" id="art-detalle-lista-producto">
+            <div class="md-art-flecha"></div>
+            <div class="md-art-det-card">
+              <div class="md-art-cab">
+                <div class="md-circulo-art"><img src="imagenes-metodologias-detalle/listaSPrintt.png" alt="Ícono de una lista de tareas con casillas, que representa la Lista del Sprint"></div>
+                <div>
+                  <h4>Lista de <br>Producto</h4>
+                  <p>Lista priorizada de requisitos del producto.</p>
+                </div>
+              </div>
+              <div class="md-art-caja">
+                <p>Es la lista ordenada de todo lo que hace falta para mejorar el producto: funcionalidades, mejoras, correcciones y requisitos. Es la única fuente de trabajo del equipo. El Product Owner la gestiona y la mantiene visible, y se va refinando a medida que se aprende más sobre el producto y sus usuarios. Se asocia al Objetivo del Producto, que es su compromiso.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="md-art-col">
+          <div class="md-art-card">
+            <div class="md-art-cab">
+              <div class="md-circulo-art"><img src="imagenes-metodologias-detalle/listaSPrintt.png" alt="Ícono de una lista de tareas con casillas, que representa la Lista del Sprint"></div>
+              <div>
+                <h4>Lista de Sprint</h4>
+                <p>Tareas seleccionadas del Product Backlog para el Sprint.</p>
+              </div>
+            </div>
+            <ul class="md-art-lista">
+              <li><img class="md-ico-check" src="imagenes-metodologias-detalle/comprobado.png" alt="Ícono de tilde azul dentro de un círculo"><span>Contiene los ítems comprometidos para el Sprint.</span></li>
+              <li><img class="md-ico-check" src="imagenes-metodologias-detalle/comprobado.png" alt="Ícono de tilde azul dentro de un círculo"><span>Se descompone en tareas específicas.</span></li>
+              <li><img class="md-ico-check" src="imagenes-metodologias-detalle/comprobado.png" alt="Ícono de tilde azul dentro de un círculo"><span>Es gestionada por el equipo de desarrollo.</span></li>
+              <li><img class="md-ico-check" src="imagenes-metodologias-detalle/comprobado.png" alt="Ícono de tilde azul dentro de un círculo"><span>Permite dar seguimiento diario al progreso.</span></li>
+            </ul>
+            <button type="button" class="md-vermas" id="art-btn-lista-sprint" onclick="mdArtefacto('lista-sprint')" aria-expanded="false">Ver más →</button>
+          </div>
+
+          <div class="md-art-detalle" id="art-detalle-lista-sprint">
+            <div class="md-art-flecha"></div>
+            <div class="md-art-det-card">
+              <div class="md-art-cab">
+                <div class="md-circulo-art"><img src="imagenes-metodologias-detalle/listaSPrintt.png" alt="Ícono de una lista de tareas con casillas, que representa la Lista del Sprint"></div>
+                <div>
+                  <h4>Lista de Sprint</h4>
+                  <p>Tareas seleccionadas del Product Backlog para el Sprint.</p>
+                </div>
+              </div>
+              <div class="md-art-caja">
+                <p>Está formada por el Objetivo del Sprint, los ítems de la Lista de Producto elegidos para ese Sprint y el plan para entregarlos. Es un plan hecho por y para el equipo de desarrollo, que lo actualiza todos los días a medida que aprende. Hace visible el trabajo y permite ver cuánto se avanzó durante el Sprint.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="md-art-col">
+          <div class="md-art-card">
+            <div class="md-art-cab">
+              <div class="md-circulo-art"><img src="imagenes-metodologias-detalle/IncrementoProducto.png" alt="Ícono de una caja de producto, que representa el Incremento"></div>
+              <div>
+                <h4>Incremento <br>del producto</h4>
+                <p>Producto potencialmente entregable al final del Sprint.</p>
+              </div>
+            </div>
+            <ul class="md-art-lista">
+              <li><img class="md-ico-check" src="imagenes-metodologias-detalle/comprobado.png" alt="Ícono de tilde azul dentro de un círculo"><span>Resultado del trabajo del equipo.</span></li>
+              <li><img class="md-ico-check" src="imagenes-metodologias-detalle/comprobado.png" alt="Ícono de tilde azul dentro de un círculo"><span>Cumple con la Definición de Hecho (DoD).</span></li>
+              <li><img class="md-ico-check" src="imagenes-metodologias-detalle/comprobado.png" alt="Ícono de tilde azul dentro de un círculo"><span>Es una versión funcional del producto.</span></li>
+              <li><img class="md-ico-check" src="imagenes-metodologias-detalle/comprobado.png" alt="Ícono de tilde azul dentro de un círculo"><span>Puede ser entregado al cliente.</span></li>
+            </ul>
+            <button type="button" class="md-vermas" id="art-btn-incremento" onclick="mdArtefacto('incremento')" aria-expanded="false">Ver más →</button>
+          </div>
+
+          <div class="md-art-detalle" id="art-detalle-incremento">
+            <div class="md-art-flecha"></div>
+            <div class="md-art-det-card">
+              <div class="md-art-cab">
+                <div class="md-circulo-art"><img src="imagenes-metodologias-detalle/IncrementoProducto.png" alt="Ícono de una caja de producto, que representa el Incremento"></div>
+                <div>
+                  <h4>Incremento <br>del producto</h4>
+                  <p>Producto potencialmente entregable al final del Sprint.</p>
+                </div>
+              </div>
+              <div class="md-art-caja">
+                <p>Es un paso concreto hacia el Objetivo del Producto: la suma de todos los ítems terminados en el Sprint y en los Sprints anteriores. Para formar parte del incremento, el trabajo debe cumplir la Definición de Hecho (DoD). Tiene que estar en condiciones de usarse, aunque el Product Owner decida entregarlo o no.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== KANBAN EN DETALLE ===================== -->
+<section class="md-section md-section-kanban" id="kanban">
+
+  <div class="md-intro">
+    <h2><span class="md-azul">Kanban</span><br><span class="md-subrayado">en detalle</span></h2>
+    <p>Explorá Kanban como una herramienta de gestión de procesos, mové las tareas entre columnas y descubrí cómo funciona el límite de trabajo en progreso (WIP).</p>
+    <img class="md-ico-intro kb-ico-intro" src="imagenes-metodologias-detalle/Kanbann.png" alt="Ilustración de un tablero Kanban con tres columnas y tarjetas de colores">
+  </div>
+
+  <div class="kb-card">
+
+    <div class="kb-cab">
+      <h3>Tablero Kanban interactivo</h3>
+      <p>Mové las tareas entre columnas y respetá el límite de trabajo en progreso (WIP) de “En Proceso”.</p>
+    </div>
+
+    <div class="kb-cuerpo">
+
+      <div class="kb-barra">
+        <p class="kb-ayuda">Arrastrá las tareas de una columna a otra, o usá el botón de tres puntos de cada tarea para pasarla a la siguiente.</p>
+        <button type="button" class="kb-reiniciar" onclick="kbReiniciar()"><img class="kb-ico-reiniciar" src="imagenes-metodologias-detalle/RespuestaAlCambio.png" alt="Ícono de flechas circulares para reiniciar el tablero">Reiniciar tablero</button>
+      </div>
+
+      <p class="kb-mensaje" id="kbMensaje" role="status"></p>
+
+      <div class="kb-tablero">
+          <div class="kb-col kb-col-todo" data-col="todo">
+            <h4 class="kb-col-cab" id="kb-titulo-todo">Por Hacer (4 tareas)</h4>
+            <div class="kb-col-cuerpo">
+              <button type="button" class="kb-nueva" id="kbNueva" onclick="kbNuevaToggle()" aria-expanded="false">+ Nueva tarea</button>
+              <div class="kb-nueva-form" id="kbNuevaForm">
+                <input type="text" id="kbNuevaInput" maxlength="40" placeholder="Nombre de la tarea" aria-label="Nombre de la nueva tarea">
+                <button type="button" class="kb-agregar" onclick="kbAgregar()">Agregar</button>
+              </div>
+              <div class="kb-lista" id="kb-lista-todo" role="list"></div>
+            </div>
+          </div>
+          <div class="kb-col kb-col-doing" data-col="doing">
+            <h4 class="kb-col-cab" id="kb-titulo-doing">En Proceso (2/2 WIP)</h4>
+            <div class="kb-col-cuerpo">
+              <div class="kb-wip" id="kbWip" role="status">
+                <img class="kb-ico-alerta" src="imagenes-metodologias-detalle/caractPrinicipales.png" alt="Ícono de advertencia: se alcanzó el límite de trabajo en progreso">
+                <strong>Límite WIP alcanzado</strong>
+                <span>Solo se pueden tener 2 tareas en “En Proceso”.</span>
+              </div>
+              <div class="kb-lista" id="kb-lista-doing" role="list"></div>
+            </div>
+          </div>
+          <div class="kb-col kb-col-done" data-col="done">
+            <h4 class="kb-col-cab" id="kb-titulo-done">Hecho (1 tarea)</h4>
+            <div class="kb-col-cuerpo">
+              <div class="kb-lista" id="kb-lista-done" role="list"></div>
+            </div>
+          </div>
+      </div>
+
+      <div class="kb-info">
+        <div class="kb-info-caja">
+          <h4>Principios de Kanban</h4>
+          <ul class="kb-principios">
+            <li><img class="md-ico-check" src="imagenes-metodologias-detalle/comprobado.png" alt="Ícono de tilde azul dentro de un círculo"><span>Visualizar el flujo de trabajo.</span></li>
+            <li><img class="md-ico-check" src="imagenes-metodologias-detalle/comprobado.png" alt="Ícono de tilde azul dentro de un círculo"><span>Limitar el trabajo en progreso (WIP).</span></li>
+            <li><img class="md-ico-check" src="imagenes-metodologias-detalle/comprobado.png" alt="Ícono de tilde azul dentro de un círculo"><span>Gestionar y mejorar el flujo de forma continua.</span></li>
+            <li><img class="md-ico-check" src="imagenes-metodologias-detalle/comprobado.png" alt="Ícono de tilde azul dentro de un círculo"><span>Hacer las políticas explícitas.</span></li>
+            <li><img class="md-ico-check" src="imagenes-metodologias-detalle/comprobado.png" alt="Ícono de tilde azul dentro de un círculo"><span>Implementar ciclos de feedback.</span></li>
+          </ul>
+        </div>
+        <div class="kb-info-caja">
+          <h4>Artefactos de Kanban</h4>
+          <ul class="kb-artefactos">
+            <li>
+              <img class="kb-ico-art" src="imagenes-metodologias-detalle/TableroKanban.png" alt="Ícono de un tablero Kanban">
+              <div><strong>Tablero Kanban</strong><span>Visualizar el flujo de trabajo.</span></div>
+            </li>
+            <li>
+              <img class="kb-ico-art" src="imagenes-metodologias-detalle/Tarjetas.png" alt="Ícono de tarjetas de trabajo">
+              <div><strong>Tarjetas (Work Items)</strong><span>Representan las tareas.</span></div>
+            </li>
+            <li>
+              <img class="kb-ico-art" src="imagenes-metodologias-detalle/Columnas.png" alt="Ícono de columnas de un tablero">
+              <div><strong>Columnas</strong><span>Estados por los que pasan las tareas.</span></div>
+            </li>
+            <li>
+              <img class="kb-ico-art" src="imagenes-metodologias-detalle/Limite WIP.png" alt="Ícono de límite de trabajo en progreso">
+              <div><strong>Límite WIP</strong><span>Cantidad máxima de tareas en una columna.</span></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <a href="index.html" class="footer-logo">
+    <img src="imagenes/logo.png" alt="Logo de S4U System4U">
+  </a>
+  <div class="footer-columns">
+    <div class="footer-col">
+      <div class="footer-icon"><img src="imagenes/correo-electronico.png" alt="Ícono de un sobre, correo electrónico de contacto"></div>
+      <span class="footer-label">Contacto</span>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-col">
+      <a class="footer-email" href="mailto:sistemasdegestion@gmail.com">sistemasdegestion@gmail.com</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-icon"><img src="imagenes/anadir-amigo.png" alt="Ícono de agregar amigo, para seguirnos en las redes"></div>
+      <span class="footer-label">Seguinos</span>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-col social-col">
+      <a class="social-row" href="blank.html">
+        <span class="social-icon"><img src="imagenes/gorjeo.png" alt="Ícono de X (Twitter), red social de S4U"></span>
+        <span>@SistemasdeGest.</span>
+      </a>
+      <a class="social-row" href="blank.html">
+        <span class="social-icon"><img src="imagenes/instagram.png" alt="Ícono de Instagram, red social de S4U"></span>
+        <span>@SistemasdeGest.</span>
+      </a>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-col">
+      <div class="footer-icon"><img src="imagenes/liza.png" alt="Ícono de una reseña, para dejarnos tu opinión"></div>
+      <span class="footer-label">Dejanos una reseña</span>
+    </div>
+    <div class="footer-col reseña-col">
+      <textarea id="reseñaInput" placeholder="Escribí tu reseña..."></textarea>
+      <button type="button" onclick="enviarReseña()" class="footer-label">Enviar reseña</button>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- Reseña (igual que en las otras páginas) ---------- */
+function enviarReseña() {
+  var texto = document.getElementById('reseñaInput').value.trim();
+  if (texto === '') return;
+  alert('¡Gracias por tu reseña! (Por ahora se muestra en pantalla, no se guarda)');
+  document.getElementById('reseñaInput').value = '';
+}
+
+/* =====================================================================
+   SCRUM EN DETALLE: pestañas Roles / Eventos / Artefactos
+   ===================================================================== */
+function mdTab(id, btn) {
+  document.querySelectorAll('.md-vista').forEach(function (v) { v.classList.remove('visible'); });
+  document.getElementById('sc-' + id).classList.add('visible');
+  document.querySelectorAll('.md-tab').forEach(function (b) {
+    b.classList.remove('active');
+    b.setAttribute('aria-selected', 'false');
+  });
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected', 'true');
+}
+
+/* =====================================================================
+   EVENTOS / CEREMONIAS: cronograma interactivo del Sprint
+   Para cambiar los textos de duración u objetivo, editalos acá abajo.
+   ===================================================================== */
+var MD_ICONOS = 'imagenes-metodologias-detalle/';
+
+var MD_EVENTOS = {
+  planificacion: {
+    titulo: 'Planificación del Sprint',
+    icono: 'calendario.png',
+    alt: 'Ícono de un calendario con tareas, que representa la planificación del Sprint',
+    duracion: 'Hasta 8 horas (se hace el día 1)',
+    objetivo: 'Definir qué trabajo se va a realizar en el Sprint y cómo se va a lograr, y establecer el Objetivo del Sprint.'
+  },
+  diaria: {
+    titulo: 'Reunión diaria',
+    icono: 'RespuestaAlCambio.png',
+    alt: 'Ícono de flechas circulares, que representa la reunión diaria',
+    duracion: '15 minutos, todos los días',
+    objetivo: 'Sincronizar al equipo, revisar el avance hacia el Objetivo del Sprint y detectar impedimentos para ajustar el plan del día.'
+  },
+  revision: {
+    titulo: 'Revisión del Sprint',
+    icono: 'Inspeccion.png',
+    alt: 'Ícono de un gráfico de barras, que representa la revisión del Sprint',
+    duracion: 'Hasta 4 horas (último día)',
+    objetivo: 'Mostrar el incremento terminado a los interesados, recibir su opinión y decidir qué adaptar en la Lista de Producto.'
+  },
+  retrospectiva: {
+    titulo: 'Retrospectiva del Sprint',
+    icono: 'grupo.png',
+    alt: 'Ícono de un grupo de personas, que representa la retrospectiva del Sprint',
+    duracion: 'Hasta 3 horas (luego de la revisión)',
+    objetivo: 'Analizar cómo trabajó el equipo (personas, procesos y herramientas) y acordar mejoras concretas para el próximo Sprint.'
+  }
+};
+
+var MD_ICONO_SEMANA = 'calendario.png';   // calendarito de la pastilla "Semana 1, 2, 3, 4"
+var MD_TOTAL_SEMANAS = 4;                 // el Sprint del cronograma dura 4 semanas
+var mdSemanaActual = 1;
+var mdEventoActivo = null;
+
+// Qué eventos van en cada semana: planificación en la 1ª, reunión diaria en todas,
+// y revisión + retrospectiva en la última.
+function mdEventosDeSemana(semana) {
+  var lista = [];
+  if (semana === 1) lista.push('planificacion');
+  lista.push('diaria');
+  if (semana === MD_TOTAL_SEMANAS) lista.push('revision', 'retrospectiva');
+  return lista;
+}
+
+function mdCrear(tag, clase, texto) {
+  var el = document.createElement(tag);
+  if (clase) el.className = clase;
+  if (texto !== undefined) el.textContent = texto;
+  return el;
+}
+
+function mdTarjetaEvento(id) {
+  var ev = MD_EVENTOS[id];
+  var card = mdCrear('div', 'md-evento');
+  card.setAttribute('data-ev', id);
+
+  var cab = mdCrear('div', 'md-evento-cab');
+  var im = document.createElement('img');
+  im.src = MD_ICONOS + ev.icono;
+  im.alt = ev.alt;
+  cab.appendChild(im);
+  cab.appendChild(mdCrear('h4', '', ev.titulo));
+  card.appendChild(cab);
+
+  [['Duración: ', ev.duracion], ['Objetivo: ', ev.objetivo]].forEach(function (par) {
+    var p = mdCrear('p', 'md-evento-dato');
+    p.appendChild(mdCrear('strong', '', par[0]));
+    p.appendChild(document.createTextNode(par[1]));
+    card.appendChild(p);
+  });
+  return card;
+}
+
+// Botones "1 Sem." a "4 Sem.": muestran SOLO esa semana del Sprint y sus eventos
+function mdSemana(n, btn) {
+  mdSemanaActual = n;
+  mdEventoActivo = null;
+  document.querySelectorAll('.md-nodo').forEach(function (b) { b.classList.remove('activo'); b.setAttribute('aria-pressed', 'false'); });
+  document.querySelectorAll('.md-dur').forEach(function (b) {
+    var es = (parseInt(b.getAttribute('data-n'), 10) === n);
+    b.classList.toggle('active', es);
+    b.setAttribute('aria-pressed', es ? 'true' : 'false');
+  });
+
+  var cont = document.getElementById('mdSemanas');
+  cont.innerHTML = '';
+  var semana = mdCrear('div', 'md-semana');
+
+  var pill = mdCrear('div', 'md-sem-pill');
+  var ic = document.createElement('img');
+  ic.src = MD_ICONOS + MD_ICONO_SEMANA;
+  ic.alt = 'Ícono de un calendario que indica la semana ' + n;
+  pill.appendChild(ic);
+  pill.appendChild(document.createTextNode('Semana ' + n));
+  semana.appendChild(pill);
+
+  var cards = mdCrear('div', 'md-ev-cards');
+  mdEventosDeSemana(n).forEach(function (id) { cards.appendChild(mdTarjetaEvento(id)); });
+  semana.appendChild(cards);
+  cont.appendChild(semana);
+}
+
+// Al tocar un evento de la línea de tiempo se resaltan sus tarjetas. Si ese evento no ocurre
+// en la semana que se está viendo, se pasa solo a la primera semana donde sí ocurre
+// (la planificación -> semana 1; la revisión y la retrospectiva -> semana 4).
+function mdEvento(id) {
+  var yaActivo = (mdEventoActivo === id);
+  if (!yaActivo && mdEventosDeSemana(mdSemanaActual).indexOf(id) === -1) {
+    for (var s = 1; s <= MD_TOTAL_SEMANAS; s++) {
+      if (mdEventosDeSemana(s).indexOf(id) !== -1) { mdSemana(s); break; }
+    }
+  }
+  mdEventoActivo = yaActivo ? null : id;
+
+  document.querySelectorAll('.md-nodo').forEach(function (b) {
+    var es = (!yaActivo && b.id === 'nodo-' + id);
+    b.classList.toggle('activo', es);
+    b.setAttribute('aria-pressed', es ? 'true' : 'false');
+  });
+  document.querySelectorAll('.md-evento').forEach(function (c) {
+    c.classList.toggle('resaltado', !yaActivo && c.getAttribute('data-ev') === id);
+  });
+  if (!yaActivo) {
+    var primera = document.querySelector('.md-evento[data-ev="' + id + '"]');
+    if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+/* =====================================================================
+   ARTEFACTOS: "Ver más" abre el detalle de cada uno
+   ===================================================================== */
+function mdArtefacto(id) {
+  var det = document.getElementById('art-detalle-' + id);
+  var btn = document.getElementById('art-btn-' + id);
+  var abrir = !det.classList.contains('visible');
+  det.classList.toggle('visible', abrir);
+  btn.textContent = abrir ? 'Ver menos ↑' : 'Ver más →';
+  btn.setAttribute('aria-expanded', abrir ? 'true' : 'false');
+}
+
+/* =====================================================================
+   KANBAN: tablero interactivo con límite de trabajo en progreso (WIP)
+   ===================================================================== */
+var KB_LIMITE_WIP = 2;                       // máximo de tareas en "En Proceso"
+var KB_COLS = ['todo', 'doing', 'done'];
+var KB_NOMBRES = { todo: 'Por Hacer', doing: 'En Proceso', done: 'Hecho' };
+var KB_INICIAL = [
+  { texto: 'Diseñar interfaz', col: 'todo' },
+  { texto: 'Crear formulario de contacto', col: 'todo' },
+  { texto: 'Implementar base de datos', col: 'todo' },
+  { texto: 'Diseñar banner', col: 'todo' },
+  { texto: 'Desarrollar API', col: 'doing' },
+  { texto: 'Revisar código', col: 'doing' },
+  { texto: 'Pruebas finales', col: 'done' }
+];
+
+var kbTareas = [];
+var kbSiguienteId = 1;
+var kbArrastrando = null;
+
+function kbMensaje(texto) {
+  var m = document.getElementById('kbMensaje');
+  m.textContent = texto || '';
+  m.style.display = texto ? 'block' : 'none';
+}
+
+function kbContar(col) {
+  return kbTareas.filter(function (t) { return t.col === col; }).length;
+}
+
+// Los puntitos para arrastrar y los tres puntos de cada tarea no vinieron en tus imágenes, así que
+// se dibujan con estas dos imágenes chiquitas hechas por código. Si más adelante tenés tus propios
+// archivos, cambiá KB_ICO_ASA y KB_ICO_MENU por 'tu-archivo.png'.
+var KB_ICO_ASA = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><g fill="#000"><circle cx="2.5" cy="3" r="1.4"/><circle cx="7.5" cy="3" r="1.4"/><circle cx="2.5" cy="8" r="1.4"/><circle cx="7.5" cy="8" r="1.4"/><circle cx="2.5" cy="13" r="1.4"/><circle cx="7.5" cy="13" r="1.4"/></g></svg>');
+var KB_ICO_MENU = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 16"><g fill="#000"><circle cx="2" cy="2.5" r="1.7"/><circle cx="2" cy="8" r="1.7"/><circle cx="2" cy="13.5" r="1.7"/></g></svg>');
+
+function kbImg(archivo, alt, clase) {
+  var im = document.createElement('img');
+  im.src = archivo.indexOf('data:') === 0 ? archivo : MD_ICONOS + archivo;
+  im.alt = alt;
+  im.className = clase;
+  return im;
+}
+
+function kbSiguienteCol(col) {
+  return KB_COLS[(KB_COLS.indexOf(col) + 1) % KB_COLS.length];   // Por Hacer -> En Proceso -> Hecho -> Por Hacer
+}
+
+// Mueve una tarea. Si "En Proceso" ya está llena, no la deja entrar (límite WIP)
+function kbMover(id, destino) {
+  var t = kbTareas.filter(function (x) { return x.id === id; })[0];
+  if (!t || t.col === destino) return false;
+  if (destino === 'doing' && kbContar('doing') >= KB_LIMITE_WIP) {
+    kbMensaje('No se puede mover: “En Proceso” ya tiene ' + KB_LIMITE_WIP + ' tareas (límite WIP). Terminá una antes de empezar otra.');
+    var wip = document.getElementById('kbWip');
+    wip.classList.remove('sacudir');
+    void wip.offsetWidth;                    // reinicia la animación
+    wip.classList.add('sacudir');
+    return false;
+  }
+  t.col = destino;
+  kbMensaje('');
+  kbRender();
+  return true;
+}
+
+function kbCrearTarea(t) {
+  var el = document.createElement('div');
+  el.className = 'kb-tarea';
+  el.setAttribute('role', 'listitem');
+  el.setAttribute('draggable', 'true');
+  el.tabIndex = 0;
+  el.setAttribute('data-id', t.id);
+
+  var txt = document.createElement('span');
+  txt.className = 'kb-tarea-txt';
+  txt.textContent = t.texto;                 // textContent: lo que escribe el usuario nunca se interpreta como HTML
+
+  var menu = document.createElement('button');
+  menu.type = 'button';
+  menu.className = 'kb-menu';
+  menu.setAttribute('aria-label', 'Pasar “' + t.texto + '” a ' + KB_NOMBRES[kbSiguienteCol(t.col)]);
+  menu.appendChild(kbImg(KB_ICO_MENU, 'Ícono de tres puntos: pasar la tarea a la siguiente columna', 'kb-ico-menu'));
+  menu.addEventListener('click', function (e) {
+    e.stopPropagation();
+    kbMover(t.id, kbSiguienteCol(t.col));
+  });
+
+  el.appendChild(kbImg(KB_ICO_ASA, 'Asa para arrastrar la tarea', 'kb-ico-asa'));
+  el.appendChild(txt);
+  el.appendChild(menu);
+
+  el.addEventListener('dragstart', function (e) {
+    kbArrastrando = t.id;
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/plain', String(t.id));
+    el.classList.add('arrastrando');
+  });
+  el.addEventListener('dragend', function () {
+    kbArrastrando = null;
+    el.classList.remove('arrastrando');
+    document.querySelectorAll('.kb-col').forEach(function (c) { c.classList.remove('sobre'); });
+  });
+  el.addEventListener('keydown', function (e) {  // con el teclado: flechas izquierda / derecha
+    var i = KB_COLS.indexOf(t.col);
+    var destino = null;
+    if (e.key === 'ArrowRight' && i < KB_COLS.length - 1) destino = KB_COLS[i + 1];
+    if (e.key === 'ArrowLeft' && i > 0) destino = KB_COLS[i - 1];
+    if (destino && kbMover(t.id, destino)) {
+      var nuevo = document.querySelector('.kb-tarea[data-id="' + t.id + '"]');
+      if (nuevo) nuevo.focus();
+    }
+  });
+  return el;
+}
+
+function kbPlural(n, singular, plural) { return n + ' ' + (n === 1 ? singular : plural); }
+
+function kbRender() {
+  KB_COLS.forEach(function (col) {
+    var lista = document.getElementById('kb-lista-' + col);
+    lista.innerHTML = '';
+    kbTareas.filter(function (t) { return t.col === col; }).forEach(function (t) {
+      lista.appendChild(kbCrearTarea(t));
+    });
+  });
+  var nDoing = kbContar('doing');
+  document.getElementById('kb-titulo-todo').textContent = KB_NOMBRES.todo + ' (' + kbPlural(kbContar('todo'), 'tarea', 'tareas') + ')';
+  document.getElementById('kb-titulo-doing').textContent = KB_NOMBRES.doing + ' (' + nDoing + '/' + KB_LIMITE_WIP + ' WIP)';
+  document.getElementById('kb-titulo-done').textContent = KB_NOMBRES.done + ' (' + kbPlural(kbContar('done'), 'tarea', 'tareas') + ')';
+  document.getElementById('kbWip').classList.toggle('visible', nDoing >= KB_LIMITE_WIP);   // el aviso naranja solo aparece cuando se llegó al límite
+}
+
+function kbReiniciar() {
+  kbTareas = KB_INICIAL.map(function (t) { return { id: kbSiguienteId++, texto: t.texto, col: t.col }; });
+  kbMensaje('');
+  kbNuevaCerrar();
+  kbRender();
+}
+
+/* ---------- + Nueva tarea ---------- */
+function kbNuevaCerrar() {
+  document.getElementById('kbNuevaForm').classList.remove('visible');
+  document.getElementById('kbNueva').setAttribute('aria-expanded', 'false');
+  document.getElementById('kbNuevaInput').value = '';
+}
+
+function kbNuevaToggle() {
+  var form = document.getElementById('kbNuevaForm');
+  var abrir = !form.classList.contains('visible');
+  form.classList.toggle('visible', abrir);
+  document.getElementById('kbNueva').setAttribute('aria-expanded', abrir ? 'true' : 'false');
+  if (abrir) document.getElementById('kbNuevaInput').focus();
+}
+
+function kbAgregar() {
+  var input = document.getElementById('kbNuevaInput');
+  var texto = input.value.trim();
+  if (texto === '') { input.focus(); return; }
+  kbTareas.push({ id: kbSiguienteId++, texto: texto.slice(0, 40), col: 'todo' });
+  kbMensaje('');
+  kbNuevaCerrar();
+  kbRender();
+}
+
+/* ---------- Arrastrar y soltar sobre las columnas ---------- */
+document.querySelectorAll('.kb-col').forEach(function (col) {
+  col.addEventListener('dragover', function (e) {
+    if (kbArrastrando === null) return;
+    e.preventDefault();
+    col.classList.add('sobre');
+  });
+  col.addEventListener('dragleave', function (e) {
+    if (!col.contains(e.relatedTarget)) col.classList.remove('sobre');
+  });
+  col.addEventListener('drop', function (e) {
+    e.preventDefault();
+    col.classList.remove('sobre');
+    if (kbArrastrando !== null) kbMover(kbArrastrando, col.getAttribute('data-col'));
+  });
+});
+
+document.getElementById('kbNuevaInput').addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') { e.preventDefault(); kbAgregar(); }
+  if (e.key === 'Escape') kbNuevaCerrar();
+});
+
+/* ---------- Al abrir la página ---------- */
+mdSemana(1);
+kbReiniciar();
+
+</script>
+
+</body>
+</html>

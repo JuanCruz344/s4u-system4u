@@ -8,6 +8,108 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="procesos.css">
+<style>
+/* ===== XP: panel de detalle que se abre al tocar "Ver más" (solo en la pestaña XP) ===== */
+.xp-detalle {
+  display: none;
+  align-items: center;
+  margin: 4px 0 6px;
+  padding: 18px 22px;
+  background: var(--button-bg);
+  border: 1.5px solid var(--footer-navbar);
+  border-radius: 24px;
+}
+
+.xp-detalle.visible { display: flex; }
+
+.xp-det-img {                          /* círculo con la imagen de la tarjeta */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 92px;
+  height: 92px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: #fff;
+  border: 3px solid #fff;
+  border-radius: 50%;
+}
+
+.xp-det-img img {
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  object-fit: contain;
+}
+
+.xp-det-avatar { background: #d6e9f8; }          /* roles: la foto llena todo el círculo */
+.xp-det-avatar img { padding: 0; object-fit: cover; }
+
+.xp-det-sep {                          /* la rayita vertical del medio */
+  align-self: stretch;
+  width: 2px;
+  margin: 0 22px;
+  background: var(--border);
+}
+
+.xp-det-texto { flex: 1; min-width: 0; }
+
+.xp-det-texto h4 {
+  margin: 0 0 6px;
+  font-size: 17px;
+}
+
+.xp-det-texto p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.xp-det-cerrar {
+  align-self: flex-start;
+  margin-left: 16px;
+  padding: 7px 18px;
+  background: #fff;
+  color: var(--text-icon);
+  border: 1.5px solid #10151c;
+  border-radius: 20px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.xp-det-cerrar:hover { background: var(--card-bg); box-shadow: 0 0 0 3px var(--footer-navbar); }
+
+/* la tarjeta cuyo detalle está abierto se marca, con una puntita que señala hacia el panel */
+.ag-card.xp-activa {
+  position: relative;
+  border-color: var(--border);
+  box-shadow: 0 0 0 3px var(--border);
+}
+
+.ag-card.xp-activa::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -15px;
+  transform: translateX(-50%);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 12px solid var(--border);
+}
+
+.ag-cards > .xp-detalle { flex: 1 1 100%; margin: 0 8px 16px; }
+
+@media (max-width: 640px) {
+  .xp-detalle { flex-direction: column; align-items: stretch; padding: 16px 16px; text-align: center; }
+  .xp-det-img { margin: 0 auto; }
+  .xp-det-sep { align-self: auto; width: auto; height: 2px; margin: 14px 0; }
+  .xp-det-cerrar { align-self: center; margin: 14px 0 0; }
+}
+</style>
 </head>
 <body>
 
@@ -475,7 +577,7 @@
 
         <div class="ag-diagrama">
           <!-- la lupa abre la imagen en grande en otra pestaña -->
-          <a class="ag-zoom" href="scrum/ScrumHD.png" target="_blank" rel="noopener" aria-label="Ver la imagen ampliada"><img src="scrum/lups2.png" alt="diagrama scrum"></a>
+          <a class="ag-zoom" href="scrum/ScrumHD.png" target="_blank" rel="noopener" aria-label="Ver la imagen ampliada"><img src="scrum/lups2.png" alt=""></a>
           <img class="ag-diagrama-img" src="scrum/ScrumHD.png" alt="Figura 1. Ciclo de trabajo de Scrum">
         </div>
 
@@ -488,11 +590,11 @@
             </div>
           </div>
           <div class="ag-indice-btns">
-            <button type="button" class="ag-indice-btn" data-sec="principios" onclick="agAbrir('principios')"><img src="scrum/calidad (1).png" alt="principios">Principios</button>
-            <button type="button" class="ag-indice-btn" data-sec="roles" onclick="agAbrir('roles')"><img src="scrum/grupo (1).png" alt="roles">Roles</button>
-            <button type="button" class="ag-indice-btn" data-sec="ceremonias" onclick="agAbrir('ceremonias')"><img src="scrum/calendario.png" alt="ceremonias">Ceremonias</button>
-            <button type="button" class="ag-indice-btn" data-sec="artefactos" onclick="agAbrir('artefactos')"><img src="scrum/Artefactos.png" alt="artefactos">Artefactos</button>
-            <button type="button" class="ag-indice-btn" data-sec="manifiesto" onclick="agAbrir('manifiesto')"><img src="scrum/manifiestoagil.png" alt="manifiesto-agil">Manifiesto Ágil</button>
+            <button type="button" class="ag-indice-btn" data-sec="principios" onclick="agAbrir('principios')"><img src="scrum/calidad (1).png" alt="">Principios</button>
+            <button type="button" class="ag-indice-btn" data-sec="roles" onclick="agAbrir('roles')"><img src="scrum/grupo (1).png" alt="">Roles</button>
+            <button type="button" class="ag-indice-btn" data-sec="ceremonias" onclick="agAbrir('ceremonias')"><img src="scrum/calendario.png" alt="">Ceremonias</button>
+            <button type="button" class="ag-indice-btn" data-sec="artefactos" onclick="agAbrir('artefactos')"><img src="scrum/Artefactos.png" alt="">Artefactos</button>
+            <button type="button" class="ag-indice-btn" data-sec="manifiesto" onclick="agAbrir('manifiesto')"><img src="scrum/manifiestoagil.png" alt="">Manifiesto Ágil</button>
           </div>
         </div>
       </div>
@@ -503,20 +605,20 @@
         <div class="ag-sec-cab">
           <span class="ag-num">1</span>
           <h3>Principios de Scrum</h3>
-          <button type="button" class="ag-volver" onclick="agVolver()"><img src="scrum/flecha-hacia-arriba.png" alt="flecha-volver">Volver</button>
+          <button type="button" class="ag-volver" onclick="agVolver()"><img src="scrum/flecha-hacia-arriba.png" alt="">Volver</button>
         </div>
         <p class="ag-sec-desc">Scrum se basa en el empirismo, que se apoya en tres pilares fundamentales: transparencia, inspección y adaptación.</p>
         <div class="ag-cards">
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/lups2.png" alt="transparencia"></div><h4>Transparencia</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/lups2.png" alt=""></div><h4>Transparencia</h4></div>
             <p class="ag-card-grande">Todos los aspectos importantes del trabajo deben ser visibles para quienes lo realizan y para quienes lo reciben, de modo que el equipo comparta una misma comprensión de lo que se está haciendo.</p>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/Inspeccion.png" alt="Inspeccion"></div><h4>Inspección</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/Inspeccion.png" alt=""></div><h4>Inspección</h4></div>
             <p class="ag-card-grande">El equipo revisa con frecuencia el avance y los resultados para detectar a tiempo desvíos o problemas, y así asegurarse de que el trabajo va en la dirección correcta.</p>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/configuraciones.png" alt="adaptacion"></div><h4>Adaptación</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/configuraciones.png" alt=""></div><h4>Adaptación</h4></div>
             <p class="ag-card-grande">Cuando la inspección muestra que algo se desvía de lo esperado, el equipo ajusta el proceso o el producto lo antes posible para evitar que el problema crezca.</p>
           </div>
         </div>
@@ -526,23 +628,23 @@
         <div class="ag-sec-cab">
           <span class="ag-num">2</span>
           <h3>Roles de Scrum</h3>
-          <button type="button" class="ag-volver" onclick="agVolver()"><img src="scrum/flecha-hacia-arriba.png" alt="flecha volver">Volver</button>
+          <button type="button" class="ag-volver" onclick="agVolver()"><img src="scrum/flecha-hacia-arriba.png" alt="">Volver</button>
         </div>
         <div class="ag-cards ag-cards-sep">
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico ag-avatar"><img src="scrum/ProductOwner.png" alt="product Owner"></div><h4>Product Owner</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico ag-avatar"><img src="scrum/ProductOwner.png" alt=""></div><h4>Product Owner</h4></div>
             <p class="ag-card-texto ag-texto-md">Define y prioriza el Product Backlog, representa los intereses del negocio.</p>
-            <a class="ag-vermas" href="blank.html">Ver más →</a>
+            <a class="ag-vermas" href="metodologias-detalle.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico ag-avatar"><img src="scrum/Scrummaster.png" alt="scrum Master"></div><h4>Scrum Master</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico ag-avatar"><img src="scrum/Scrummaster.png" alt=""></div><h4>Scrum Master</h4></div>
             <p class="ag-card-texto ag-texto-md">Facilita el proceso, elimina obstáculos y promueve la mejora continua.</p>
-            <a class="ag-vermas" href="blank.html">Ver más →</a>
+            <a class="ag-vermas" href="metodologias-detalle.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico ag-avatar"><img src="scrum/equipodeDesarrollopng.png" alt="equipo de desarrollo"></div><h4>Equipo de desarrollo</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico ag-avatar"><img src="scrum/equipodeDesarrollopng.png" alt=""></div><h4>Equipo de desarrollo</h4></div>
             <p class="ag-card-texto ag-texto-md">Equipo multidisciplinario autogestionado que desarrolla el incremento del producto.</p>
-            <a class="ag-vermas" href="blank.html">Ver más →</a>
+            <a class="ag-vermas" href="metodologias-detalle.html">Ver más →</a>
           </div>
         </div>
       </div>
@@ -551,28 +653,28 @@
         <div class="ag-sec-cab">
           <span class="ag-num">3</span>
           <h3>Ceremonias en Scrum</h3>
-          <button type="button" class="ag-volver" onclick="agVolver()"><img src="scrum/flecha-hacia-arriba.png" alt="flecha-volver">Volver</button>
+          <button type="button" class="ag-volver" onclick="agVolver()"><img src="scrum/flecha-hacia-arriba.png" alt="">Volver</button>
         </div>
         <div class="ag-cards ag-cards-sep">
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/planSprint.png" alt="plan-Sprint"></div><h4>Plan de Sprint</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/planSprint.png" alt=""></div><h4>Plan de Sprint</h4></div>
             <p class="ag-card-texto">Planificación del trabajo de Sprint.</p>
-            <a class="ag-vermas" href="blank.html">Ver más →</a>
+            <a class="ag-vermas" href="metodologias-detalle.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/grupo.png" alt="scrum-Diario"></div><h4>Scrum Diario</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/grupo.png" alt=""></div><h4>Scrum Diario</h4></div>
             <p class="ag-card-texto">Reunión diaria de sincronización.</p>
-            <a class="ag-vermas" href="blank.html">Ver más →</a>
+            <a class="ag-vermas" href="metodologias-detalle.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/Inspeccion.png" alt="revision-Sprint"></div><h4>Revisión del Sprint</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/Inspeccion.png" alt=""></div><h4>Revisión del Sprint</h4></div>
             <p class="ag-card-texto">Revisión del incremento de producto.</p>
-            <a class="ag-vermas" href="blank.html">Ver más →</a>
+            <a class="ag-vermas" href="metodologias-detalle.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/configuraciones.png" alt="retrospectiva-sprint"></div><h4>Retrospectiva del Sprint</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/configuraciones.png" alt=""></div><h4>Retrospectiva del Sprint</h4></div>
             <p class="ag-card-texto">Análisis del proceso para identificar mejoras.</p>
-            <a class="ag-vermas" href="blank.html">Ver más →</a>
+            <a class="ag-vermas" href="metodologias-detalle.html">Ver más →</a>
           </div>
         </div>
       </div>
@@ -581,23 +683,23 @@
         <div class="ag-sec-cab">
           <span class="ag-num">4</span>
           <h3>Artefactos en Scrum</h3>
-          <button type="button" class="ag-volver" onclick="agVolver()"><img src="scrum/flecha-hacia-arriba.png" alt="flecha-volver">Volver</button>
+          <button type="button" class="ag-volver" onclick="agVolver()"><img src="scrum/flecha-hacia-arriba.png" alt="">Volver</button>
         </div>
         <div class="ag-cards ag-cards-sep">
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/ListadeProdtos.png" alt="lista-producto"></div><h4>Lista de Producto</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/ListadeProdtos.png" alt=""></div><h4>Lista de Producto</h4></div>
             <p class="ag-card-texto">Lista priorizada de requisitos.</p>
-            <a class="ag-vermas" href="blank.html">Ver más →</a>
+            <a class="ag-vermas" href="metodologias-detalle.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/listaSPrintt.png" alt="lista-sprint"></div><h4>Lista del Sprint</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/listaSPrintt.png" alt=""></div><h4>Lista del Sprint</h4></div>
             <p class="ag-card-texto">Tareas seleccionadas para el Sprint.</p>
-            <a class="ag-vermas" href="blank.html">Ver más →</a>
+            <a class="ag-vermas" href="metodologias-detalle.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/IncrementoProducto.png" alt="IncrementoProducto"></div><h4>Incremento del producto</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/IncrementoProducto.png" alt=""></div><h4>Incremento del producto</h4></div>
             <p class="ag-card-texto">Producto potencialmente entregable al final del Sprint.</p>
-            <a class="ag-vermas" href="blank.html">Ver más →</a>
+            <a class="ag-vermas" href="metodologias-detalle.html">Ver más →</a>
           </div>
         </div>
       </div>
@@ -606,34 +708,34 @@
         <div class="ag-sec-cab">
           <span class="ag-num">5</span>
           <h3>El Manifiesto Ágil</h3>
-          <button type="button" class="ag-volver" onclick="agVolver()"><img src="scrum/flecha-hacia-arriba.png" alt="flecha-volver">Volver</button>
+          <button type="button" class="ag-volver" onclick="agVolver()"><img src="scrum/flecha-hacia-arriba.png" alt="">Volver</button>
         </div>
         <p class="ag-sec-desc">El Manifiesto Ágil se basa en 4 valores fundamentales y 12 principios que guían las metodologías ágiles.</p>
 
         <div class="ag-caja">
-          <div class="ag-caja-titulo"><div class="ag-card-ico ag-grande"><img src="scrum/manifiestoagil.png" alt="valores-fundamentales"></div><h4>4 valores fundamentales</h4></div>
+          <div class="ag-caja-titulo"><div class="ag-card-ico ag-grande"><img src="scrum/manifiestoagil.png" alt=""></div><h4>4 valores fundamentales</h4></div>
           <div class="ag-valores">
             <div class="ag-valor">
-              <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/grupo (1).png" alt="individuos"></div><h4>Individuos e interacciones</h4></div>
+              <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/grupo (1).png" alt=""></div><h4>Individuos e interacciones</h4></div>
               <p class="ag-valor-sub">Sobre procesos y herramientas.</p>
             </div>
             <div class="ag-valor">
-              <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/configuraciones.png" alt="software-funcionando"></div><h4>Software funcionando</h4></div>
+              <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/configuraciones.png" alt=""></div><h4>Software funcionando</h4></div>
               <p class="ag-valor-sub">Sobre documentación extensa.</p>
             </div>
             <div class="ag-valor">
-              <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/ColaboracionEquipo.png" alt="colaboracion"></div><h4>Colaboración con el cliente</h4></div>
+              <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/ColaboracionEquipo.png" alt=""></div><h4>Colaboración con el cliente</h4></div>
               <p class="ag-valor-sub">Sobre negociación de contratos.</p>
             </div>
             <div class="ag-valor">
-              <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/RespuestaAlCambio.png" alt="RespuestaAlCambio"></div><h4>Respuesta al cambio</h4></div>
+              <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/RespuestaAlCambio.png" alt=""></div><h4>Respuesta al cambio</h4></div>
               <p class="ag-valor-sub">Sobre seguir un plan.</p>
             </div>
           </div>
         </div>
 
         <div class="ag-caja">
-          <div class="ag-caja-titulo"><div class="ag-card-ico ag-grande"><img src="scrum/planSprint.png" alt="12-principios"></div><h4>12 Principios</h4></div>
+          <div class="ag-caja-titulo"><div class="ag-card-ico ag-grande"><img src="scrum/planSprint.png" alt=""></div><h4>12 Principios</h4></div>
           <div class="ag-doce">
             <ul class="ag-doce-col ag-doce-izq">
               <li><span class="ag-n">1</span><span>Satisfacer al cliente con entregas tempranas y continuas.</span></li>
@@ -662,7 +764,7 @@
 
       <div class="ag-tarjeta">
         <div class="ag-cab">
-          <div class="ag-circulo"><img src="scrum/Kanban.png" alt="kanban"></div>
+          <div class="ag-circulo"><img src="scrum/Kanban.png" alt=""></div>
           <div class="ag-cab-texto">
             <h3>Kanban</h3>
             <p>Kanban es un método de gestión visual del trabajo que busca mejorar el flujo, limitar el trabajo en progreso (WIP) y optimizar la entrega continua de valor.</p>
@@ -671,24 +773,24 @@
 
         <div class="ag-diagrama">
           <!-- la lupa abre la imagen ampliada -->
-          <a class="ag-zoom" href="scrum/KanbanHD.png" target="_blank" rel="noopener" aria-label="Ver la imagen ampliada"><img src="scrum/lups2.png" alt="lupa"></a>
+          <a class="ag-zoom" href="scrum/KanbanHD.png" target="_blank" rel="noopener" aria-label="Ver la imagen ampliada"><img src="scrum/lups2.png" alt=""></a>
           <img class="ag-diagrama-img" src="scrum/KanbanHD.png" alt="Figura 1. Tablero Kanban. Visualización del flujo de trabajo">
         </div>
 
         <div class="ag-indice" id="ag-indice-kanban">
           <div class="ag-indice-izq">
-            <div class="ag-circulo ag-circulo-indice"><img src="scrum/3lineas.png" alt="indice"></div>
+            <div class="ag-circulo ag-circulo-indice"><img src="scrum/3lineas.png" alt=""></div>
             <div>
               <strong>Índice de contenidos</strong>
               <small>Haz clic en un apartado para ir directamente.</small>
             </div>
           </div>
           <div class="ag-indice-btns">
-            <button type="button" class="ag-indice-btn" data-sec="kanban-principios" onclick="agAbrir('kanban-principios')"><img src="scrum/calidad (1).png" alt="principio">Principios</button>
-            <button type="button" class="ag-indice-btn" data-sec="kanban-roles" onclick="agAbrir('kanban-roles')"><img src="scrum/grupo (1).png" alt="roles">Roles</button>
-            <button type="button" class="ag-indice-btn" data-sec="kanban-reuniones" onclick="agAbrir('kanban-reuniones')"><img src="scrum/calendario.png" alt="reuniones">Reuniones</button>
-            <button type="button" class="ag-indice-btn" data-sec="kanban-artefactos" onclick="agAbrir('kanban-artefactos')"><img src="scrum/Artefactos.png" alt="artefactos">Artefactos</button>
-            <button type="button" class="ag-indice-btn" data-sec="kanban-manifiesto" onclick="agAbrir('kanban-manifiesto')"><img src="scrum/manifiestoagil.png" alt="manifiesto-agil">Manifiesto Ágil</button>
+            <button type="button" class="ag-indice-btn" data-sec="kanban-principios" onclick="agAbrir('kanban-principios')"><img src="scrum/calidad (1).png" alt="">Principios</button>
+            <button type="button" class="ag-indice-btn" data-sec="kanban-roles" onclick="agAbrir('kanban-roles')"><img src="scrum/grupo (1).png" alt="">Roles</button>
+            <button type="button" class="ag-indice-btn" data-sec="kanban-reuniones" onclick="agAbrir('kanban-reuniones')"><img src="scrum/calendario.png" alt="">Reuniones</button>
+            <button type="button" class="ag-indice-btn" data-sec="kanban-artefactos" onclick="agAbrir('kanban-artefactos')"><img src="scrum/Artefactos.png" alt="">Artefactos</button>
+            <button type="button" class="ag-indice-btn" data-sec="kanban-manifiesto" onclick="agAbrir('kanban-manifiesto')"><img src="scrum/manifiestoagil.png"">Manifiesto Ágil</button>
           </div>
         </div>
       </div>
@@ -699,24 +801,24 @@
         <div class="ag-sec-cab">
           <span class="ag-num">1</span>
           <h3>Principios de Kanban</h3>
-          <button type="button" class="ag-volver" onclick="agVolver('ag-indice-kanban')"><img src="imagenes-procesos-desarrollo/agil-flecha-arriba.png" alt="flecha-volver">Volver</button>
+          <button type="button" class="ag-volver" onclick="agVolver('ag-indice-kanban')"><img src="imagenes-procesos-desarrollo/agil-flecha-arriba.png" alt="">Volver</button>
         </div>
         <p class="ag-sec-desc">Kanban se basa en principios que permiten mejorar el flujo de trabajo y la entrega continua de valor.</p>
         <div class="ag-cards ag-cards-sep ag-cards-4">
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/ojo.png" alt="Visualizar"></div><h4>Visualizar el trabajo</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/ojo.png" alt=""></div><h4>Visualizar el trabajo</h4></div>
             <p class="ag-card-texto">Hacer visible el flujo de tareas para todo el equipo.</p>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="imagenes-herramientas-calidad/Inspeccion.png" alt="WIP"></div><h4>Limitar el WIP</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="imagenes-herramientas-calidad/Inspeccion.png" alt=""></div><h4>Limitar el WIP</h4></div>
             <p class="ag-card-texto">Establecer un límite al trabajo en progreso.</p>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/configuraciones.png" alt="gestion-flujo"></div><h4>Gestionar el flujo</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/configuraciones.png" alt=""></div><h4>Gestionar el flujo</h4></div>
             <p class="ag-card-texto">Identificar y eliminar cuellos de botella.</p>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="imagenes-herramientas-calidad/RespuestaAlCambio.png" alt="mejora-continua"></div><h4>Mejora continua</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="imagenes-herramientas-calidad/RespuestaAlCambio.png" alt=""></div><h4>Mejora continua</h4></div>
             <p class="ag-card-texto">Realizar ajustes periódicos en el proceso.</p>
           </div>
         </div>
@@ -726,24 +828,24 @@
         <div class="ag-sec-cab">
           <span class="ag-num">2</span>
           <h3>Roles en Kanban</h3>
-          <button type="button" class="ag-volver" onclick="agVolver('ag-indice-kanban')"><img src="scrum/flecha-hacia-arriba.png" alt="flecha-volver">Volver</button>
+          <button type="button" class="ag-volver" onclick="agVolver('ag-indice-kanban')"><img src="scrum/flecha-hacia-arriba.png" alt="">Volver</button>
         </div>
         <p class="ag-sec-desc">Kanban no define roles específicos. El equipo es responsable de gestionar el flujo de trabajo de forma colaborativa.</p>
         <div class="ag-cards ag-cards-sep ">
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico ag-avatar"><img src="scrum/equipodeDesarrollopng.png" alt="equipodeDesarrollopng"></div><h4>Equipo</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico ag-avatar"><img src="scrum/equipodeDesarrollopng.png" alt=""></div><h4>Equipo</h4></div>
             <p class="ag-card-texto ag-texto-md">El equipo completo gestiona el flujo de trabajo y colabora en las mejoras.</p>
-            <a class="ag-vermas" href="blank.html">Ver más →</a>
+            <a class="ag-vermas" href="metodologias-detalle.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico ag-avatar"><img src="scrum/Scrummaster.png" alt="Scrummaster"></div><h4>Facilitador (opcional)</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico ag-avatar"><img src="scrum/Scrummaster.png" alt=""></div><h4>Facilitador (opcional)</h4></div>
             <p class="ag-card-texto ag-texto-md">Puede existir un facilitador que ayude al equipo a adoptar prácticas Kanban y eliminar obstáculos.</p>
-            <a class="ag-vermas" href="blank.html">Ver más →</a>
+            <a class="ag-vermas" href="metodologias-detalle.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico ag-avatar"><img src="scrum/ProductOwner.png" alt="product-owner"></div><h4>Responsable del servicio (opcional)</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico ag-avatar"><img src="scrum/ProductOwner.png" alt=""></div><h4>Responsable del servicio (opcional)</h4></div>
             <p class="ag-card-texto ag-texto-md">Puede existir un rol que se enfoque en la entrega de valor y la relación con el cliente.</p>
-            <a class="ag-vermas" href="blank.html">Ver más →</a>
+            <a class="ag-vermas" href="metodologias-detalle.html">Ver más →</a>
           </div>
         </div>
       </div>
@@ -752,24 +854,24 @@
         <div class="ag-sec-cab">
           <span class="ag-num">3</span>
           <h3>Reuniones en Kanban</h3>
-          <button type="button" class="ag-volver" onclick="agVolver('ag-indice-kanban')"><img src="scrum/flecha-hacia-arriba.png" alt="flecha-volver">Volver</button>
+          <button type="button" class="ag-volver" onclick="agVolver('ag-indice-kanban')"><img src="scrum/flecha-hacia-arriba.png" alt="">Volver</button>
         </div>
         <p class="ag-sec-desc">Kanban no requiere ceremonias obligatorias, pero se pueden realizar reuniones según las necesidades del equipo.</p>
         <div class="ag-cards ag-cards-sep ">
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/calendario.png" alt="revision-flujo"></div><h4>Revisión del flujo</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/calendario.png" alt=""></div><h4>Revisión del flujo</h4></div>
             <p class="ag-card-texto">Análisis periódico del estado del tablero, identificación de bloqueos y acciones.</p>
-            <a class="ag-vermas" href="blank.html">Ver más →</a>
+            <a class="ag-vermas" href="metodologias-detalle.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/grupo (1).png" alt="reuniones-reposicion"></div><h4>Reuniones de reposición</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/grupo (1).png" alt=""></div><h4>Reuniones de reposición</h4></div>
             <p class="ag-card-texto">Para planificar y reponer tareas, según el contexto del proyecto.</p>
-            <a class="ag-vermas" href="blank.html">Ver más →</a>
+            <a class="ag-vermas" href="metodologias-detalle.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="imagenes-herramientas-calidad/Inspeccion.png" alt="reuniones-mejora"></div><h4>Reuniones de mejora</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="imagenes-herramientas-calidad/Inspeccion.png" alt=""></div><h4>Reuniones de mejora</h4></div>
             <p class="ag-card-texto">Para analizar métricas y definir acciones que optimicen el flujo de trabajo.</p>
-            <a class="ag-vermas" href="blank.html">Ver más →</a>
+            <a class="ag-vermas" href="metodologias-detalle.html">Ver más →</a>
           </div>
         </div>
       </div>
@@ -778,24 +880,24 @@
         <div class="ag-sec-cab">
           <span class="ag-num">4</span>
           <h3>Artefactos en Kanban</h3>
-          <button type="button" class="ag-volver" onclick="agVolver('ag-indice-kanban')"><img src="scrum/flecha-hacia-arriba.png" alt="flecha-volver">Volver</button>
+          <button type="button" class="ag-volver" onclick="agVolver('ag-indice-kanban')"><img src="scrum/flecha-hacia-arriba.png" alt="">Volver</button>
         </div>
         <p class="ag-sec-desc">Kanban utiliza elementos visuales para representar el trabajo y medir el flujo.</p>
         <div class="ag-cards ag-cards-sep ">
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/Kanban.png" alt="tablero-kanban"></div><h4>Tablero Kanban</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/Kanban.png" alt=""></div><h4>Tablero Kanban</h4></div>
             <p class="ag-card-texto">Representación visual del flujo de trabajo.</p>
-            <a class="ag-vermas" href="blank.html">Ver más →</a>
+            <a class="ag-vermas" href="metodologias-detalle.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/planSprint.png" alt="Tarjetas-trabajo"></div><h4>Tarjetas de trabajo</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/planSprint.png" alt=""></div><h4>Tarjetas de trabajo</h4></div>
             <p class="ag-card-texto">Elementos que representan cada tarea o ítem de trabajo.</p>
-            <a class="ag-vermas" href="blank.html">Ver más →</a>
+            <a class="ag-vermas" href="metodologias-detalle.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="imagenes-herramientas-calidad/Inspeccion.png" alt="metricas"></div><h4>Métricas de flujo</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="imagenes-herramientas-calidad/Inspeccion.png" alt=""></div><h4>Métricas de flujo</h4></div>
             <p class="ag-card-texto">Indicadores como tiempo de ciclo, throughput y trabajo en progreso (WIP).</p>
-            <a class="ag-vermas" href="blank.html">Ver más →</a>
+            <a class="ag-vermas" href="metodologias-detalle.html">Ver más →</a>
           </div>
         </div>
       </div>
@@ -804,33 +906,33 @@
         <div class="ag-sec-cab">
           <span class="ag-num">5</span>
           <h3>El Manifiesto Ágil</h3>
-          <button type="button" class="ag-volver" onclick="agVolver('ag-indice-kanban')"><img src="scrum/flecha-hacia-arriba.png" alt="flecha-volver">Volver</button>
+          <button type="button" class="ag-volver" onclick="agVolver('ag-indice-kanban')"><img src="scrum/flecha-hacia-arriba.png">Volver</button>
         </div>
         <p class="ag-sec-desc">El Manifiesto Ágil se basa en 4 valores fundamentales y 12 principios que guían las metodologías ágiles.</p>
         <div class="ag-caja">
-          <div class="ag-caja-titulo"><div class="ag-card-ico ag-grande"><img src="scrum/manifiestoagil.png" alt="valores-fundamentales"></div><h4>4 valores fundamentales</h4></div>
+          <div class="ag-caja-titulo"><div class="ag-card-ico ag-grande"><img src="scrum/manifiestoagil.png" alt=""></div><h4>4 valores fundamentales</h4></div>
           <div class="ag-valores">
             <div class="ag-valor">
-              <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/grupo (1).png" alt="individuos"></div><h4>Individuos e interacciones</h4></div>
+              <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/grupo (1).png" alt=""></div><h4>Individuos e interacciones</h4></div>
               <p class="ag-valor-sub">Sobre procesos y herramientas.</p>
             </div>
             <div class="ag-valor">
-              <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/configuraciones.png" alt="software-funcionando"></div><h4>Software funcionando</h4></div>
+              <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/configuraciones.png" alt=""></div><h4>Software funcionando</h4></div>
               <p class="ag-valor-sub">Sobre documentación extensa.</p>
             </div>
             <div class="ag-valor">
-              <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/ColaboracionEquipo.png" alt="colaboracion"></div><h4>Colaboración con el cliente</h4></div>
+              <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/ColaboracionEquipo.png" alt=""></div><h4>Colaboración con el cliente</h4></div>
               <p class="ag-valor-sub">Sobre negociación de contratos.</p>
             </div>
             <div class="ag-valor">
-              <div class="ag-card-cab"><div class="ag-card-ico"><img src="imagenes-herramientas-calidad/RespuestaAlCambio.png" alt="RespuestaAlCambio"></div><h4>Respuesta al cambio</h4></div>
+              <div class="ag-card-cab"><div class="ag-card-ico"><img src="imagenes-herramientas-calidad/RespuestaAlCambio.png" alt=""></div><h4>Respuesta al cambio</h4></div>
               <p class="ag-valor-sub">Sobre seguir un plan.</p>
             </div>
           </div>
         </div>
 
         <div class="ag-caja">
-          <div class="ag-caja-titulo"><div class="ag-card-ico ag-grande"><img src="scrum/planSprint.png" alt="12-principios"></div><h4>12 Principios</h4></div>
+          <div class="ag-caja-titulo"><div class="ag-card-ico ag-grande"><img src="scrum/planSprint.png" alt=""></div><h4>12 Principios</h4></div>
           <div class="ag-doce">
             <ul class="ag-doce-col ag-doce-izq">
               <li><span class="ag-n">1</span><span>Satisfacer al cliente con entregas tempranas y continuas.</span></li>
@@ -859,7 +961,7 @@
 
       <div class="ag-tarjeta">
         <div class="ag-cab">
-          <div class="ag-circulo"><img src="imagenes/codigo.png" alt="xp"></div>
+          <div class="ag-circulo"><img src="imagenes/codigo.png" alt=""></div>
           <div class="ag-cab-texto">
             <h3>Extreme Programming (XP)</h3>
             <p>XP es una metodología ágil centrada en la calidad del código, la colaboración y las entregas frecuentes, mediante la aplicación de prácticas técnicas.</p>
@@ -868,24 +970,24 @@
 
         <div class="ag-diagrama">
           <!-- la lupa abre la imagen ampliada -->
-          <a class="ag-zoom" href="scrum/XPHD.png" target="_blank" rel="noopener" aria-label="Ver la imagen ampliada" alt="diagrama-xp"><img src="scrum/lups2.png" alt="lupa"></a>
-          <img class="ag-diagrama-img" src="scrum/XPHD.png" alt="Figura 1. Ciclo de trabajo en XP" alt="diagrama-xp">
+          <a class="ag-zoom" href="scrum/XPHD.png" target="_blank" rel="noopener" aria-label="Ver la imagen ampliada"><img src="scrum/lups2.png" alt=""></a>
+          <img class="ag-diagrama-img" src="scrum/XPHD.png" alt="Figura 1. Ciclo de trabajo en XP">
         </div>
 
         <div class="ag-indice" id="ag-indice-xp">
           <div class="ag-indice-izq">
-            <div class="ag-circulo ag-circulo-indice"><img src="scrum/3lineas.png" alt="indice"></div>
+            <div class="ag-circulo ag-circulo-indice"><img src="scrum/3lineas.png" alt=""></div>
             <div>
               <strong>Índice de contenidos</strong>
               <small>Haz clic en un apartado para ir directamente.</small>
             </div>
           </div>
           <div class="ag-indice-btns">
-            <button type="button" class="ag-indice-btn" data-sec="xp-valores" onclick="agAbrir('xp-valores')"><img src="scrum/calidad (1).png" alt="valores-principios">Valores y principios</button>
-            <button type="button" class="ag-indice-btn" data-sec="xp-roles" onclick="agAbrir('xp-roles')"><img src="scrum/grupo (1).png" alt="roles">Roles</button>
-            <button type="button" class="ag-indice-btn" data-sec="xp-practicas" onclick="agAbrir('xp-practicas')"><img src="scrum/configuraciones.png" alt="xp-practicas">Prácticas</button>
-            <button type="button" class="ag-indice-btn" data-sec="xp-artefactos" onclick="agAbrir('xp-artefactos')"><img src="scrum/Artefactos.png" alt="xp-artefactos">Artefactos</button>
-            <button type="button" class="ag-indice-btn" data-sec="xp-manifiesto" onclick="agAbrir('xp-manifiesto')"><img src="scrum/manifiestoagil.png" alt="manifiesto-agil">Manifiesto Ágil</button>
+            <button type="button" class="ag-indice-btn" data-sec="xp-valores" onclick="agAbrir('xp-valores')"><img src="scrum/calidad (1).png" alt="">Valores y principios</button>
+            <button type="button" class="ag-indice-btn" data-sec="xp-roles" onclick="agAbrir('xp-roles')"><img src="scrum/grupo (1).png" alt="">Roles</button>
+            <button type="button" class="ag-indice-btn" data-sec="xp-practicas" onclick="agAbrir('xp-practicas')"><img src="scrum/configuraciones.png" alt="">Prácticas</button>
+            <button type="button" class="ag-indice-btn" data-sec="xp-artefactos" onclick="agAbrir('xp-artefactos')"><img src="scrum/Artefactos.png" alt="">Artefactos</button>
+            <button type="button" class="ag-indice-btn" data-sec="xp-manifiesto" onclick="agAbrir('xp-manifiesto')"><img src="scrum/manifiestoagil.png" alt="">Manifiesto Ágil</button>
           </div>
         </div>
       </div>
@@ -896,28 +998,28 @@
         <div class="ag-sec-cab">
           <span class="ag-num">1</span>
           <h3>Valores y principios de XP</h3>
-          <button type="button" class="ag-volver" onclick="agVolver('ag-indice-xp')"><img src="scrum/flecha-hacia-arriba.png" alt="flecha-volver">Volver</button>
+          <button type="button" class="ag-volver" onclick="agVolver('ag-indice-xp')"><img src="scrum/flecha-hacia-arriba.png" alt="">Volver</button>
         </div>
         <p class="ag-sec-desc">XP se basa en valores que guían sus prácticas y principios que ayudan a mejorar la calidad del software.</p>
         <div class="ag-cards ag-cards-sep ag-cards-5">
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="xp/Comunicacion.png" alt="Comunicacion"></div><h4>Comunicación</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="xp/Comunicacion.png" alt=""></div><h4>Comunicación</h4></div>
             <p class="ag-card-texto">Trabajo en conjunto y retroalimentación constante.</p>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="xp/Simplicidad.png" alt="Simplicidad"></div><h4>Simplicidad</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="xp/Simplicidad.png" alt=""></div><h4>Simplicidad</h4></div>
             <p class="ag-card-texto">Soluciones simples y claras.</p>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/grupo.png" alt="Feedback"></div><h4>Feedback</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/grupo.png" alt=""></div><h4>Feedback</h4></div>
             <p class="ag-card-texto">Retroalimentación frecuente y rápida.</p>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="xp/shield.png" alt="Coraje"></div><h4>Coraje</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="xp/shield.png" alt=""></div><h4>Coraje</h4></div>
             <p class="ag-card-texto">Disposición para hacer cambios y mejorar.</p>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/ColaboracionEquipo.png" alt="Respeto"></div><h4>Respeto</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/ColaboracionEquipo.png" alt=""></div><h4>Respeto</h4></div>
             <p class="ag-card-texto">Confianza y valoración del equipo.</p>
           </div>
         </div>
@@ -927,27 +1029,27 @@
         <div class="ag-sec-cab">
           <span class="ag-num">2</span>
           <h3>Roles en XP</h3>
-          <button type="button" class="ag-volver" onclick="agVolver('ag-indice-xp')"><img src="scrum/flecha-hacia-arriba.png" alt="flecha-volver">Volver</button>
+          <button type="button" class="ag-volver" onclick="agVolver('ag-indice-xp')"><img src="scrum/flecha-hacia-arriba.png" alt="">Volver</button>
         </div>
         <p class="ag-sec-desc">XP define algunos roles principales, aunque pueden adaptarse según el contexto del proyecto.</p>
         <div class="ag-cards ag-cards-sep ag-cards-4">
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico ag-avatar"><img src="scrum/ProductOwner.png" alt="programadores"></div><h4>Programadores</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico ag-avatar"><img src="scrum/ProductOwner.png" alt=""></div><h4>Programadores</h4></div>
             <p class="ag-card-texto ag-texto-md">Desarrollan el código aplicando las prácticas de XP.</p>
             <a class="ag-vermas" href="blank.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico ag-avatar"><img src="scrum/Scrummaster.png" alt="clientes"></div><h4>Cliente</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico ag-avatar"><img src="scrum/Scrummaster.png" alt=""></div><h4>Cliente</h4></div>
             <p class="ag-card-texto ag-texto-md">Representa los intereses del negocio y define prioridades.</p>
             <a class="ag-vermas" href="blank.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico ag-avatar"><img src="xp/Coach.png" alt="Coach"></div><h4>Coach</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico ag-avatar"><img src="xp/Coach.png" alt=""></div><h4>Coach</h4></div>
             <p class="ag-card-texto ag-texto-md">Guía al equipo en la adopción de las prácticas de XP.</p>
             <a class="ag-vermas" href="blank.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico ag-avatar"><img src="xp/Tester.png" alt="tester"></div><h4>Tester</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico ag-avatar"><img src="xp/Tester.png" alt=""></div><h4>Tester</h4></div>
             <p class="ag-card-texto ag-texto-md">Puede estar incluido en el equipo, responsable de las pruebas.</p>
             <a class="ag-vermas" href="blank.html">Ver más →</a>
           </div>
@@ -958,32 +1060,32 @@
         <div class="ag-sec-cab">
           <span class="ag-num">3</span>
           <h3>Prácticas en XP</h3>
-          <button type="button" class="ag-volver" onclick="agVolver('ag-indice-xp')"><img src="scrum/flecha-hacia-arriba.png" alt="flecha-volver">Volver</button>
+          <button type="button" class="ag-volver" onclick="agVolver('ag-indice-xp')"><img src="scrum/flecha-hacia-arriba.png" alt="">Volver</button>
         </div>
         <p class="ag-sec-desc">XP se caracteriza por un conjunto de prácticas técnicas que promueven la calidad del código y la colaboración.</p>
         <div class="ag-cards ag-cards-sep ag-cards-5">
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/grupo (1).png" alt="programacion-parejas"></div><h4>Programación en parejas</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/grupo (1).png" alt=""></div><h4>Programación en parejas</h4></div>
             <p class="ag-card-texto">Dos desarrolladores trabajan en el mismo código.</p>
             <a class="ag-vermas" href="blank.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="xp/DesarrolloGuiado.png" alt="TDD"></div><h4>Desarrollo guiado por pruebas (TDD)</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="xp/DesarrolloGuiado.png" alt=""></div><h4>Desarrollo guiado por pruebas (TDD)</h4></div>
             <p class="ag-card-texto">Escribir pruebas antes del código.</p>
             <a class="ag-vermas" href="blank.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="imagenes-herramientas-calidad/RespuestaAlCambio.png" alt="integracion-continua"></div><h4>Integración continua</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="imagenes-herramientas-calidad/RespuestaAlCambio.png" alt=""></div><h4>Integración continua</h4></div>
             <p class="ag-card-texto">Integrar frecuentemente los cambios.</p>
             <a class="ag-vermas" href="blank.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="imagenes/codigo.png" alt="Refactorización"></div><h4>Refactorización</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="imagenes/codigo.png" alt=""></div><h4>Refactorización</h4></div>
             <p class="ag-card-texto">Mejorar continuamente el diseño del código.</p>
             <a class="ag-vermas" href="blank.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/configuraciones.png" alt="diseño-simple"></div><h4>Diseño simple</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/configuraciones.png" alt=""></div><h4>Diseño simple</h4></div>
             <p class="ag-card-texto">Mantener soluciones simples y fáciles de entender.</p>
             <a class="ag-vermas" href="blank.html">Ver más →</a>
           </div>
@@ -994,27 +1096,27 @@
         <div class="ag-sec-cab">
           <span class="ag-num">4</span>
           <h3>Artefactos en XP</h3>
-          <button type="button" class="ag-volver" onclick="agVolver('ag-indice-xp')"><img src="scrum/flecha-hacia-arriba.png" alt="flecha-volver">Volver</button>
+          <button type="button" class="ag-volver" onclick="agVolver('ag-indice-xp')"><img src="scrum/flecha-hacia-arriba.png">Volver</button>
         </div>
         <p class="ag-sec-desc">XP utiliza elementos que ayudan a gestionar el trabajo y mantener la calidad del software.</p>
         <div class="ag-cards ag-cards-sep ag-cards-4">
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/listaSPrintt.png" alt="historia-usuario"></div><h4>Historias de usuario</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/listaSPrintt.png" alt=""></div><h4>Historias de usuario</h4></div>
             <p class="ag-card-texto">Descripción breve de requerimientos.</p>
             <a class="ag-vermas" href="blank.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/ListadeProdtos.png" alt="pruebas-automatizadas"></div><h4>Pruebas automatizadas</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/ListadeProdtos.png" alt=""></div><h4>Pruebas automatizadas</h4></div>
             <p class="ag-card-texto">Conjunto de pruebas para validar el código.</p>
             <a class="ag-vermas" href="blank.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="xp/codigo.png" alt="codigo-funcional"></div><h4>Código funcional</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="xp/codigo.png" alt=""></div><h4>Código funcional</h4></div>
             <p class="ag-card-texto">Incrementos de software funcionando.</p>
             <a class="ag-vermas" href="blank.html">Ver más →</a>
           </div>
           <div class="ag-card">
-            <div class="ag-card-cab"><div class="ag-card-ico"><img src="imagenes-herramientas-calidad/Inspeccion.png" alt="metricas"></div><h4>Métricas de calidad</h4></div>
+            <div class="ag-card-cab"><div class="ag-card-ico"><img src="imagenes-herramientas-calidad/Inspeccion.png" alt=""></div><h4>Métricas de calidad</h4></div>
             <p class="ag-card-texto">Indicadores del estado del proyecto.</p>
             <a class="ag-vermas" href="blank.html">Ver más →</a>
           </div>
@@ -1025,33 +1127,33 @@
         <div class="ag-sec-cab">
           <span class="ag-num">5</span>
           <h3>El Manifiesto Ágil</h3>
-          <button type="button" class="ag-volver" onclick="agVolver('ag-indice-xp')"><img src="scrum/flecha-hacia-arriba.png" alt="flecha-volver">Volver</button>
+          <button type="button" class="ag-volver" onclick="agVolver('ag-indice-xp')"><img src="scrum/flecha-hacia-arriba.png" alt="">Volver</button>
         </div>
         <p class="ag-sec-desc">El Manifiesto Ágil se basa en 4 valores fundamentales y 12 principios que guían las metodologías ágiles.</p>
         <div class="ag-caja">
-          <div class="ag-caja-titulo"><div class="ag-card-ico ag-grande"><img src="scrum/manifiestoagil.png" alt="4valoresfundamentales"></div><h4>4 valores fundamentales</h4></div>
+          <div class="ag-caja-titulo"><div class="ag-card-ico ag-grande"><img src="scrum/manifiestoagil.png" alt=""></div><h4>4 valores fundamentales</h4></div>
           <div class="ag-valores">
             <div class="ag-valor">
-              <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/grupo (1).png" alt="individuos"></div><h4>Individuos e interacciones</h4></div>
+              <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/grupo (1).png" alt=""></div><h4>Individuos e interacciones</h4></div>
               <p class="ag-valor-sub">Sobre procesos y herramientas.</p>
             </div>
             <div class="ag-valor">
-              <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/configuraciones.png" alt="software-funcionando"></div><h4>Software funcionando</h4></div>
+              <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/configuraciones.png" alt=""></div><h4>Software funcionando</h4></div>
               <p class="ag-valor-sub">Sobre documentación extensa.</p>
             </div>
             <div class="ag-valor">
-              <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/ColaboracionEquipo.png" alt="colaboracion"></div><h4>Colaboración con el cliente</h4></div>
+              <div class="ag-card-cab"><div class="ag-card-ico"><img src="scrum/ColaboracionEquipo.png" alt=""></div><h4>Colaboración con el cliente</h4></div>
               <p class="ag-valor-sub">Sobre negociación de contratos.</p>
             </div>
             <div class="ag-valor">
-              <div class="ag-card-cab"><div class="ag-card-ico"><img src="imagenes-herramientas-calidad/RespuestaAlCambio.png" alt="RespuestaAlCambio"></div><h4>Respuesta al cambio</h4></div>
+              <div class="ag-card-cab"><div class="ag-card-ico"><img src="imagenes-herramientas-calidad/RespuestaAlCambio.png" alt=""></div><h4>Respuesta al cambio</h4></div>
               <p class="ag-valor-sub">Sobre seguir un plan.</p>
             </div>
           </div>
         </div>
 
         <div class="ag-caja">
-          <div class="ag-caja-titulo"><div class="ag-card-ico ag-grande"><img src="scrum/planSprint.png" alt="12-principios"></div><h4>12 Principios</h4></div>
+          <div class="ag-caja-titulo"><div class="ag-card-ico ag-grande"><img src="scrum/planSprint.png" alt=""></div><h4>12 Principios</h4></div>
           <div class="ag-doce">
             <ul class="ag-doce-col ag-doce-izq">
               <li><span class="ag-n">1</span><span>Satisfacer al cliente con entregas tempranas y continuas.</span></li>
@@ -1118,17 +1220,17 @@ function agVolver(idIndice) {
 <div class="lb" id="lb" aria-hidden="true">
   <div class="lb-ext">
 
-    <button type="button" class="lb-flecha lb-ant" onclick="lbNav(-1)" aria-label="Diagrama anterior"><img src="imagenes-procesos-desarrollo/punta-de-flecha-hacia-arriba.png" alt="flecha-volver"></button>
+    <button type="button" class="lb-flecha lb-ant" onclick="lbNav(-1)" aria-label="Diagrama anterior"><img src="imagenes-procesos-desarrollo/punta-de-flecha-hacia-arriba.png" alt=""></button>
 
     <div class="lb-caja" role="dialog" aria-modal="true" aria-labelledby="lbTitulo">
-      <button type="button" class="lb-cerrar" onclick="lbCerrar()" aria-label="Cerrar"><img src="imagenes-procesos-desarrollo/x.png" alt="X"></button>
+      <button type="button" class="lb-cerrar" onclick="lbCerrar()" aria-label="Cerrar"><img src="imagenes-procesos-desarrollo/x.png" alt=""></button>
       <h3 class="lb-titulo" id="lbTitulo"></h3>
       <p class="lb-sub" id="lbSub"></p>
       <div class="lb-marco"><img id="lbImg" alt=""></div>
       <p class="lb-pie" id="lbPie"></p>
     </div>
 
-    <button type="button" class="lb-flecha lb-sig" onclick="lbNav(1)" aria-label="Diagrama siguiente"><img src="imagenes-procesos-desarrollo/punta-de-flecha-hacia-arriba.png" alt="flecha-volver"></button>
+    <button type="button" class="lb-flecha lb-sig" onclick="lbNav(1)" aria-label="Diagrama siguiente"><img src="imagenes-procesos-desarrollo/punta-de-flecha-hacia-arriba.png" alt=""></button>
 
   </div>
 </div>
@@ -1349,6 +1451,129 @@ function toggleDiagrama(id) {
   panel.style.display = visible ? 'none' : 'block';
   if (flecha) flecha.style.display = visible ? 'none' : 'block';
 }
+</script>
+
+<script>
+/* =====================================================================
+   XP: al tocar "Ver más" se abre, debajo de las tarjetas, un panel con más información.
+   Solo afecta a la pestaña XP; Scrum y Kanban quedan como estaban.
+   Para cambiar un texto, editalo acá abajo (el orden es el mismo que el de las tarjetas).
+   ===================================================================== */
+var XP_DETALLES = {
+  roles: [
+    { titulo: 'Programadores – Detalle',
+      texto: 'Son quienes desarrollan el código aplicando las prácticas de XP, como la programación en parejas, el diseño simple, las pruebas automatizadas y la integración continua.' },
+    { titulo: 'Cliente – Detalle',
+      texto: 'Representa los intereses del negocio y forma parte del equipo durante todo el proyecto. Escribe las historias de usuario, define las prioridades de cada iteración y valida que lo construido responda a lo que realmente necesita.' },
+    { titulo: 'Coach – Detalle',
+      texto: 'Guía al equipo en la adopción de las prácticas de XP. Ayuda a que se apliquen con disciplina, detecta desvíos y fomenta el aprendizaje y la mejora continua, sin imponer decisiones: acompaña para que el equipo gane autonomía.' },
+    { titulo: 'Tester – Detalle',
+      texto: 'Es responsable de verificar la calidad del producto. Colabora con el cliente para definir las pruebas de aceptación, ayuda a automatizarlas y comprueba que cada funcionalidad cumpla lo acordado antes de entregarla.' }
+  ],
+  practicas: [
+    { titulo: 'Programación en parejas – Pair programming',
+      texto: 'Dos programadores trabajan juntos en la misma computadora: uno escribe el código y el otro lo revisa en el momento, y se van turnando los roles. Mejora la calidad, reduce errores y permite compartir el conocimiento dentro del equipo.' },
+    { titulo: 'TDD – Desarrollo guiado por pruebas',
+      texto: 'Consiste en escribir primero las pruebas que debe cumplir el código, luego desarrollar la función y, finalmente, validar que las pruebas se ejecuten correctamente.' },
+    { titulo: 'Integración continua – Cambios siempre integrados',
+      texto: 'Consiste en integrar los cambios de cada programador al código común varias veces al día. Cada integración se verifica con pruebas automáticas, de modo que los errores se detectan enseguida y el producto se mantiene siempre en funcionamiento.' },
+    { titulo: 'Refactorización – Mejorar el diseño del código',
+      texto: 'Es mejorar la estructura interna del código sin cambiar lo que hace: eliminar duplicación, simplificar y usar nombres claros. Se hace de forma continua, apoyándose en las pruebas automatizadas para asegurar que nada deja de funcionar.' },
+    { titulo: 'Diseño simple – La solución más sencilla',
+      texto: 'Se diseña solo lo necesario para que funcione hoy, con la solución más sencilla posible. Evita agregar funcionalidades “por si acaso” y, como el código se refactoriza continuamente, el diseño puede evolucionar cuando los requisitos cambian.' }
+  ],
+  artefactos: [
+    { titulo: 'Historias de usuario – Detalle',
+      texto: 'Descripción breve de un requerimiento del cliente, escrita en lenguaje simple, que representa una funcionalidad con valor para el negocio.' },
+    { titulo: 'Pruebas automatizadas – Detalle',
+      texto: 'Conjunto de pruebas que se ejecutan solas para validar que el código funciona como se espera. Incluyen pruebas unitarias y de aceptación, y se corren con cada cambio para detectar errores de inmediato.' },
+    { titulo: 'Código funcional – Detalle',
+      texto: 'Es el software que realmente funciona y está listo para usarse, entregado en incrementos pequeños y frecuentes. En XP es la principal medida de progreso, más que los documentos o los planes.' },
+    { titulo: 'Métricas de calidad – Detalle',
+      texto: 'Indicadores que muestran el estado del proyecto y del código, como la cantidad de pruebas que pasan, la cobertura de pruebas, los errores encontrados o la velocidad del equipo por iteración. Ayudan a decidir qué mejorar.' }
+  ]
+};
+
+// "Ver menos ↑" mientras el detalle está abierto
+var XP_VER_MAS = 'Ver más →';
+var XP_VER_MENOS = 'Ver menos ↑';
+
+function xpCerrarDetalles() {
+  document.querySelectorAll('#ag-xp .xp-detalle').forEach(function (p) { p.classList.remove('visible'); p.removeAttribute('data-indice'); });
+  document.querySelectorAll('#ag-xp .ag-card.xp-activa').forEach(function (c) {
+    c.classList.remove('xp-activa');
+    var b = c.querySelector('.ag-vermas');
+    if (b) b.textContent = XP_VER_MAS;
+  });
+}
+
+function xpAlternar(clave, i) {
+  var sec = document.getElementById('ag-sec-xp-' + clave);
+  var panel = sec.querySelector('.xp-detalle');
+  var cards = sec.querySelectorAll('.ag-card');
+  var yaAbierto = panel.classList.contains('visible') && panel.getAttribute('data-indice') === String(i);
+
+  xpCerrarDetalles();
+  if (yaAbierto) return;                     // tocar "Ver menos" lo vuelve a cerrar
+
+  var card = cards[i];
+  var datos = XP_DETALLES[clave][i];
+  var origen = card.querySelector('.ag-card-ico img');
+  var esRol = (clave === 'roles');
+
+  var cont = panel.querySelector('.xp-det-img');
+  cont.classList.toggle('xp-det-avatar', esRol);
+  var im = cont.querySelector('img');
+  im.src = origen.getAttribute('src');
+  im.alt = (esRol ? 'Ilustración del rol ' : 'Ícono de ') + card.querySelector('h4').textContent;
+  panel.querySelector('h4').textContent = datos.titulo;
+  panel.querySelector('p').textContent = datos.texto;
+
+  // en celular las tarjetas van una debajo de otra: el detalle se abre justo debajo de la tarjeta tocada;
+  // en pantallas grandes, debajo de toda la fila
+  var fila = sec.querySelector('.ag-cards');
+  if (window.matchMedia('(max-width: 640px)').matches) fila.insertBefore(panel, card.nextSibling);
+  else fila.parentNode.insertBefore(panel, fila.nextSibling);
+
+  panel.setAttribute('data-indice', i);
+  panel.classList.add('visible');
+  card.classList.add('xp-activa');
+  card.querySelector('.ag-vermas').textContent = XP_VER_MENOS;
+  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// Arma el panel de cada sección y conecta los botones "Ver más"
+['roles', 'practicas', 'artefactos'].forEach(function (clave) {
+  var sec = document.getElementById('ag-sec-xp-' + clave);
+  if (!sec) return;
+  var fila = sec.querySelector('.ag-cards');
+
+  var panel = document.createElement('div');
+  panel.className = 'xp-detalle';
+  panel.setAttribute('role', 'region');
+  panel.setAttribute('aria-live', 'polite');
+  panel.innerHTML =
+    '<div class="xp-det-img"><img src="" alt=""></div>' +
+    '<span class="xp-det-sep"></span>' +
+    '<div class="xp-det-texto"><h4></h4><p></p></div>' +
+    '<button type="button" class="xp-det-cerrar">Cerrar ✕</button>';
+  fila.parentNode.insertBefore(panel, fila.nextSibling);
+  panel.querySelector('.xp-det-cerrar').addEventListener('click', xpCerrarDetalles);
+
+  sec.querySelectorAll('.ag-card').forEach(function (card, i) {
+    var boton = card.querySelector('.ag-vermas');
+    if (!boton || !XP_DETALLES[clave][i]) return;     // si falta el texto, el botón sigue yendo a su link
+    boton.addEventListener('click', function (e) {
+      e.preventDefault();                              // ya no abre otra página
+      xpAlternar(clave, i);
+    });
+  });
+});
+
+// Al cambiar de apartado o de pestaña, los detalles abiertos se cierran
+document.querySelectorAll('#ag-xp .ag-indice-btn, #ag-xp .ag-volver, .ag-tab').forEach(function (b) {
+  b.addEventListener('click', xpCerrarDetalles);
+});
 </script>
 
 </body>
